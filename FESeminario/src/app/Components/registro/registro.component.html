@@ -1,0 +1,51 @@
+<form>
+  <div class="main-container">
+    <div class="login-container">
+      <div class="header-container">
+        <p class="title">Regístrate</p>
+        <p class="description">Llena el formulario para registrarte en nuestro portal web y empezar a disfrutar de todos nuestros servicios.</p>
+      </div>
+      <div class="inputs">
+        <div class="col1">
+          <div class="input-container">
+            <label for="r-name">Nombre(s)</label>
+            <input type="text" class="input-text" id="r-name" name="r-name" placeholder="Tu nombre" [(ngModel)]="newUser.nombre">
+          </div>
+          <div class="input-container">
+            <label for="r-email">Correo electrónico</label>
+            <input type="text" class="input-text" id="r-email" name="r-email" placeholder="Tu correo electrónico" [(ngModel)]="newUser.correo">
+          </div>
+          <fieldset class="rbutton-container">
+            <legend>Tipo de usuario</legend>
+            <div class="radioB">
+              <input type="radio" class="input-radio" id="r-rstudent" name="r-role" value="Estudiante">
+              <label for="r-rstudent">Estudiante</label>
+            </div>
+            <div class="radioB">
+              <input type="radio" class="input-radio" id="r-rprof" name="r-role" value="Docente">
+              <label for="r-rprof">Docente</label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="col2">
+          <div class="input-container">
+            <label for="r-lname">Apellidos</label>
+            <input type="text" class="input-text" id="r-lname" name="r-lname" placeholder="Tus apellidos" [(ngModel)]="newUser.apellidos">
+          </div>
+          <div class="input-container">
+            <label for="r-pass">Contraseña</label>
+            <input type="password" class="input-text" id="r-pass" name="r-pass" placeholder="Tu contraseña" [(ngModel)]="newUser.contrasenia">
+          </div>
+          <div class="input-container">
+            <label for="r-cpass">Confirma tu contraseña</label>
+            <input type="password" class="input-text" id="r-cpass" name="r-cpass" placeholder="Tu contraseña">
+          </div>
+        </div>
+      </div>
+      <button class="login-button" (click)="agregarUsuario()">INICIAR SESIÓN</button>
+      <div class="signup-container">
+        <span>¿No tienes una cuenta? <span class="signup-button">Regístrate</span></span>
+      </div>
+    </div>
+  </div>
+</form>

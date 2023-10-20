@@ -1,3 +1,10 @@
+/*.fondo {
+  background-image: url('');
+  background-size: cover;
+  background-repeat: no-repeat;
+}*/
+
+
 .main-container{
   display: flex;
   background-color: #022128;
@@ -8,8 +15,8 @@
 .main-container .login-container{
   display: flex;
   justify-content: center;
-  width: 28%;
-  height: 70%;
+  width: 50%;
+  height: 80%;
   background-color: white;
   margin: auto;
   flex-direction: column;
@@ -20,7 +27,7 @@
 
 .login-container .header-container{
   display: flex;
-  height: 20%;
+  height: 15%;
   width: 100%;
   flex-direction: column;
   text-align: center;
@@ -51,20 +58,35 @@
 
 .login-container .inputs{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
-  height: 35%;
-  align-items: center;
+  height: 43%;
+  margin-bottom: 20px;
+  justify-content: space-evenly;
 
+}
+.login-container .inputs .col1, .col2{
+  display: flex;
+  flex-direction: column;
+  width: 43%;
+
+}
+.login-container .inputs .col1{
+  margin-left: 20px;
+}
+
+.login-container .inputs .col2{
+  margin-right: 20px;
 }
 
 .login-container .inputs .input-container{
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 100%;
   height: 50%;
   font-size: 20px;
   margin-top: 20px;
+
 }
 
 .inputs .input-container .input-text{
@@ -76,6 +98,25 @@
   border-radius: 5px;
 }
 
+.login-container .inputs .rbutton-container{
+  display: flex;
+  flex-direction: row;
+  width: 92%;
+  height: 38%;
+  font-size: 20px;
+  margin-top: 20px;
+  border: 1px solid #cccc;
+  border-radius: 5px;
+}
+
+.inputs .rbutton-container .radioB{
+  align-self: center;
+  width: 50%;
+}
+
+.rbutton-container .radioB label{
+  margin-left: 10px;
+}
 /*_____________________OPCIONES_____________________*/
 
 .login-container .options-container{
@@ -114,7 +155,7 @@
 /*____________________BUTTON_________________________*/
 
 .login-container .login-button{
-  width: 80%;
+  width: 60%;
   height: 8%;
   margin: 20px auto;
   background-color: #C06800;

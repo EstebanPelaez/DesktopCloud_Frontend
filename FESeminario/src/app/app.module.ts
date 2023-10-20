@@ -4,17 +4,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/login/login.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+<<<<<<< Updated upstream
 import { MyVMComponent } from './Components/my-vm/my-vm.component';
+=======
+import { RegistroComponent } from './Components/registro/registro.component';
+import {AppRoutingModule} from "./app-routing.module";
+import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NavbarComponent,
+<<<<<<< Updated upstream
     MyVMComponent
+=======
+    RegistroComponent
+>>>>>>> Stashed changes
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
