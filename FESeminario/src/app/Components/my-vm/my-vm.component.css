@@ -1,0 +1,23 @@
+/*____________________HEADER______________________*/
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+.main-container{
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.lateral {
+  display: flex;
+  justify-content: center;
+  width: 20%;
+  height: 100%;
+  background-color: #022128;
+  flex-direction: column;
+}
