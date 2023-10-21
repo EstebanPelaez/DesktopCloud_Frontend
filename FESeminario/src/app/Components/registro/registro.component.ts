@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {UsuarioModule} from "../../Modules/usuario/usuario.module";
-import {UsuarioService} from "../../Services/UsuarioService/usuario.service";
 import {Router} from "@angular/router";
+import {AxiosService} from "../../Services/axios/axios.service";
 
 @Component({
   selector: 'app-registro',
@@ -10,13 +10,20 @@ import {Router} from "@angular/router";
 })
 export class RegistroComponent {
   newUser:UsuarioModule={nombre:'', apellidos:'', contrasenia:'', correo:'', tipousuario:'1'}
-  constructor(private usuarioService:UsuarioService, private router:Router) {  }
+  constructor(private axiosService:AxiosService, private router:Router) {  }
   agregarUsuario(){
-    this.usuarioService.saveUsuario(this.newUser).subscribe({
-      next: (result:any) =>{
-        this.router.navigate(['/'])
-      },
-      error:(err:any)=>console.log(err)
+    this.axiosService.request(
+      "POST",
+      "/api/register",
+      {
+        nombre: this.newUser.nombre,
+        apellidos: this.newUser.apellidos,
+        contrasenia: this.newUser.contrasenia,
+        correo: this.newUser.correo,
+        tipousuario: this.newUser.tipousuario
+      }
+    ).then(response => {
+      this.axiosService.setAuthToken(response.data.token);
     });
   }
 }

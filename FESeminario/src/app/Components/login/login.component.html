@@ -1,29 +1,31 @@
-<div class="main-container">
-  <div class="login-container">
-    <div class="header-container">
-      <p class="title">¡Hola!</p>
-      <p class="description">Ingresa a tu cuenta para disfrutar de todos nuestros servicios.</p>
-    </div>
-    <div class="inputs">
-      <div class="input-container">
-        <label for="email">Correo electrónico</label>
-        <input type="text" class="input-text" id="email" name="email" placeholder="Tu correo electrónico">
+<form  method="post">
+  <div class="main-container">
+    <div class="login-container">
+      <div class="header-container">
+        <p class="title">¡Hola!</p>
+        <p class="description">Ingresa a tu cuenta para disfrutar de todos nuestros servicios.</p>
       </div>
-      <div class="input-container">
-        <label for="pass">Contraseña</label>
-        <input type="password" class="input-text" id="pass" name="pass" placeholder="Tu contraseña">
+      <div class="inputs">
+        <div class="input-container">
+          <label for="email">Correo electrónico</label>
+          <input type="text" class="input-text" id="email" name="email" [(ngModel)]="user" placeholder="Tu correo electrónico">
+        </div>
+        <div class="input-container">
+          <label for="pass">Contraseña</label>
+          <input type="password" class="input-text" id="pass" name="pass" [(ngModel)]="password" placeholder="Tu contraseña">
+        </div>
       </div>
-    </div>
-    <div class="options-container">
-      <div class="rememberme">
-        <input type="checkbox" name="remember-box" class="remember-box" id="remember-box">
-        <label class="remember-span" for="remember-box">Recuérdame</label>
+      <div class="options-container">
+        <div class="rememberme">
+          <input type="checkbox" name="remember-box" class="remember-box" id="remember-box">
+          <label class="remember-span" for="remember-box">Recuérdame</label>
+        </div>
+        <span class="pass-recover">¿Olvidaste tu contraseña?</span>
       </div>
-      <span class="pass-recover">¿Olvidaste tu contraseña?</span>
-    </div>
-    <button class="login-button">INICIAR SESIÓN</button>
-    <div class="signup-container">
-      <span>¿No tienes una cuenta? <span class="signup-button">Regístrate</span></span>
+      <button type="submit" (click)="login()" class="login-button">INICIAR SESIÓN</button>
+      <div class="signup-container">
+        <span>¿No tienes una cuenta? <span class="signup-button">Regístrate</span></span>
+      </div>
     </div>
   </div>
-</div>
+</form>
