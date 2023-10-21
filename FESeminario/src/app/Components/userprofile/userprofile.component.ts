@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import {NavigationEnd, Router} from "@angular/router";
+
 @Component({
-  selector: 'app-my-vm',
-  templateUrl: './my-vm.component.html',
-  styleUrls: ['./my-vm.component.css']
+  selector: 'app-userprofile',
+  templateUrl: './userprofile.component.html',
+  styleUrls: ['./userprofile.component.css']
 })
-export class MyVMComponent {
+export class UserprofileComponent {
   select = [false, false];
   constructor(private router: Router) {
     this.select = [true, false];

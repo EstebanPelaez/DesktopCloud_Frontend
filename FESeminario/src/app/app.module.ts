@@ -8,6 +8,8 @@ import { RegistroComponent } from './Components/registro/registro.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { UserprofileComponent } from './Components/userprofile/userprofile.component';
+import {CommonModule} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -15,13 +17,15 @@ import {HttpClientModule} from "@angular/common/http";
     LoginComponent,
     NavbarComponent,
     MyVMComponent,
-    RegistroComponent
+    RegistroComponent,
+    UserprofileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
