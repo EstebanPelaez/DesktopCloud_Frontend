@@ -1,7 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import * as jwt_decode from "jwt-decode";
-import {AxiosService} from "../../Services/axios/axios.service";
-import {JwtService} from "../../Services/jwt.service";
 import {UsuarioService} from "../../Services/usuario/usuario.service";
 import {UsuarioModule} from "../../Modules/usuario/usuario.module";
 @Component({
@@ -9,8 +6,16 @@ import {UsuarioModule} from "../../Modules/usuario/usuario.module";
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit{
 
+  user:UsuarioModule={nombre:'', apellidos:'', contrasenia:'', correo:'', tipousuario:'1'}
+  constructor(private usuarioService:UsuarioService) {
+  }
 
-
+  ngOnInit(): void {
+    console.log(this.usuarioService);
+    this.usuarioService.getUsuario().then(response => {
+      this.user.nombre = response.data.nombre;
+    });
+  }
 }

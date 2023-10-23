@@ -8,6 +8,7 @@ export class JwtService {
   constructor() { }
 
   DecodeToken(token:string): string{
+    console.log("DECODING: "+token)
     return jwtDecode(token);
   }
 }

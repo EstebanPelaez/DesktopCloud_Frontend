@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import {AxiosService} from "../axios/axios.service";
 import {Router} from "@angular/router";
 import {JwtService} from "../jwt.service";
@@ -7,19 +7,22 @@ import {UsuarioModule} from "../../Modules/usuario/usuario.module";
 @Injectable({
   providedIn: 'root'
 })
-export class UsuarioService {
+export class UsuarioService implements OnInit{
   infoToken:any;
   nombre:any;
   constructor(private axiosService:AxiosService, private router:Router, private decoder:JwtService) {
-    this.infoToken = this.decoder.DecodeToken(this.axiosService.getAuthToken()!);
+  }
+
+  ngOnInit(): void {
     this.getUsuario();
   }
 
   getUsuario(): Promise<any>{
+    let token:any = this.decoder.DecodeToken(this.axiosService.getAuthToken()!);
     return this.axiosService.request(
       "POST",
       "/api/getUser",
-      this.infoToken.id);
+      token.id);
   }
 
   setUsuarioActual(name: string){
@@ -31,6 +34,8 @@ export class UsuarioService {
     console.log(this.nombre)
     return this.nombre;
   }
+
+
 
 
 }

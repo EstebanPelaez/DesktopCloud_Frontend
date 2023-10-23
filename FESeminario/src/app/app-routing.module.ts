@@ -7,7 +7,7 @@ import {UserprofileComponent} from "./Components/userprofile/userprofile.compone
 import {CreatevmComponent} from "./Components/createvm/createvm.component";
 
 const routes: Routes = [
-  {path:'', redirectTo:'inicio', pathMatch:'full'},
+  {path:'', redirectTo:'login', pathMatch:'full'},
   {path:'login', component:LoginComponent},
   {path:'registro', component:RegistroComponent},
   {path:'my-vm', component:MyVMComponent},

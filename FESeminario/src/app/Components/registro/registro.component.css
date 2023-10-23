@@ -159,6 +159,12 @@
   font-size: 20px;
 }
 
+.login-container .login-button:hover{
+  cursor: pointer;
+  background-color: #ffff;
+  border: 2px solid #C06800;
+  color: #C06800;
+}
 /*____________________SIGNUP__________________________*/
 .login-container .signup-container{
   display: flex;

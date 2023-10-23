@@ -11,14 +11,16 @@ export class AxiosService {
   }
 
   getAuthToken(): string | null {
+    console.log("AUTHTOKEN: "+ window.localStorage.getItem("auth_token"))
     return window.localStorage.getItem("auth_token");
   }
 
   setAuthToken(token: string | null): void {
+    console.log(token);
     if(token !== null){
       window.localStorage.setItem("auth_token", token);
     } else{
-      window.localStorage.removeItem("auth_token")
+      window.localStorage.removeItem("auth_token");
     }
   }
 

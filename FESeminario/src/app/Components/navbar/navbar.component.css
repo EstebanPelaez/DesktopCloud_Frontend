@@ -31,6 +31,12 @@
   transition: all .50s ease;
 }
 
+/*____________________LOGO________________________*/
+.container .logo{
+  height: 70px;
+  color: white;
+}
+
 /*____________________NAVBAR______________________*/
 
 .navbar{
