@@ -1,21 +1,20 @@
 import {Component, OnInit} from '@angular/core';
 import {NavigationEnd, Router} from "@angular/router";
 import {AxiosService} from "../../Services/axios/axios.service";
-import {JwtService} from "../../Services/jwt.service";
 import {UsuarioModule} from "../../Modules/usuario/usuario.module";
-import {MaquinaVirtualModule} from "../../Modules/maquinavirtual/maquinavirtual.module";
 import {MaquinavirtualService} from "../../Services/maquinavirtual/maquinavirtual.service";
+import {UsuarioService} from "../../Services/usuario/usuario.service";
 @Component({
   selector: 'app-my-vm',
   templateUrl: './my-vm.component.html',
   styleUrls: ['./my-vm.component.css']
 })
-export class MyVMComponent implements OnInit{
+export class MyVMComponent{
 
   public lista!: Array<any>;
-  vm:MaquinaVirtualModule={nombre:'', ip:'', id:'', hostname:'', userId:'', estado:''}
+  user:UsuarioModule={nombre:'', apellidos:'', contrasenia:'', correo:'', tipousuario:'1'}
   select = [false, false];
-  constructor(private axiosService:AxiosService, private router: Router, private maquinaService:MaquinavirtualService) {
+  constructor(private axiosService:AxiosService, private router: Router, private maquinaService:MaquinavirtualService, private usuarioService:UsuarioService) {
 
     this.select = [true, false];
     this.router.events.subscribe(event =>{
@@ -34,14 +33,27 @@ export class MyVMComponent implements OnInit{
       }
     })
   }
-  ngOnInit(): void {
-    this.maquinaService.getMaquinasVirtuales().then(res=>{
-      this.lista=res;
-      console.log("maquinas virtuales "+res)
+  si(): void {
+    console.log(this.usuarioService);
+    this.usuarioService.getUsuario().then(response => {
+      this.user.correo = response.data.correo;
+      console.log("INIT" + this.user.correo);
+    });
+
+    this.axiosService.request(
+      "POST",
+      "/api/getvms",
+      {
+        userId:this.user.tipousuario,
+      }
+    ).then(response => {
+      this.axiosService.setAuthToken(response.data.token);
+      console.log("maquina"+response.data.token);
     })
+
   }
   navig  (path:string){
-    this.router.navigate([path])
-    console.log(path)
+    this.router.navigate([path]);
+    console.log(path);
   }
 }

@@ -25,23 +25,22 @@
       <div class="inputs">
         <div class="col1">
           <div class="input-container">
-            <label for="">Nombre</label>
-            <input type="text" class="input-text" id="nombre" name="nombre" placeholder="Tu nombre">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="input-text" readonly id="nombre" name="nombre" value={{user.nombre}}>
           </div>
           <div class="input-container">
-            <label for="">Correo electrónico</label>
-            <input type="text" class="input-text" id="email" name="email" placeholder="Tu correo">
+            <label for="email">Correo electrónico</label>
+            <input type="text" class="input-text" readonly id="email" name="email" value={{user.correo}}>
           </div>
         </div>
         <div class="col2">
           <div class="input-container">
-            <label for="">Apellidos</label>
-            <input type="text" class="input-text" id="apellido" name="apellidos" placeholder="Tus apellidos">
+            <label for="apellido">Apellidos</label>
+            <input type="text" class="input-text" readonly id="apellido" name="apellidos" value={{user.apellidos}}>
           </div>
           <div class="input-container">
-            <label for="">Contraseña</label>
-            <input type="text" class="input-text" id="contraseña" name="contraseña" placeholder="Tu contraseña">
-
+            <label for="contraseña">Contraseña</label>
+            <input  type="password" pattern=".{6,}" class="input-text" readonly id="contraseña" name="contraseña" value={{user.contrasenia}}>
           </div>
         </div>
       </div>

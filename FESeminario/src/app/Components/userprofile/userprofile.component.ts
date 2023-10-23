@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {NavigationEnd, Router} from "@angular/router";
+import {UsuarioModule} from "../../Modules/usuario/usuario.module";
+import {UsuarioService} from "../../Services/usuario/usuario.service";
 
 @Component({
   selector: 'app-userprofile',
@@ -8,8 +10,9 @@ import {NavigationEnd, Router} from "@angular/router";
 })
 export class UserprofileComponent {
 
+  user:UsuarioModule={nombre:'', apellidos:'', contrasenia:'', correo:'', tipousuario:'1'}
   select = [false, false];
-  constructor(private router: Router, ) {
+  constructor(private router: Router, private usuarioService:UsuarioService ) {
     this.select = [true, false];
     this.router.events.subscribe(event =>{
       if(event instanceof NavigationEnd){
@@ -28,7 +31,15 @@ export class UserprofileComponent {
     })
 
   }
-
+  ngOnInit(): void {
+    console.log(this.usuarioService);
+    this.usuarioService.getUsuario().then(response => {
+      this.user.nombre = response.data.nombre;
+      this.user.apellidos = response.data.apellidos;
+      this.user.correo = response.data.correo;
+      this.user.contrasenia = response.data.contrasenia;
+    });
+  }
   navig  (path:string){
     this.router.navigate([path])
     console.log(path)

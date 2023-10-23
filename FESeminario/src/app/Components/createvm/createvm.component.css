@@ -1,7 +1,7 @@
 .main-container{
   padding-top: 5%;
 }
-.login-button{
+.login-button {
   width: 80%;
   height: 8%;
   margin: 20px auto;
@@ -11,3 +11,18 @@
   color: white;
   font-size: 20px;
 }
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  width: 20%;
+  height: 7011%;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #0C4551;
+  background-color: white;
+  margin: auto;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
