@@ -4,8 +4,10 @@
     <div class="top">
       <div class="navbar">
         <p class="title">¿Qué quieres hacer?</p>
-        <a class="button" (click)="navig('userprofile')" [ngClass]="{seleccionado :select[0]}" ><i class='bx bxs-user-detail'></i>Gestionar datos</a>
-        <a class="button" (click)="navig('my-vm')" [ngClass]="{seleccionado: select[1]}"><i class="ri-computer-line" ></i>Ver máquinas virtuales</a>
+        <a class="button" (click)="navig('userprofile')" [ngClass]="{seleccionado :select[0]}"><i
+          class='bx bxs-user-detail'></i>Gestionar datos</a>
+        <a class="button" (click)="navig('my-vm')" [ngClass]="{seleccionado: select[1]}"><i
+          class="ri-computer-line"></i>Ver máquinas virtuales</a>
       </div>
     </div>
     <div class="bottom">
@@ -15,6 +17,37 @@
     </div>
   </div>
   <div class="content">
-
+    <div class="vm-container">
+      <div class="header-container">
+        <p class="title">Mis máquinas virtuales</p>
+        <a class="buttonh" >Crear máquina virtual</a>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <table class="tabla" >
+            <thead class="t-header">
+            <tr >
+              <th>Nombre</th>
+              <th>Hostname</th>
+              <th>Dirección IP</th>
+              <th>Estado</th>
+              <th></th>
+              <th>.</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="text-center" *ngFor="let object of lista">
+              <td>{{object.nombre}}</td>
+              <td>{{object.hostname}}</td>
+              <td>{{object.ip}}</td>
+              <td>{{object.estado}}</td>
+              <td><a class="button" ><i ></i>Detener</a></td>
+              <td><a class="button" ><i ></i>Detalles</a></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

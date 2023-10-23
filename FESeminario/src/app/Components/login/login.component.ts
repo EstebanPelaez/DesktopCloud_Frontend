@@ -26,4 +26,8 @@ export class LoginComponent {
       console.log("LOGIN "+response.data.token)
     })
   }
+  navig  (path:string) {
+    this.router.navigate([path])
+    console.log(path)
+  }
 }

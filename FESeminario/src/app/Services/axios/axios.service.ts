@@ -35,4 +35,11 @@ export class AxiosService {
       headers: headers
     });
   }
+  request2(method: string, url:string): Promise<any> {
+    return axios({
+      method: method,
+      url: url
+    });
+  }
+
 }

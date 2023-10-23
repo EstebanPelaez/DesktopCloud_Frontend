@@ -9,11 +9,10 @@ import {UsuarioModule} from "../../Modules/usuario/usuario.module";
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit{
-  infoToken:any;
+export class NavbarnComponent implements OnInit{
+
   user:UsuarioModule={nombre:'', apellidos:'', contrasenia:'', correo:'', tipousuario:'1'}
   constructor(private usuarioService:UsuarioService, private axiosService:AxiosService, private decoder:JwtService) {
-    this.infoToken = this.decoder.DecodeToken(this.axiosService.getAuthToken()!);
     console.log("Constructor")
     //this.nombre = this.usuarioService.getUsuarioActual()
   }
@@ -28,8 +27,6 @@ export class NavbarComponent implements OnInit{
   prueba():string{
     return this.usuarioService.getUsuarioActual();
   }
-
-
 
 
 }

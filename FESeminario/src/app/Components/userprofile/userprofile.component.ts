@@ -7,8 +7,9 @@ import {NavigationEnd, Router} from "@angular/router";
   styleUrls: ['./userprofile.component.css']
 })
 export class UserprofileComponent {
+
   select = [false, false];
-  constructor(private router: Router) {
+  constructor(private router: Router, ) {
     this.select = [true, false];
     this.router.events.subscribe(event =>{
       if(event instanceof NavigationEnd){

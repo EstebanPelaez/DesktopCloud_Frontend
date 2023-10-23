@@ -10,6 +10,9 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { UserprofileComponent } from './Components/userprofile/userprofile.component';
 import {CommonModule} from "@angular/common";
+import { CreatevmComponent } from './Components/createvm/createvm.component';
+import { AxiosService} from "./Services/axios/axios.service";
+import { MaquinavirtualService} from "./Services/maquinavirtual/maquinavirtual.service";
 
 @NgModule({
   declarations: [
@@ -18,7 +21,8 @@ import {CommonModule} from "@angular/common";
     NavbarComponent,
     MyVMComponent,
     RegistroComponent,
-    UserprofileComponent
+    UserprofileComponent,
+    CreatevmComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,7 @@ import {CommonModule} from "@angular/common";
     FormsModule,
     CommonModule
   ],
-  providers: [],
+  providers: [MaquinavirtualService, AxiosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

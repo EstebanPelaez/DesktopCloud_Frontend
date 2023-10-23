@@ -1,13 +1,22 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NavigationEnd, Router} from "@angular/router";
+import {AxiosService} from "../../Services/axios/axios.service";
+import {JwtService} from "../../Services/jwt.service";
+import {UsuarioModule} from "../../Modules/usuario/usuario.module";
+import {MaquinaVirtualModule} from "../../Modules/maquinavirtual/maquinavirtual.module";
+import {MaquinavirtualService} from "../../Services/maquinavirtual/maquinavirtual.service";
 @Component({
   selector: 'app-my-vm',
   templateUrl: './my-vm.component.html',
   styleUrls: ['./my-vm.component.css']
 })
-export class MyVMComponent {
+export class MyVMComponent implements OnInit{
+
+  public lista!: Array<any>;
+  vm:MaquinaVirtualModule={nombre:'', ip:'', id:'', hostname:'', userId:'', estado:''}
   select = [false, false];
-  constructor(private router: Router) {
+  constructor(private axiosService:AxiosService, private router: Router, private maquinaService:MaquinavirtualService) {
+
     this.select = [true, false];
     this.router.events.subscribe(event =>{
       if(event instanceof NavigationEnd){
@@ -24,9 +33,13 @@ export class MyVMComponent {
         }
       }
     })
-
   }
-
+  ngOnInit(): void {
+    this.maquinaService.getMaquinasVirtuales2().then(res=>{
+      this.lista=res;
+      console.log("maquinas virtuales "+res)
+    })
+  }
   navig  (path:string){
     this.router.navigate([path])
     console.log(path)

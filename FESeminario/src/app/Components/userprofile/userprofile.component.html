@@ -4,8 +4,10 @@
     <div class="top">
       <div class="navbar">
         <p class="title">¿Qué quieres hacer?</p>
-        <a class="button" (click)="navig('userprofile')" [ngClass]="{seleccionado :select[0]}" ><i class='bx bxs-user-detail'></i>Gestionar datos</a>
-        <a class="button" (click)="navig('my-vm')" [ngClass]="{seleccionado: select[1]}"><i class="ri-computer-line" ></i>Ver máquinas virtuales</a>
+        <a class="button" (click)="navig('userprofile')" [ngClass]="{seleccionado :select[0]}"><i
+          class='bx bxs-user-detail'></i>Gestionar datos</a>
+        <a class="button" (click)="navig('my-vm')" [ngClass]="{seleccionado: select[1]}"><i
+          class="ri-computer-line"></i>Ver máquinas virtuales</a>
       </div>
     </div>
     <div class="bottom">
@@ -15,6 +17,34 @@
     </div>
   </div>
   <div class="content">
+    <div class="user-container">
+      <div class="header-container">
+        <p class="title">Perfil del usuario <a class="editar">Editar</a></p>
+        <p class="description">Datos personales</p>
+      </div>
+      <div class="inputs">
+        <div class="col1">
+          <div class="input-container">
+            <label for="">Nombre</label>
+            <input type="text" class="input-text" id="nombre" name="nombre" placeholder="Tu nombre">
+          </div>
+          <div class="input-container">
+            <label for="">Correo electrónico</label>
+            <input type="text" class="input-text" id="email" name="email" placeholder="Tu correo">
+          </div>
+        </div>
+        <div class="col2">
+          <div class="input-container">
+            <label for="">Apellidos</label>
+            <input type="text" class="input-text" id="apellido" name="apellidos" placeholder="Tus apellidos">
+          </div>
+          <div class="input-container">
+            <label for="">Contraseña</label>
+            <input type="text" class="input-text" id="contraseña" name="contraseña" placeholder="Tu contraseña">
 
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
