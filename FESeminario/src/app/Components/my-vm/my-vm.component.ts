@@ -35,7 +35,7 @@ export class MyVMComponent implements OnInit{
     })
   }
   ngOnInit(): void {
-    this.maquinaService.getMaquinasVirtuales2().then(res=>{
+    this.maquinaService.getMaquinasVirtuales().then(res=>{
       this.lista=res;
       console.log("maquinas virtuales "+res)
     })

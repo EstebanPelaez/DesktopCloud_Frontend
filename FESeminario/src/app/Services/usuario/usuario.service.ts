@@ -19,23 +19,11 @@ export class UsuarioService implements OnInit{
 
   getUsuario(): Promise<any>{
     let token:any = this.decoder.DecodeToken(this.axiosService.getAuthToken()!);
+    console.log(token.iss)
     return this.axiosService.request(
       "POST",
       "/api/getUser",
-      token.id);
+      token.correo);
   }
-
-  setUsuarioActual(name: string){
-    console.log("OAIGFOSIUHOUGLJASUGHOUASIh "+name)
-    this.nombre = name;
-  }
-
-  getUsuarioActual(): string{
-    console.log(this.nombre)
-    return this.nombre;
-  }
-
-
-
 
 }

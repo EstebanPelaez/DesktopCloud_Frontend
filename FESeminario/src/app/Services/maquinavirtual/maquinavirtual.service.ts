@@ -9,38 +9,21 @@ import {JwtService} from "../jwt.service";
 export class MaquinavirtualService {
   infoToken:any;
   nombre:any;
-  constructor(private axiosService:AxiosService, private router:Router) {
+  constructor(private axiosService:AxiosService, private router:Router, private decoder:JwtService) {
   }
 
   getMaquinasVirtuales(): Promise<any>{
+    let token:any = this.decoder.DecodeToken(this.axiosService.getAuthToken()!);
     return this.axiosService.request(
       "POST",
       "/api/getvms",
-      this.infoToken.id);
-  }
-
-  getMaquinasVirtuales2(): Promise<any>{
-    return this.axiosService.request2(
-      "POST",
-      "/api/getvms",
-      );
-  }
-
-  setUsuarioActual(name: string){
-    console.log("Nombre"+name)
-    this.nombre = name;
-  }
-
-  getUsuarioActual(): string{
-    console.log(this.nombre)
-    return this.nombre;
+      token.id);
   }
 
   getVM():Promise<any>{
     return new Promise(function (resolve){
       var request="/getvms"
 
-    })
-
+    });
   }
 }
