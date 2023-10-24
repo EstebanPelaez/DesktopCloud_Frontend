@@ -9,7 +9,7 @@ import {UsuarioService} from "../../Services/usuario/usuario.service";
   templateUrl: './my-vm.component.html',
   styleUrls: ['./my-vm.component.css']
 })
-export class MyVMComponent{
+export class MyVMComponent implements OnInit{
 
   public lista!: Array<any>;
   user:UsuarioModule={nombre:'', apellidos:'', contrasenia:'', correo:'', tipousuario:'1'}
@@ -33,27 +33,16 @@ export class MyVMComponent{
       }
     })
   }
-  si(): void {
-    console.log(this.usuarioService);
-    this.usuarioService.getUsuario().then(response => {
-      this.user.correo = response.data.correo;
-      console.log("INIT" + this.user.correo);
-    });
 
-    this.axiosService.request(
-      "POST",
-      "/api/getvms",
-      {
-        userId:this.user.tipousuario,
-      }
-    ).then(response => {
-      this.axiosService.setAuthToken(response.data.token);
-      console.log("maquina"+response.data.token);
+  ngOnInit(): void {
+    this.maquinaService.getMaquinasVirtuales().then(value => {
+      this.lista = value.data;
     })
-
   }
   navig  (path:string){
     this.router.navigate([path]);
     console.log(path);
   }
+
+
 }
