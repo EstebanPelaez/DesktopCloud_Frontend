@@ -3,7 +3,6 @@ import {NavigationEnd, Router} from "@angular/router";
 import {AxiosService} from "../../Services/axios/axios.service";
 import {UsuarioModule} from "../../Modules/usuario/usuario.module";
 import {MaquinavirtualService} from "../../Services/maquinavirtual/maquinavirtual.service";
-import {UsuarioService} from "../../Services/usuario/usuario.service";
 import {HttpClient} from "@angular/common/http";
 @Component({
   selector: 'app-my-vm',

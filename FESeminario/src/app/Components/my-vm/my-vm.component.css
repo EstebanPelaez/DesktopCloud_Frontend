@@ -127,6 +127,34 @@
   background-color:white;
 }
 
+.buttonInit{
+  width: 100%;
+  height: 100%;
+  margin: 5%;
+  text-align: center;
+  align-self: flex-end;
+  color: #022128;
+  background-color: #a7fa9b;
+  border-radius: 5px;
+  padding: 2% 15% 2% 15%;
+
+}
+
+.buttonInit:hover{
+  width: 100%;
+  height: 100%;
+  margin: 5%;
+  text-align: center;
+  align-self: flex-end;
+  color: #022128;
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 2% 15% 2% 15%;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #a7fa9b;
+
+}
 /*____________________LATERAL BAR______________________*/
 .seleccionado{
   color: white;
@@ -212,5 +240,7 @@
   table-layout: fixed;
   border-collapse: collapse;
   width: 100%;
+  flex-direction: column;
+  text-align: center;
 }
 

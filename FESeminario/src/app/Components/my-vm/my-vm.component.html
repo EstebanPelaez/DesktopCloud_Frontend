@@ -24,7 +24,7 @@
     <div class="vm-container">
       <div class="header-container">
         <p class="title">Mis máquinas virtuales</p>
-        <a class="buttonh" >Crear máquina virtual</a>
+        <a class="buttonh" (click)="navig('createvm')">Crear máquina virtual</a>
       </div>
       <div class="card">
         <div class="card-body">
@@ -45,7 +45,7 @@
               <td>{{object.hostname}}</td>
               <td>{{object.ip}}</td>
               <td>{{object.estado}}</td>
-              <td><a class="button" ><i ></i>Iniciar</a></td>
+              <td><a class="buttonInit" ><i ></i>Iniciar</a></td>
               <td><a class="button" ><i ></i>Detalles</a></td>
             </tr>
             </tbody>
