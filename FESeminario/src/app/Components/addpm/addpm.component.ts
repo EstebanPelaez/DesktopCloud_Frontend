@@ -1,18 +1,16 @@
-import {Component, OnInit} from '@angular/core';
-import {NavigationEnd, Router} from "@angular/router";
+import { Component } from '@angular/core';
 import {AxiosService} from "../../Services/axios/axios.service";
-import {UsuarioModule} from "../../Modules/usuario/usuario.module";
+import {NavigationEnd, Router} from "@angular/router";
 import {MaquinavirtualService} from "../../Services/maquinavirtual/maquinavirtual.service";
 import {UsuarioService} from "../../Services/usuario/usuario.service";
-@Component({
-  selector: 'app-my-vm',
-  templateUrl: './my-vm.component.html',
-  styleUrls: ['./my-vm.component.css']
-})
-export class MyVMComponent implements OnInit{
 
-  public lista!: Array<any>;
-  user:UsuarioModule={nombre:'', apellidos:'', contrasenia:'', correo:'', tipousuario:'1'}
+@Component({
+  selector: 'app-addpm',
+  templateUrl: './addpm.component.html',
+  styleUrls: ['./addpm.component.css']
+})
+export class AddpmComponent {
+
   select = [false, false, false, false];
   constructor(private axiosService:AxiosService, private router: Router, private maquinaService:MaquinavirtualService, private usuarioService:UsuarioService) {
 
@@ -27,7 +25,7 @@ export class MyVMComponent implements OnInit{
             this.select = [true, false, false, false];break;
           case "/my-vm":
             this.select = [false, true, false, false];break;
-          case "/my-vm":
+          case "/addpm":
             this.select = [false, false, true, false];break;
           case "/my-vm":
             this.select = [false, false, false, true];break;
@@ -37,17 +35,8 @@ export class MyVMComponent implements OnInit{
       }
     })
   }
-
-  ngOnInit(): void {
-    this.maquinaService.getMaquinasVirtuales().then(value => {
-      this.lista = value.data;
-    })
-  }
   navig  (path:string){
     this.router.navigate([path]);
     console.log(path);
   }
-
-
-    protected readonly parseInt = parseInt;
 }

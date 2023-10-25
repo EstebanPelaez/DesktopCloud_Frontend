@@ -8,13 +8,14 @@ import {UsuarioModule} from "../../Modules/usuario/usuario.module";
 })
 export class NavbarComponent implements OnInit{
 
-  user:UsuarioModule={nombre:'', apellidos:'', contrasenia:'', correo:'', tipousuario:'1'}
+  user:UsuarioModule={nombre:'', apellidos:'', contrasenia:'', correo:'', tipousuario:''}
   constructor(private usuarioService:UsuarioService) {
   }
 
   ngOnInit(): void {
     this.usuarioService.getUsuario().then(response => {
       this.user.nombre = response.data.nombre;
+      this.user.tipousuario = response.data.tipousuario
     });
     console.log("USERNAME "+this.user.nombre)
   }

@@ -13,6 +13,8 @@ import {CommonModule} from "@angular/common";
 import { CreatevmComponent } from './Components/createvm/createvm.component';
 import { AxiosService} from "./Services/axios/axios.service";
 import { MaquinavirtualService} from "./Services/maquinavirtual/maquinavirtual.service";
+import { RolesDirective } from './Components/Directive/roles.directive';
+import { AddpmComponent } from './Components/addpm/addpm.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { MaquinavirtualService} from "./Services/maquinavirtual/maquinavirtual.s
     MyVMComponent,
     RegistroComponent,
     UserprofileComponent,
-    CreatevmComponent
+    CreatevmComponent,
+    RolesDirective,
+    AddpmComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import {RegistroComponent} from "./Components/registro/registro.component";
 import {MyVMComponent} from "./Components/my-vm/my-vm.component";
 import {UserprofileComponent} from "./Components/userprofile/userprofile.component";
 import {CreatevmComponent} from "./Components/createvm/createvm.component";
+import {AddpmComponent} from "./Components/addpm/addpm.component";
 
 const routes: Routes = [
   {path:'', redirectTo:'login', pathMatch:'full'},
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path:'registro', component:RegistroComponent},
   {path:'my-vm', component:MyVMComponent},
   {path:'userprofile', component:UserprofileComponent},
-  {path:'createvm', component:CreatevmComponent}
+  {path:'createvm', component:CreatevmComponent},
+  {path: 'addpm', component:AddpmComponent}
 ];
 
 @NgModule({
@@ -20,4 +22,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export class AppModule { }
+
