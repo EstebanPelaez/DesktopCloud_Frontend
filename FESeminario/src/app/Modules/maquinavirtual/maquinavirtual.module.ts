@@ -4,6 +4,8 @@ export interface MaquinaVirtualModule {
   nombre:string;
   ip:string;
   hostname:string;
-  idUser:string;
+  idUser:number;
   estado:string;
+  idMF: number;
+  tipoMV: number;
 }

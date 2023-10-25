@@ -4,6 +4,7 @@ import {AxiosService} from "../../Services/axios/axios.service";
 import {UsuarioModule} from "../../Modules/usuario/usuario.module";
 import {MaquinavirtualService} from "../../Services/maquinavirtual/maquinavirtual.service";
 import {UsuarioService} from "../../Services/usuario/usuario.service";
+import {HttpClient} from "@angular/common/http";
 @Component({
   selector: 'app-my-vm',
   templateUrl: './my-vm.component.html',
@@ -14,7 +15,7 @@ export class MyVMComponent implements OnInit{
   public lista!: Array<any>;
   user:UsuarioModule={nombre:'', apellidos:'', contrasenia:'', correo:'', tipousuario:'1'}
   select = [false, false, false, false];
-  constructor(private axiosService:AxiosService, private router: Router, private maquinaService:MaquinavirtualService, private usuarioService:UsuarioService) {
+  constructor(private axiosService:AxiosService, private router: Router, private maquinaService:MaquinavirtualService, private http: HttpClient) {
 
     this.select = [true, false];
     this.router.events.subscribe(event =>{
@@ -46,6 +47,23 @@ export class MyVMComponent implements OnInit{
   navig  (path:string){
     this.router.navigate([path]);
     console.log(path);
+  }
+
+  iniciarVM(){
+    return this.http.post(
+      "http://localhost:8000/crearmv",
+      //this.newVM1,
+      {
+        headers : {
+          'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
+        }
+      }
+    ).subscribe({
+        next:(result:any) =>{
+          console.log(result);
+        }
+      }
+    )
   }
 
 

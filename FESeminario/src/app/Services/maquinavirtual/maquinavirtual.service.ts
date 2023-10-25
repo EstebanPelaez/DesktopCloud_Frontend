@@ -33,6 +33,9 @@ export class MaquinavirtualService {
       "POST",
       "http://localhost:8000/crearmv",
       {
+        headers : {
+          'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
+        }
       }
     )
   }
