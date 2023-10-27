@@ -37,6 +37,7 @@
               <th>Estado</th>
               <th></th>
               <th></th>
+              <th></th>
             </tr>
             </thead>
             <tbody>
@@ -45,8 +46,9 @@
               <td>{{object.hostname}}</td>
               <td>{{object.ip}}</td>
               <td>{{object.estado}}</td>
-              <td><a class="buttonInit" ><i ></i>Iniciar</a></td>
-              <td><a class="button" ><i ></i>Detalles</a></td>
+              <td><button [ngClass]="{'buttonFinish': iniciada, 'buttonInit': apagada}" (click)="iniciarVM(object)">{{buttonText}}</button></td>
+              <td><button class="buttonDelete" (click)="iniciarVM(object)"><i class='bx bxs-trash-alt' ></i></button></td>
+              <td><a class="buttonDetails" ><i ></i>Detalles</a></td>
             </tr>
             </tbody>
           </table>

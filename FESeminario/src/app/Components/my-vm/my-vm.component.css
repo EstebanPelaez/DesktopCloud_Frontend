@@ -128,33 +128,67 @@
 }
 
 .buttonInit{
-  width: 100%;
+  width: 70%;
   height: 100%;
   margin: 5%;
   text-align: center;
-  align-self: flex-end;
-  color: #022128;
-  background-color: #a7fa9b;
+  color: white;
+  background-color: #24ab16;
+  border: 2px solid #24ab16;
   border-radius: 5px;
-  padding: 2% 15% 2% 15%;
-
+  padding: 2% 15%;
+  font-size: 15px;
+  cursor: pointer;
 }
 
 .buttonInit:hover{
-  width: 100%;
+  color: #24ab16;
+  background-color: #ffffff;
+  border: 2px solid #24ab16;
+}
+
+.buttonFinish{
+  width: 70%;
   height: 100%;
   margin: 5%;
   text-align: center;
-  align-self: flex-end;
-  color: #022128;
-  background-color: #ffffff;
+  color: white;
+  background-color: #ff7474;
+  border: 2px solid transparent;
   border-radius: 5px;
-  padding: 2% 15% 2% 15%;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #a7fa9b;
-
+  padding: 2% 15%;
+  font-size: 15px;
+  cursor: pointer;
 }
+
+.buttonFinish:hover{
+  color: #f80000;
+  background-color: #ffffff;
+  border: 2px solid #f80000;
+}
+
+.buttonDelete{
+  width: 20%;
+  padding: 2% 1%;
+  background-color: #ff3c3c;
+  border: none;
+  font-size: 17px;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.buttonDelete:hover{
+  background-color: white;
+  border: 1px solid #ff3c3c;
+  color: #ff3c3c;
+}
+
+.buttonDelete i{
+  margin: auto;
+}
+
 /*____________________LATERAL BAR______________________*/
 .seleccionado{
   color: white;

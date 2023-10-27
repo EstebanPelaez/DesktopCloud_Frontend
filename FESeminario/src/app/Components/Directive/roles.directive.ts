@@ -7,7 +7,7 @@ import {UsuarioModule} from "../../Modules/usuario/usuario.module";
 })
 export class RolesDirective  implements OnInit{
 
-  private user: UsuarioModule = {nombre: '', apellidos: '', contrasenia: '', correo: '', tipousuario: '1'}
+  private user: UsuarioModule = {nombre: '', apellidos: '', contrasenia: '', correo: '', tipousuario: '2'}
   private permissions:string[] = [];
 
   constructor(

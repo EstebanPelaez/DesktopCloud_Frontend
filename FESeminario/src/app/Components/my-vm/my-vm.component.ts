@@ -14,6 +14,10 @@ export class MyVMComponent implements OnInit{
   public lista!: Array<any>;
   user:UsuarioModule={nombre:'', apellidos:'', contrasenia:'', correo:'', tipousuario:'1'}
   select = [false, false, false, false];
+  iniciada:boolean = false
+  apagada:boolean = true
+  state:string = "start"
+  buttonText = "Iniciar"
   constructor(private axiosService:AxiosService, private router: Router, private maquinaService:MaquinavirtualService, private http: HttpClient) {
 
     this.select = [true, false];
@@ -48,10 +52,12 @@ export class MyVMComponent implements OnInit{
     console.log(path);
   }
 
-  iniciarVM(){
+  iniciarVM(vm:any){
     return this.http.post(
-      "http://localhost:8000/crearmv",
-      //this.newVM1,
+      "http://localhost:8000/solicitud",{
+        "solicitud":this.state,
+        "nombre":vm.nombre
+      },
       {
         headers : {
           'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
@@ -59,12 +65,26 @@ export class MyVMComponent implements OnInit{
       }
     ).subscribe({
         next:(result:any) =>{
+          this.switchState()
           console.log(result);
         }
       }
     )
   }
 
+  switchState(){
+    if (this.iniciada){
+      this.iniciada = false
+      this.apagada = true
+      this.state = "start"
+      this.buttonText = "Iniciar"
+    }else {
+      this.iniciada = true
+      this.apagada = false
+      this.state = "finish"
+      this.buttonText = "Apagar"
+    }
+  }
 
     protected readonly parseInt = parseInt;
 }

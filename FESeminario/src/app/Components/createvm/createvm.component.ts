@@ -35,31 +35,23 @@ export class CreatevmComponent {
         tipoMaquina: this.newVM1.tipoMV,
         idMF: this.newVM1.idMF,
         estado: this.newVM1.estado,
+        solicitud: "create"
       }
     )
   }
 
-  conectar2(){
-      this.axiosService.request(
-        "POST",
-        "http://localhost:8000/crearmv",
-        {
-          nombre: this.newVM1.nombre,
-          ip: this.newVM1.ip,
-          hostname: this.newVM1.hostname,
-          idUser: this.newVM1.idUser,
-          estado: this.newVM1.estado,
-        }
-      ).then(response => {
-        this.axiosService.setAuthToken(response.data.token);
-        this.router.navigate(['/createvm']);
-      });
-  }
-
   conectar(){
     return this.http.post(
-      "http://localhost:8000/crearmv",
-        this.newVM1,
+      "http://localhost:8000/crearmv",{
+        nombre: this.newVM1.nombre,
+        ip: this.newVM1.ip,
+        hostname: this.newVM1.hostname,
+        idUser: this.newVM1.idUser,
+        tipoMaquina: this.newVM1.tipoMV,
+        idMF: this.newVM1.idMF,
+        estado: this.newVM1.estado,
+        solicitud: "create"
+      },
       {
         headers : {
           'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
