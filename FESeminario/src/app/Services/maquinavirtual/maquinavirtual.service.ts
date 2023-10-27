@@ -27,7 +27,13 @@ export class MaquinavirtualService {
 
     });
   }
-
+  cambiarEstado(): Promise<any>{
+    let token:any = this.decoder.DecodeToken(this.axiosService.getAuthToken()!);
+    return this.axiosService.request(
+      "POST",
+      "/api/updatevms",
+      token.id);
+  }
   crearVM(){
     return this.http.post(
       "POST",

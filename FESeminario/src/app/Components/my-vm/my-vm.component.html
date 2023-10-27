@@ -46,8 +46,8 @@
               <td>{{object.hostname}}</td>
               <td>{{object.ip}}</td>
               <td>{{object.estado}}</td>
-              <td><button [ngClass]="{'buttonFinish': iniciada, 'buttonInit': apagada}" (click)="iniciarVM(object)">{{buttonText}}</button></td>
-              <td><button class="buttonDelete" (click)="iniciarVM(object)"><i class='bx bxs-trash-alt' ></i></button></td>
+              <td><button [ngClass]="{'buttonFinish':object.estado == 'Iniciada', 'buttonInit':object.estado == 'Apagada'}"   (click)="iniciarVM(object)">Alternar</button></td>
+                   <td><button class="buttonDelete" (click)="iniciarVM(object)"><i class='bx bxs-trash-alt' ></i></button></td>
               <td><a class="buttonDetails" ><i ></i>Detalles</a></td>
             </tr>
             </tbody>
