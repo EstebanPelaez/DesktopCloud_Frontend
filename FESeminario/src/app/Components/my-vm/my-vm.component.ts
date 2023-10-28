@@ -17,7 +17,7 @@ export class MyVMComponent implements OnInit {
   select = [false, false, false, false];
   iniciada: boolean = true;
   apagada: boolean = true;
-  state: string = "start";
+  state: string = "";
   buttonText = "Iniciar";
   nuevoEstado = "";
 
@@ -90,10 +90,12 @@ export class MyVMComponent implements OnInit {
       if (vm.estado == "Iniciada") {
         this.nuevoEstado = "Apagada";
         this.iniciada = true;
+        this.state = "Apagar"
       }
       if (vm.estado == "Apagada") {
         this.nuevoEstado = "Iniciada";
         this.apagada = true;
+        this.state = "Iniciar"
       }
       this.axiosService.request(
         "POST",
