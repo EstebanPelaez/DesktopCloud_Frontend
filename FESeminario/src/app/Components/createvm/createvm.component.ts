@@ -54,8 +54,15 @@ export class CreatevmComponent {
         solicitud: "create"
       },
       {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        headers : {
+          'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
+        }
+      }
+    ).subscribe({
+      next:(result:any) =>{
+        this.newVM1.idMF = parseInt(result.idMF);
+        this.newVM1.tipoMV = parseInt(result.tipoMV);
+        this.crearMaquina();
         }
       }
     )

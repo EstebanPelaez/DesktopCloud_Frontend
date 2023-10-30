@@ -24,7 +24,7 @@
   padding-top: 4%;
 }
 
-.user-container {
+.pm-container {
   display: flex;
   justify-content: center;
   width: 60%;
@@ -38,7 +38,7 @@
   border-radius: 10px;
 }
 
-.user-container .header-container {
+.pm-container .header-container {
   display: flex;
   height: 15%;
   width: 100%;
@@ -47,41 +47,20 @@
   margin-bottom: 40px;
 }
 
-.user-container .header-container .title {
+.pm-container .header-container .title {
   display: block;
   width: 100%;
   height: 50%;
   color: #022128;
   font-size: 32px;
   font-weight: bold;
-  margin-bottom: 30px;
+  margin-top: 8%;
 }
-
-.user-container .header-container .title a {
-  font-size: 12px;
-  font-weight: bold;
-  margin: 0;
-  padding: 5px 27px 5px 25px;
-  color: white;
-  background-color: #C06800;
-  border-radius: 30px;
-  transition: all .50s ease;
-}
-
-.user-container .header-container .title a:hover {
-  background-color: white;
-  color: #022128;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #C06800;
-}
-
-.user-container .header-container .description {
+.pm-container .description {
   display: block;
-  width: 80%;
   height: 50%;
   color: black;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 300;
   align-self: center;
   margin: 0;
@@ -98,9 +77,9 @@
   justify-content: space-between;
 }
 
-.user-container {
+.pm-container {
   margin-top: 5%;
-  border-color: #0C4551;
+  border-color: #131313;
 }
 
 .top {
@@ -126,17 +105,6 @@
 
 
 /*____________________LATERAL BAR______________________*/
-
-.seleccionado {
-  color: white;
-  background-color: #C06800;
-  padding: 0 20px 0 20px;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: all .50s ease;
-  width: 90%;
-  height: 70%;
-}
 
 .navbar {
   display: flex;
@@ -206,14 +174,14 @@
 }
 
 /*____________________INPUTS______________________*/
-.user-container .inputs .col1, .col2 {
+.pm-container .inputs .col1, .col2 {
   display: flex;
   flex-direction: column;
   width: 43%;
 
 }
 
-.user-container .inputs {
+.pm-container .inputs {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -223,15 +191,15 @@
 
 }
 
-.user-container .inputs .col1 {
+.pm-container .inputs .col1 {
   margin-left: 20px;
 }
 
-.user-container .inputs .col2 {
+.pm-container .inputs .col2 {
   margin-right: 20px;
 }
 
-.user-container .inputs .input-container {
+.pm-container .inputs .input-container {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -257,4 +225,57 @@
   background-color: #C06800;
   border-radius: 30px;
   transition: all .50s ease;
+}
+
+.pm-container .inputs .col1, .col2{
+  display: flex;
+  flex-direction: column;
+  width: 43%;
+}
+
+.pm-container .inputs .col1{
+  margin-left: 20px;
+}
+
+.pm-container .inputs .col2{
+  margin-right: 20px;
+}
+.pm-container .inputs .input-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 50%;
+  font-size: 20px;
+  margin-top: 20px;
+
+}
+
+.inputs .input-container .input-text{
+  height: 50%;
+  font-size: 20px;
+  margin-top: 5px;
+  padding: 5px 15px;
+  border: 1px solid #cccc;
+  border-radius: 5px;
+}
+
+/*____________________BUTTON_________________________*/
+
+.addpm-button{
+  width: 40%;
+  height: 20%;
+  margin: auto;
+  background-color: #C06800;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 20px;
+  margin-bottom: 10%;
+}
+
+.addpm-button:hover{
+  cursor: pointer;
+  background-color: #ffff;
+  border: 2px solid #C06800;
+  color: #C06800;
 }
