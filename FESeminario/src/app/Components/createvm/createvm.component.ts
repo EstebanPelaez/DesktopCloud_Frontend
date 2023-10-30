@@ -23,6 +23,7 @@ export class CreatevmComponent {
 
   constructor(private router: Router, private axiosService: AxiosService, private http: HttpClient) {
   }
+
   crearMaquina() {
     this.axiosService.request(
       "POST",
@@ -40,9 +41,9 @@ export class CreatevmComponent {
     )
   }
 
-  conectar(){
+  conectar() {
     return this.http.post(
-      "http://localhost:8000/crearmv",{
+      "http://localhost:8000/crearmv", {
         nombre: this.newVM1.nombre,
         ip: this.newVM1.ip,
         hostname: this.newVM1.hostname,
@@ -53,15 +54,8 @@ export class CreatevmComponent {
         solicitud: "create"
       },
       {
-        headers : {
-          'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
-        }
-      }
-    ).subscribe({
-        next:(result:any) =>{
-          this.newVM1.idMF = parseInt(result.idMF);
-          this.newVM1.tipoMV = parseInt(result.tipoMV);
-          this.crearMaquina();
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
         }
       }
     )
