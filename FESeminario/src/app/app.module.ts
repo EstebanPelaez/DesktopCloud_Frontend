@@ -15,6 +15,7 @@ import { AxiosService} from "./Services/axios/axios.service";
 import { MaquinavirtualService} from "./Services/maquinavirtual/maquinavirtual.service";
 import { RolesDirective } from './Components/Directive/roles.directive';
 import { AddpmComponent } from './Components/addpm/addpm.component';
+import { HomeComponent } from './Components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { AddpmComponent } from './Components/addpm/addpm.component';
     CreatevmComponent,
     RolesDirective,
     AddpmComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

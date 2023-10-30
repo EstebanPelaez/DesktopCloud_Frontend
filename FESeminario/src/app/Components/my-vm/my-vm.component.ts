@@ -24,7 +24,7 @@ export class MyVMComponent implements OnInit {
 
   constructor(private axiosService: AxiosService, private router: Router, private maquinaService: MaquinavirtualService, private http: HttpClient) {
 
-    this.select = [true, false];
+    this.select = [true, false, false, false];
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         console.log("EVENT", event)
@@ -38,7 +38,7 @@ export class MyVMComponent implements OnInit {
           case "/my-vm":
             this.select = [false, true, false, false];
             break;
-          case "/my-vm":
+          case "/addpm":
             this.select = [false, false, true, false];
             break;
           case "/my-vm":

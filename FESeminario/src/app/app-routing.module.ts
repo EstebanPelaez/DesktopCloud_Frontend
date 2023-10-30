@@ -6,6 +6,7 @@ import {MyVMComponent} from "./Components/my-vm/my-vm.component";
 import {UserprofileComponent} from "./Components/userprofile/userprofile.component";
 import {CreatevmComponent} from "./Components/createvm/createvm.component";
 import {AddpmComponent} from "./Components/addpm/addpm.component";
+import {HomeComponent} from "./Components/home/home.component";
 
 const routes: Routes = [
   {path:'', redirectTo:'login', pathMatch:'full'},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path:'my-vm', component:MyVMComponent},
   {path:'userprofile', component:UserprofileComponent},
   {path:'createvm', component:CreatevmComponent},
-  {path: 'addpm', component:AddpmComponent}
+  {path: 'addpm', component:AddpmComponent},
+  {path: 'home', component:HomeComponent}
 ];
 
 @NgModule({

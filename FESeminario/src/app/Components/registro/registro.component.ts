@@ -24,7 +24,7 @@ export class RegistroComponent {
       }
     ).then(response => {
       this.axiosService.setAuthToken(response.data.token);
-      this.router.navigate(['/createvm']);
+      this.router.navigate(['/home']);
     });
     //this.router.navigate(["/inicio"]);
   }

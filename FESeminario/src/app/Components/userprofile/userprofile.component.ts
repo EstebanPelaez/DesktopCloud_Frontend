@@ -11,7 +11,7 @@ import {UsuarioService} from "../../Services/usuario/usuario.service";
 export class UserprofileComponent implements OnInit{
 
   user:UsuarioModule={nombre:'', apellidos:'', contrasenia:'', correo:'', tipousuario:'1'}
-  select = [false, false];
+  select = [false, false, false, false];
   constructor(private router: Router, private usuarioService:UsuarioService ) {
     this.select = [true, false, false, false];
     this.router.events.subscribe(event =>{
@@ -24,7 +24,7 @@ export class UserprofileComponent implements OnInit{
             this.select = [true, false, false, false];break;
           case "/my-vm":
             this.select = [false, true, false, false];break;
-          case "/my-vm":
+          case "/addpm":
             this.select = [false, false, true, false];break;
           case "/my-vm":
             this.select = [false, false, false, true];break;

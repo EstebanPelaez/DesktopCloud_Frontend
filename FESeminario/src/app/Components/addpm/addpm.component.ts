@@ -16,8 +16,7 @@ export class AddpmComponent {
   select = [false, false, false, false];
   newpm:MaquinafisicaModule={adaptador:'', cpu: 0, hostname:'', ip:'', os:'', ram: 0, almacenamiento: 0}
   constructor(private axiosService:AxiosService, private router: Router, private maquinaService:MaquinafisicaService, private usuarioService:UsuarioService) {
-
-    this.select = [true, false];
+    this.select = [true, false, false, false];
     this.router.events.subscribe(event =>{
       if(event instanceof NavigationEnd){
         console.log("EVENT", event)

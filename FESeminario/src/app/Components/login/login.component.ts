@@ -23,7 +23,12 @@ export class LoginComponent {
       }
     ).then(response => {
       this.axiosService.setAuthToken(response.data.token);
-      this.router.navigate(['/createvm']);
+      this.router.navigate(['/home']);
     });
+  }
+
+  navig(path: string) {
+    this.router.navigate([path]);
+    console.log(path);
   }
 }
