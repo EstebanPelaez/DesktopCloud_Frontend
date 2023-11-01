@@ -35,7 +35,7 @@ import { HomeComponent } from './Components/home/home.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    CommonModule
+    CommonModule,
   ],
   providers: [MaquinavirtualService, AxiosService],
   bootstrap: [AppComponent]

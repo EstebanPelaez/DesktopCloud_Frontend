@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "ngx-toast-notifier": "^0.0.7"
+  }
+}

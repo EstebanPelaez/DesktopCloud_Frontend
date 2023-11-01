@@ -111,6 +111,39 @@ export class MyVMComponent implements OnInit {
     }, 2000);
   }
 
+  eliminarDB(vm: any){
+    this.axiosService.request(
+      "DELETE",
+      "/api/deletevm",
+      {
+        estado: this.nuevoEstado,
+        id: vm.id
+      }
+    ).then(response => {
+
+      window.location.reload();
+    });
+  }
+
+  eliminarVM(vm: any) {
+    this.eliminarDB(vm);
+    return this.http.post(
+      "http://localhost:8000/solicitud", {
+        "solicitud": "delete",
+        "nombre": vm.nombre
+      },
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        }
+      }
+    ).subscribe({
+        next: (result: any) => {
+          console.log(result);
+        }
+      }
+    )
+  }
   switchState() {
     if (this.iniciada) {
       this.iniciada = false

@@ -1,0 +1,128 @@
+/*____________________HEADER______________________*/
+.main-container {
+  display: block;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  justify-content: space-around;
+}
+
+* {
+  padding: 0;
+  margin-top: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+
+/*____________________BANNER______________________*/
+.main-container .banner{
+  display: block;
+  width: 100vw;
+  height: 60vh;
+  background-color: #022128;
+  text-align: center;
+  position: relative;
+}
+
+.banner .title{
+  width: 100%;
+  height: 50%;
+  color: white;
+  font-size: 300%;
+  font-weight: bold;
+  position: absolute;
+  top: 45%;
+}
+
+.banner .b-content{
+  width: 100%;
+  height: 50%;
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  top: 70%;
+}
+
+.button-c{
+  color: white;
+  background-color: #C06800;
+  padding: 15px 20px 15px 20px;
+  border-radius: 8px;
+  transition: all .50s ease;
+  margin: 10px 20px 10px 10px;
+}
+.button-c:hover{
+  color: #022128;
+  background-color: white;
+  padding: 15px 20px 15px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all .50s ease;
+  width: 90%;
+  height: 70%;
+  transition: all .50s ease;
+}
+.button-v{
+  color: #022128;
+  background-color: #ffffff;
+  padding: 15px 20px 15px 20px;
+  border-radius: 8px;
+  transition: all .50s ease;
+  margin: 10px 20px 10px 10px;
+}
+.button-v:hover{
+  color: #022128;
+  background-color: #d3d3d3;
+  padding: 15px 20px 15px 20px;
+  border-radius: 8px;
+  transition: all .50s ease;
+  margin: 10px 20px 10px 10px;
+}
+
+/*____________________DESCRIPCIONES______________________*/
+
+.info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 35vh;
+  width: 100vw;
+}
+
+.info .col {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: 90%;
+  text-align: center;
+  margin: auto;
+}
+
+.info .col .content{
+  width: 100%;
+  height: 300%;
+  margin-top: 5%;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgba(93, 93, 93, 0.54);
+  padding: 4% 15% 0 15% ;
+}
+
+.info .col .content .description {
+  color: #022128;
+  font-size: 21px;
+  font-weight: 300;
+  }
+
+/*____________________IMAGEN________________________*/
+.info .col .content .logo{
+
+  height: 18vh;
+  width: 9vw;
+  color: white;
+  margin-bottom: 15px;
+}
+
+
