@@ -66,11 +66,11 @@ export class MyVMComponent implements OnInit {
 
   iniciarVM(vm: any) {
     this.cambiarEstado(vm);
-    this.switchState();
     return this.http.post(
       "http://localhost:8000/solicitud", {
         "solicitud": this.state,
-        "nombre": vm.nombre
+        "nombre": vm.nombre,
+        "idmf": vm.mfisica.idMF
       },
       {
         headers: {
@@ -87,22 +87,14 @@ export class MyVMComponent implements OnInit {
 
   cambiarEstado(vm: any) {
     setTimeout(() => {
-      if (vm.estado == "Iniciada") {
-        this.nuevoEstado = "Apagada";
-        this.iniciada = true;
-        this.state = "Apagar"
-      }
-      if (vm.estado == "Apagada") {
-        this.nuevoEstado = "Iniciada";
-        this.apagada = true;
-        this.state = "Iniciar"
-      }
+
       this.axiosService.request(
         "POST",
         "/api/updatevms",
         {
           estado: this.nuevoEstado,
           id: vm.id
+
         }
       ).then(response => {
 
@@ -117,7 +109,8 @@ export class MyVMComponent implements OnInit {
       "/api/deletevm",
       {
         estado: this.nuevoEstado,
-        id: vm.id
+        id: vm.id,
+        "idmf": vm.mfisica.idMF
       }
     ).then(response => {
 
@@ -143,19 +136,6 @@ export class MyVMComponent implements OnInit {
         }
       }
     )
-  }
-  switchState() {
-    if (this.iniciada) {
-      this.iniciada = false
-      this.apagada = true
-      this.state = "start"
-      this.buttonText = "Iniciar"
-    } else {
-      this.iniciada = true
-      this.apagada = false
-      this.state = "finish"
-      this.buttonText = "Apagar"
-    }
   }
 
   protected readonly parseInt = parseInt;
