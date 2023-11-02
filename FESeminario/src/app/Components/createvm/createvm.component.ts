@@ -18,13 +18,13 @@ export class CreatevmComponent {
     idUser: 1,
     estado: 'Apagada',
     idMF: 0,
-    tipoMV: 0
+    tipoMV: 1
   };
 
   constructor(private router: Router, private axiosService: AxiosService, private http: HttpClient) {
   }
 
-  crearMaquina() {
+  /*crearMaquina() {
     this.axiosService.request(
       "POST",
       "/api/savevm",
@@ -33,13 +33,13 @@ export class CreatevmComponent {
         ip: this.newVM1.ip,
         hostname: this.newVM1.hostname,
         idUser: this.newVM1.idUser,
-        tipoMaquina: this.newVM1.tipoMV,
+        tipoMV: this.newVM1.tipoMV,
         idMF: this.newVM1.idMF,
         estado: this.newVM1.estado,
         solicitud: "create"
       }
     )
-  }
+  }*/
 
   conectar() {
     return this.http.post(
@@ -48,10 +48,11 @@ export class CreatevmComponent {
         ip: this.newVM1.ip,
         hostname: this.newVM1.hostname,
         idUser: this.newVM1.idUser,
-        tipoMaquina: this.newVM1.tipoMV,
+        tipoMV: this.newVM1.tipoMV,
         idMF: this.newVM1.idMF,
         estado: this.newVM1.estado,
-        solicitud: "create"
+        solicitud: "create",
+        numeroNombre: window.localStorage.getItem("numbervm")
       },
       {
         headers : {
@@ -60,9 +61,8 @@ export class CreatevmComponent {
       }
     ).subscribe({
       next:(result:any) =>{
-        this.newVM1.idMF = parseInt(result.idMF);
-        this.newVM1.tipoMV = parseInt(result.tipoMV);
-        this.crearMaquina();
+        let numero:number = parseInt(window.localStorage.getItem("numbervm")!)
+        window.localStorage.setItem("numbervm", (numero+1).toString())
         }
       }
     )

@@ -15,10 +15,6 @@ export class MyVMComponent implements OnInit {
   public lista!: Array<any>;
   user: UsuarioModule = {nombre: '', apellidos: '', contrasenia: '', correo: '', tipousuario: '1'}
   select = [false, false, false, false];
-  iniciada: boolean = true;
-  apagada: boolean = true;
-  state: string = "";
-  buttonText = "Iniciar";
   nuevoEstado = "";
 
 
@@ -55,7 +51,6 @@ export class MyVMComponent implements OnInit {
   ngOnInit(): void {
     this.maquinaService.getMaquinasVirtuales().then(value => {
       this.lista = value.data;
-
     })
   }
 
@@ -65,10 +60,11 @@ export class MyVMComponent implements OnInit {
   }
 
   iniciarVM(vm: any) {
-    this.cambiarEstado(vm);
+    let request: string;
+    vm.estado=="Iniciada"?request = "finish" : request = "start";
     return this.http.post(
       "http://localhost:8000/solicitud", {
-        "solicitud": this.state,
+        "solicitud": request,
         "nombre": vm.nombre,
         "idmf": vm.mfisica.idMF
       },
@@ -79,29 +75,13 @@ export class MyVMComponent implements OnInit {
       }
     ).subscribe({
         next: (result: any) => {
+          this.switchEstado(vm);
           console.log(result);
         }
       }
     )
   }
 
-  cambiarEstado(vm: any) {
-    setTimeout(() => {
-
-      this.axiosService.request(
-        "POST",
-        "/api/updatevms",
-        {
-          estado: this.nuevoEstado,
-          id: vm.id
-
-        }
-      ).then(response => {
-
-        window.location.reload();
-      });
-    }, 2000);
-  }
 
   eliminarDB(vm: any){
     this.axiosService.request(
@@ -137,6 +117,31 @@ export class MyVMComponent implements OnInit {
       }
     )
   }
+
+  switchEstado(vm:any):string{
+    let estado = vm.estado
+    let nuevoEstado: string
+
+    if(estado == "Apagada"){
+      nuevoEstado = "Iniciada"
+    }else{
+      nuevoEstado = "Apagada"
+    }
+    console.log("NuevoEstado"+nuevoEstado)
+    setTimeout(() => {
+      this.axiosService.request(
+        "POST",
+        "/api/updatevms",
+        {
+          estado: nuevoEstado,
+          id: vm.id
+        }
+      ).then(response => {
+        window.location.reload();
+      });
+    }, 2000);
+    return estado;
+}
 
   protected readonly parseInt = parseInt;
 }
