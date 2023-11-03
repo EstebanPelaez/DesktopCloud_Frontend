@@ -16,6 +16,7 @@ import { MaquinavirtualService} from "./Services/maquinavirtual/maquinavirtual.s
 import { RolesDirective } from './Components/Directive/roles.directive';
 import { AddpmComponent } from './Components/addpm/addpm.component';
 import { HomeComponent } from './Components/home/home.component';
+import { VmdetailsComponent } from './Components/vmdetails/vmdetails.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { HomeComponent } from './Components/home/home.component';
     RolesDirective,
     AddpmComponent,
     HomeComponent,
+    VmdetailsComponent,
   ],
   imports: [
     BrowserModule,

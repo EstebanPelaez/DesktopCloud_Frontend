@@ -16,8 +16,8 @@ export class MyVMComponent implements OnInit {
   user: UsuarioModule = {nombre: '', apellidos: '', contrasenia: '', correo: '', tipousuario: '1'}
   select = [false, false, false, false];
   nuevoEstado = "";
-
-
+  detailsFlag = false;
+  selectedVM: number|undefined;
   constructor(private axiosService: AxiosService, private router: Router, private maquinaService: MaquinavirtualService, private http: HttpClient) {
 
     this.select = [true, false, false, false];
@@ -51,7 +51,7 @@ export class MyVMComponent implements OnInit {
   ngOnInit(): void {
     this.maquinaService.getMaquinasVirtuales().then(value => {
       this.lista = value.data;
-    })
+    });
   }
 
   navig(path: string) {
@@ -64,6 +64,7 @@ export class MyVMComponent implements OnInit {
     vm.estado=="Iniciada"?request = "finish" : request = "start";
     return this.http.post(
       "http://localhost:8000/solicitud", {
+        "id": vm.id,
         "solicitud": request,
         "nombre": vm.nombre,
         "idmf": vm.mfisica.idMF
@@ -133,7 +134,7 @@ export class MyVMComponent implements OnInit {
         "POST",
         "/api/updatevms",
         {
-          estado: nuevoEstado,
+          cambio: nuevoEstado,
           id: vm.id
         }
       ).then(response => {
@@ -141,6 +142,12 @@ export class MyVMComponent implements OnInit {
       });
     }, 2000);
     return estado;
+}
+
+showDetails(idmv:any){
+  this.detailsFlag = true;
+  this.selectedVM = idmv;
+  console.log(this.selectedVM)
 }
 
   protected readonly parseInt = parseInt;

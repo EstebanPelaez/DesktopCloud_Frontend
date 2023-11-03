@@ -8,8 +8,9 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class MaquinavirtualService {
-  infoToken:any;
   nombre:any;
+  selectedMV:string = "";
+  detailsFlag: boolean|undefined;
   constructor(private axiosService:AxiosService, private router:Router, private decoder:JwtService, private http: HttpClient) {
   }
 
@@ -21,11 +22,11 @@ export class MaquinavirtualService {
       token.id);
   }
 
-  getVM():Promise<any>{
-    return new Promise(function (resolve){
-      var request="/getvms"
-
-    });
+  getVM(idVM:string):Promise<any>{
+    return this.axiosService.request(
+      "POST",
+      "/api/getvm",
+      idVM);
   }
   cambiarEstado(): Promise<any>{
     let token:any = this.decoder.DecodeToken(this.axiosService.getAuthToken()!);
