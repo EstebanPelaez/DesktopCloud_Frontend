@@ -1,4 +1,3 @@
-<app-vmdetails *ngIf="false" [idMV]="selectedVM"></app-vmdetails>
 <app-navbar></app-navbar>
 <div class="main-container">
   <div class="lateral">
@@ -36,9 +35,7 @@
               <th>Hostname</th>
               <th>Dirección IP</th>
               <th>Estado</th>
-              <th></th>
-              <th></th>
-              <th></th>
+              <th class="buttons"></th>
             </tr>
             </thead>
             <tbody>
@@ -47,22 +44,23 @@
               <td>{{object.hostname}}</td>
               <td>{{object.ip}}</td>
               <td>{{object.estado}}</td>
-              <td>
+              <td class="buttons-td">
                 <button
                   [ngClass]="{'buttonFinish':object.estado == 'Iniciada', 'buttonInit':object.estado == 'Apagada'}"
-                  (click)="iniciarVM(object)" *ngIf="object.estado == 'Iniciada';else apagar">Apagar
+                  (click)="iniciarVM(object)" *ngIf="object.estado == 'Iniciada'">Apagar
                 </button>
-              </td>
-              <ng-template #apagar>
-                <button
-                  [ngClass]="{'buttonFinish':object.estado == 'Iniciada', 'buttonInit':object.estado == 'Apagada'}"
-                  (click)="iniciarVM(object)">Iniciar
-                </button>
-              </ng-template>
-              <td>
+                  <button *ngIf="object.estado == 'Apagada'"
+                    [ngClass]="{'buttonFinish':object.estado == 'Iniciada', 'buttonInit':object.estado == 'Apagada'}"
+                    (click)="iniciarVM(object)">Iniciar
+                  </button>
+                  <button *ngIf="object.estado == 'Procesando'" disabled
+                    [ngClass]="{'buttonFinish':object.estado == 'Iniciada', 'buttonInit':object.estado == 'Apagada', 'buttonProcess':object.estado == 'Procesando'}"
+                    (click)="iniciarVM(object)"><i class='bx bx-loader-alt bx-spin' ></i> Procesando
+                  </button>
+
+                <button class="buttonDetails" (click)="showDetails(object.id)">Detalles</button>
                 <button class="buttonDelete" (click)="eliminarVM(object)"><i class='bx bxs-trash-alt'></i></button>
               </td>
-              <td><button class="buttonDetails" (click)="showDetails(object.id)">Detalles</button></td>
             </tr>
             </tbody>
           </table>
@@ -70,4 +68,6 @@
       </div>
     </div>
   </div>
+  <app-vmdetails *ngIf="detailsFlag" [idVM]="selectedVM"></app-vmdetails>
 </div>
+

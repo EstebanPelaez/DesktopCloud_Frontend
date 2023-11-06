@@ -18,7 +18,7 @@ export class MyVMComponent implements OnInit {
   nuevoEstado = "";
   detailsFlag = false;
   selectedVM: number|undefined;
-  constructor(private axiosService: AxiosService, private router: Router, private maquinaService: MaquinavirtualService, private http: HttpClient) {
+  constructor(private axiosService: AxiosService, private router: Router, public maquinaService: MaquinavirtualService, private http: HttpClient) {
 
     this.select = [true, false, false, false];
     this.router.events.subscribe(event => {
@@ -62,25 +62,7 @@ export class MyVMComponent implements OnInit {
   iniciarVM(vm: any) {
     let request: string;
     vm.estado=="Iniciada"?request = "finish" : request = "start";
-    return this.http.post(
-      "http://localhost:8000/solicitud", {
-        "id": vm.id,
-        "solicitud": request,
-        "nombre": vm.nombre,
-        "idmf": vm.mfisica.idMF
-      },
-      {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-        }
-      }
-    ).subscribe({
-        next: (result: any) => {
-          this.switchEstado(vm);
-          console.log(result);
-        }
-      }
-    )
+    this.maquinaService.solicitarCambioVM(vm, request);
   }
 
 
@@ -104,7 +86,8 @@ export class MyVMComponent implements OnInit {
     return this.http.post(
       "http://localhost:8000/solicitud", {
         "solicitud": "delete",
-        "nombre": vm.nombre
+        "nombre": vm.nombre,
+        "idmf": vm.mfisica.idMF
       },
       {
         headers: {
@@ -119,13 +102,13 @@ export class MyVMComponent implements OnInit {
     )
   }
 
-  switchEstado(vm:any):string{
-    let estado = vm.estado
+  switchEstado(estado:string, vm:any):string{
     let nuevoEstado: string
-
-    if(estado == "Apagada"){
+    if(estado == "Procesando"){
+      nuevoEstado = "Procesando"
+    }else if(estado == "Apagada"){
       nuevoEstado = "Iniciada"
-    }else{
+    }else {
       nuevoEstado = "Apagada"
     }
     console.log("NuevoEstado"+nuevoEstado)
@@ -140,15 +123,14 @@ export class MyVMComponent implements OnInit {
       ).then(response => {
         window.location.reload();
       });
-    }, 2000);
+    }, 1000);
     return estado;
 }
 
-showDetails(idmv:any){
-  this.detailsFlag = true;
-  this.selectedVM = idmv;
-  console.log(this.selectedVM)
-}
+  showDetails(idmv:any){
+    this.detailsFlag = true;
+    this.selectedVM = idmv;
+    console.log(this.selectedVM)
+  }
 
-  protected readonly parseInt = parseInt;
 }

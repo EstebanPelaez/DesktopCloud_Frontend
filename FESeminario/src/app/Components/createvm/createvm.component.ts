@@ -14,7 +14,7 @@ export class CreatevmComponent {
   newVM1: MaquinaVirtualModule = {
     nombre: 'debian',
     ip: '192.168.1.1',
-    hostname: 'root',
+    hostname: '',
     idUser: 1,
     estado: 'Apagada',
     idMF: 0,
@@ -48,6 +48,7 @@ export class CreatevmComponent {
         ip: this.newVM1.ip,
         hostname: this.newVM1.hostname,
         idUser: this.newVM1.idUser,
+        contrasenia: "1234",
         tipoMV: this.newVM1.tipoMV,
         idMF: this.newVM1.idMF,
         estado: this.newVM1.estado,

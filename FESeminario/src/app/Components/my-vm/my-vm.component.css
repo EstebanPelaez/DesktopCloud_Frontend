@@ -128,15 +128,14 @@
 }
 
 .buttonInit{
-  width: 70%;
+  width: 40%;
   height: 100%;
-  margin: 5%;
   text-align: center;
   color: white;
   background-color: #24ab16;
   border: 2px solid #24ab16;
   border-radius: 5px;
-  padding: 2% 15%;
+  padding: 2% 8%;
   font-size: 15px;
   cursor: pointer;
 }
@@ -148,15 +147,14 @@
 }
 
 .buttonFinish{
-  width: 70%;
+  width: 40%;
   height: 100%;
-  margin: 5%;
   text-align: center;
   color: white;
   background-color: #ff7474;
   border: 2px solid transparent;
   border-radius: 5px;
-  padding: 2% 15%;
+  padding: 2% 8%;
   font-size: 15px;
   cursor: pointer;
 }
@@ -167,26 +165,78 @@
   border: 2px solid #f80000;
 }
 
+.buttonProcess{
+  width: 40%;
+  height: 100%;
+  text-align: center;
+  color: white;
+  background-color: #09678a;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  padding: 2% 0;
+  font-size: 15px;
+  text-align: center;
+}
+
+.buttonProces:hover{
+  color: #09678a;
+  background-color: #ffffff;
+  border: 2px solid #09678a;
+
+}
+
 .buttonDelete{
-  width: 20%;
-  padding: 2% 1%;
+  padding: 2% 3%;
   background-color: #ff3c3c;
-  border: none;
-  font-size: 17px;
+  border: 2px solid transparent;
+  font-size: 15px;
   color: white;
   border-radius: 5px;
   text-align: center;
   cursor: pointer;
+  align-self: center;
 }
 
 .buttonDelete:hover{
   background-color: white;
-  border: 1px solid #ff3c3c;
+  border: 2px solid #ff3c3c;
   color: #ff3c3c;
+}
+
+.buttonDetails{
+  width: 40%;
+  height: 100%;
+  text-align: center;
+  color: white;
+  background-color: #0C4551;
+  border: 2px solid #0C4551;
+  border-radius: 5px;
+  padding: 2% 8%;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.buttonDetails:hover{
+  background-color: white;
+  border: 2px solid #0C4551;
+  color: #0C4551;
 }
 
 .buttonDelete i{
   margin: auto;
+}
+
+.buttons{
+  width: 25%;
+}
+
+.buttons-td{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px 0;
+  align-items: center;
 }
 
 /*____________________LATERAL BAR______________________*/
@@ -277,4 +327,6 @@
   flex-direction: column;
   text-align: center;
 }
+
+
 

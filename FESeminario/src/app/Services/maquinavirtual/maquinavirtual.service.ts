@@ -9,8 +9,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class MaquinavirtualService {
   nombre:any;
-  selectedMV:string = "";
-  detailsFlag: boolean|undefined;
+  estadoVM: string|undefined;
   constructor(private axiosService:AxiosService, private router:Router, private decoder:JwtService, private http: HttpClient) {
   }
 
@@ -45,5 +44,30 @@ export class MaquinavirtualService {
         }
       }
     )
+  }
+
+  solicitarCambioVM(vm:any, request:string){
+    this.http.post(
+      "http://localhost:8000/solicitud", {
+        "id": vm.id,
+        "solicitud": request,
+        "nombre": vm.nombre,
+        "idmf": vm.mfisica.idMF
+      },
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        }
+      }
+    ).subscribe({
+      next: (result:any) =>{
+        this.estadoVM = result;
+      }
+    })
+  }
+
+  setEstado(vm:any):string{
+    this.estadoVM = vm.estado
+    return vm.estado;
   }
 }
