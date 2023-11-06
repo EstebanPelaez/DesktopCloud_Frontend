@@ -1,1 +1,15 @@
 <router-outlet></router-outlet>
+<div class="alert" [ngClass]="{'alerta': message=='Alerta', 'error': message=='Error', 'aviso': message=='Aviso'}"
+     role="alert" *ngIf="showAlert">
+  <div class="col1">
+    <i class='bx bx-check-circle bx-lg'  *ngIf=" message=='Alerta'"></i>
+    <i class='bx bx-x-circle bx-lg' *ngIf=" message=='Error'" ></i>
+    <i class='bx bx-info-circle bx-lg' *ngIf=" message=='Aviso'"></i>
+  </div>
+  <div>
+    <div class="title">{{message}}</div>
+    <div class="description">{{description}}</div>
+  </div>
+</div>
+
+

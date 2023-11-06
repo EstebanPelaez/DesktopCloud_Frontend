@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import {Router} from "@angular/router";
 import {AxiosService} from "../../Services/axios/axios.service";
+import {AlertService} from "../../Services/alert/alert.service";
 
 @Component({
   selector: 'app-login',
@@ -8,12 +9,13 @@ import {AxiosService} from "../../Services/axios/axios.service";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor(private axiosService:AxiosService, private router:Router) {  }
+  constructor(private alertService: AlertService, private axiosService:AxiosService, private router:Router) {  }
   user: string = "";
   password: string = "";
 
 
   login(){
+
     this.axiosService.request(
       "POST",
       "/api/login",

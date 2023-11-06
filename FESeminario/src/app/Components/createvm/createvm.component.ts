@@ -3,6 +3,7 @@ import {NavigationEnd, Router} from "@angular/router";
 import {AxiosService} from "../../Services/axios/axios.service";
 import {MaquinaVirtualModule} from "../../Modules/maquinavirtual/maquinavirtual.module";
 import {HttpClient} from "@angular/common/http";
+import {AlertService} from "../../Services/alert/alert.service";
 
 @Component({
   selector: 'app-createvm',
@@ -21,7 +22,7 @@ export class CreatevmComponent {
     tipoMV: 1
   };
 
-  constructor(private router: Router, private axiosService: AxiosService, private http: HttpClient) {
+  constructor(private router: Router, private axiosService: AxiosService, private http: HttpClient, private alertService: AlertService) {
   }
 
   /*crearMaquina() {
@@ -42,6 +43,7 @@ export class CreatevmComponent {
   }*/
 
   conectar() {
+    this.alertService.showError("Aviso", "Se ha creado una máquina virtual",5000);
     return this.http.post(
       "http://localhost:8000/crearmv", {
         nombre: this.newVM1.nombre,
@@ -64,9 +66,11 @@ export class CreatevmComponent {
       next:(result:any) =>{
         let numero:number = parseInt(window.localStorage.getItem("numbervm")!)
         window.localStorage.setItem("numbervm", (numero+1).toString())
+        this.alertService.showError("Aviso", "Se ha creado una máquina virtual",3000);
         }
       }
-    )
+      )
+
   }
 
   navig(path: string) {

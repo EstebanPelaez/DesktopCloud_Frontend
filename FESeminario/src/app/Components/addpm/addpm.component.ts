@@ -1,21 +1,22 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AxiosService} from "../../Services/axios/axios.service";
 import {NavigationEnd, Router} from "@angular/router";
 import {MaquinavirtualService} from "../../Services/maquinavirtual/maquinavirtual.service";
 import {UsuarioService} from "../../Services/usuario/usuario.service";
 import {MaquinafisicaModule} from "../../Modules/maquinafisica/maquinafisica.module";
 import {MaquinafisicaService} from "../../Services/maquinafisica/maquinafisica.service";
+import {AlertService} from "../../Services/alert/alert.service";
 
 @Component({
   selector: 'app-addpm',
   templateUrl: './addpm.component.html',
   styleUrls: ['./addpm.component.css']
 })
-export class AddpmComponent {
+export class AddpmComponent implements OnInit{
 
   select = [false, false, false, false];
   newpm:MaquinafisicaModule={adaptador:'', cpu: 0, hostname:'', ip:'', os:'', ram: 0, almacenamiento: 0}
-  constructor(private axiosService:AxiosService, private router: Router, private maquinaService:MaquinafisicaService, private usuarioService:UsuarioService) {
+  constructor(private alertService:AlertService, private axiosService:AxiosService, private router: Router, private maquinaService:MaquinafisicaService, private usuarioService:UsuarioService) {
     this.select = [true, false, false, false];
     this.router.events.subscribe(event =>{
       if(event instanceof NavigationEnd){
@@ -38,6 +39,8 @@ export class AddpmComponent {
     })
   }
 
+  ngOnInit(){
+  }
   agregarMaquinaFisica(){
     this.axiosService.request(
       "POST",
