@@ -1,0 +1,89 @@
+.blur-div{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1500;
+  filter: blur(10px);
+  backdrop-filter: blur(0px);
+}
+
+.dialog-container{
+  display: block;
+  position: fixed;
+  width: 50%;
+  height: 30%;
+  background-color: white;
+  z-index: 1700;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+}
+/*___________________________HEADER______________________*/
+.dialog-container .header{
+  display: flex;
+  flex-direction: column;
+}
+.header button{
+  align-self: end;
+  margin: 5px;
+  font-size: 25px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+.header p{
+  font-size: 28px;
+  margin: 0;
+  align-self: center;
+  color: #022128;
+}
+/*_____________________BUTTONS__________________*/
+
+.b-container{
+  padding-top: 2%;
+  width: 100%;
+  height: 8%;
+  align-content: center;
+  text-align: center;
+}
+.b-container .deny{
+  margin: 2%;
+  padding: 1%;
+  width: 20%;
+  border: none;
+  background-color: #C06800;
+  border-radius: 5px;
+  color: white;
+  font-size: 20px;
+}
+
+.b-container .deny:hover{
+
+  cursor: pointer;
+  background-color: #ffff;
+  border: 2px solid #C06800;
+  color: #C06800;
+}
+.b-container .confirm{
+  margin: 2%;
+  padding: 1%;
+  width: 20%;
+  background-color: white;
+  border-radius: 5px;
+  color: #0C4551;
+  font-size: 20px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #0C4551;
+}
+
+.b-container .confirm:hover{
+  cursor: pointer;
+  background-color: #0C4551;
+  border: 2px solid white;
+  color: white;
+}

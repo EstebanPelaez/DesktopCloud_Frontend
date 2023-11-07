@@ -17,6 +17,7 @@ import { RolesDirective } from './Components/Directive/roles.directive';
 import { AddpmComponent } from './Components/addpm/addpm.component';
 import { HomeComponent } from './Components/home/home.component';
 import { VmdetailsComponent } from './Components/vmdetails/vmdetails.component';
+import { DialogvmComponent } from './Components/dialogvm/dialogvm.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { VmdetailsComponent } from './Components/vmdetails/vmdetails.component';
     AddpmComponent,
     HomeComponent,
     VmdetailsComponent,
+    DialogvmComponent,
   ],
   imports: [
     BrowserModule,
