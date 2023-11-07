@@ -9,9 +9,11 @@ import {AxiosService} from "../../Services/axios/axios.service";
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent {
-  newUser:UsuarioModule={nombre:'', apellidos:'', contrasenia:'', correo:'', tipousuario:'1'}
+  newUser:UsuarioModule={nombre:'', apellidos:'', contrasenia:'', correo:'', tipousuario:''}
   constructor(private axiosService:AxiosService, private router:Router) {  }
   agregarUsuario(){
+    this.setTipoUsuario(this.newUser.tipousuario);
+    console.log(this.newUser.tipousuario)
     this.axiosService.request(
       "POST",
       "/api/register",
@@ -20,12 +22,19 @@ export class RegistroComponent {
         apellidos: this.newUser.apellidos,
         contrasenia: this.newUser.contrasenia,
         correo: this.newUser.correo,
-        tipousuario: this.newUser.tipousuario
+        tipoUsuario: this.newUser.tipousuario
       }
     ).then(response => {
       this.axiosService.setAuthToken(response.data.token);
       this.router.navigate(['/home']);
     });
-    //this.router.navigate(["/inicio"]);
+  }
+
+  setTipoUsuario(tipoUsuario:string){
+    if(tipoUsuario == 'Estudiante'){
+      this.newUser.tipousuario = '2';
+    }else {
+      this.newUser.tipousuario = '3'
+    }
   }
 }

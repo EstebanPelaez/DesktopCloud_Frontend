@@ -51,6 +51,7 @@ export class MyVMComponent implements OnInit {
   ngOnInit(): void {
     this.maquinaService.getMaquinasVirtuales().then(value => {
       this.lista = value.data;
+      console.log(value.data);
     });
   }
 
@@ -102,35 +103,15 @@ export class MyVMComponent implements OnInit {
     )
   }
 
-  switchEstado(estado:string, vm:any):string{
-    let nuevoEstado: string
-    if(estado == "Procesando"){
-      nuevoEstado = "Procesando"
-    }else if(estado == "Apagada"){
-      nuevoEstado = "Iniciada"
-    }else {
-      nuevoEstado = "Apagada"
-    }
-    console.log("NuevoEstado"+nuevoEstado)
-    setTimeout(() => {
-      this.axiosService.request(
-        "POST",
-        "/api/updatevms",
-        {
-          cambio: nuevoEstado,
-          id: vm.id
-        }
-      ).then(response => {
-        window.location.reload();
-      });
-    }, 1000);
-    return estado;
-}
-
   showDetails(idmv:any){
     this.detailsFlag = true;
     this.selectedVM = idmv;
     console.log(this.selectedVM)
+  }
+
+  logout(){
+    this.axiosService.setAuthToken(null);
+    this.router.navigate(["/home"]);
   }
 
 }

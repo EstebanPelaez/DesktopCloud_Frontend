@@ -18,11 +18,11 @@
           <fieldset class="rbutton-container">
             <legend>Tipo de usuario</legend>
             <div class="radioB">
-              <input type="radio" class="input-radio" id="r-rstudent" name="r-role" value="Estudiante">
+              <input type="radio" class="input-radio" id="r-rstudent" name="r-role" value="Estudiante" [(ngModel)]="newUser.tipousuario">
               <label for="r-rstudent">Estudiante</label>
             </div>
             <div class="radioB">
-              <input type="radio" class="input-radio" id="r-rprof" name="r-role" value="Docente">
+              <input type="radio" class="input-radio" id="r-rprof" name="r-role" value="Docente" [(ngModel)]="newUser.tipousuario">
               <label for="r-rprof">Docente</label>
             </div>
           </fieldset>

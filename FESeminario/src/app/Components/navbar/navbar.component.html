@@ -1,13 +1,14 @@
 <div class="main-container">
   <div class="container">
-    <img class="logo" src="assets/logoletrasvb.png">
+    <img routerLink="/home" class="logo" src="assets/logoletrasvb.png">
     <ul class="navbar">
       <li><a href="#">Servicios</a></li>
       <li><a href="#">Soporte</a></li>
       <li><a href="#">Acerca de nosotros</a></li>
     </ul>
     <div class="main">
-      <a routerLink="/userprofile"  class="user">{{user.nombre}}</a>
+      <a routerLink="/userprofile" *ngIf="isLogged()" class="user">{{user.nombre}}</a>
+      <a routerLink="/login" *ngIf="!isLogged()" class="user">Iniciar sesión</a>
     </div>
   </div>
 </div>

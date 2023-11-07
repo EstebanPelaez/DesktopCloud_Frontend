@@ -3,6 +3,7 @@ import {NavigationEnd, Router} from "@angular/router";
 import {UsuarioModule} from "../../Modules/usuario/usuario.module";
 import {UsuarioService} from "../../Services/usuario/usuario.service";
 import {AlertService} from "../../Services/alert/alert.service";
+import {AxiosService} from "../../Services/axios/axios.service";
 
 @Component({
   selector: 'app-userprofile',
@@ -13,7 +14,8 @@ export class UserprofileComponent implements OnInit{
 
   user:UsuarioModule={nombre:'', apellidos:'', contrasenia:'', correo:'', tipousuario:'1'}
   select = [false, false, false, false];
-  constructor(private router: Router, private usuarioService:UsuarioService, private alertService: AlertService ) {
+
+  constructor(private axiosService: AxiosService, private router: Router, private usuarioService:UsuarioService, private alertService: AlertService ) {
     this.select = [true, false, false, false];
     this.router.events.subscribe(event =>{
       if(event instanceof NavigationEnd){
@@ -50,5 +52,10 @@ export class UserprofileComponent implements OnInit{
 
     this.router.navigate([path])
     console.log(path)
+  }
+
+  logout(){
+    this.axiosService.setAuthToken(null);
+    this.router.navigate(["/home"]);
   }
 }

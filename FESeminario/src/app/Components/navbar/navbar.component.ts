@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UsuarioService} from "../../Services/usuario/usuario.service";
 import {UsuarioModule} from "../../Modules/usuario/usuario.module";
+import {AxiosService} from "../../Services/axios/axios.service";
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -9,14 +10,19 @@ import {UsuarioModule} from "../../Modules/usuario/usuario.module";
 export class NavbarComponent implements OnInit{
 
   user:UsuarioModule={nombre:'', apellidos:'', contrasenia:'', correo:'', tipousuario:''}
-  constructor(private usuarioService:UsuarioService) {
+  constructor(private usuarioService:UsuarioService, private axiosService:AxiosService) {
   }
 
   ngOnInit(): void {
-    this.usuarioService.getUsuario().then(response => {
-      this.user.nombre = response.data.nombre;
-      this.user.tipousuario = response.data.tipousuario
-    });
-    console.log("USERNAME "+this.user.nombre)
+    if(this.axiosService.getAuthToken()){
+      this.usuarioService.getUsuario().then(response => {
+        this.user.nombre = response.data.nombre;
+        this.user.tipousuario = response.data.tipousuario
+      });
+    }
+  }
+
+  isLogged():boolean{
+    return this.user.nombre != '';
   }
 }

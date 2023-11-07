@@ -10,6 +10,7 @@ import {UsuarioModule} from "../../Modules/usuario/usuario.module";
 export class UsuarioService implements OnInit{
   infoToken:any;
   nombre:any;
+
   constructor(private axiosService:AxiosService, private router:Router, private decoder:JwtService) {
   }
 
@@ -26,4 +27,20 @@ export class UsuarioService implements OnInit{
       token.correo);
   }
 
+  crearUsuario(usuario:UsuarioModule){
+    this.axiosService.request(
+      "POST",
+      "/api/register",
+      {
+        nombre: usuario.nombre,
+        apellidos: usuario.apellidos,
+        contrasenia: usuario.contrasenia,
+        correo: usuario.correo,
+        tipoUsuario: usuario.tipousuario
+      }
+    ).then(response => {
+      this.axiosService.setAuthToken(response.data.token);
+      console.log("USUARIO CREADO")
+    });
+  }
 }

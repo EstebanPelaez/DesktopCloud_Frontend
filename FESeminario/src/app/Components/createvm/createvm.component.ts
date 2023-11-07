@@ -4,6 +4,9 @@ import {AxiosService} from "../../Services/axios/axios.service";
 import {MaquinaVirtualModule} from "../../Modules/maquinavirtual/maquinavirtual.module";
 import {HttpClient} from "@angular/common/http";
 import {AlertService} from "../../Services/alert/alert.service";
+import {UsuarioModule} from "../../Modules/usuario/usuario.module";
+import {UsuarioService} from "../../Services/usuario/usuario.service";
+import {JwtService} from "../../Services/jwt.service";
 
 @Component({
   selector: 'app-createvm',
@@ -22,9 +25,15 @@ export class CreatevmComponent {
     tipoMV: 1
   };
 
-  constructor(private router: Router, private axiosService: AxiosService, private http: HttpClient, private alertService: AlertService) {
-  }
+  userUnlogged: UsuarioModule = {
+    nombre: '',
+    apellidos: 'unlogged',
+    correo: 'unlogged'+window.localStorage.getItem("numbervm"),
+    tipousuario: '4',
+    contrasenia: 'unlogged'}
 
+  constructor(private router: Router, private axiosService: AxiosService, private http: HttpClient, private usuarioService: UsuarioService, private decoder:JwtService, private alertService: AlertService) {
+  }
   /*crearMaquina() {
     this.axiosService.request(
       "POST",
@@ -42,8 +51,16 @@ export class CreatevmComponent {
     )
   }*/
 
-  conectar() {
-    this.alertService.showError("Aviso", "Se ha creado una máquina virtual",5000);
+
+  async conectar() {
+    if (!this.axiosService.getAuthToken()) {
+      console.log("NO TIENE TOKEN "+this.userUnlogged.correo);
+      this.usuarioService.crearUsuario(this.userUnlogged);
+      await new Promise(f => setTimeout(f, 3000));
+    }
+    console.log("SE PROCEDE A CREAR LA MAQUINA")
+    let token: any = this.decoder.DecodeToken(this.axiosService.getAuthToken()!);
+    this.newVM1.idUser = token.id;
     return this.http.post(
       "http://localhost:8000/crearmv", {
         nombre: this.newVM1.nombre,
@@ -58,8 +75,8 @@ export class CreatevmComponent {
         numeroNombre: window.localStorage.getItem("numbervm")
       },
       {
-        headers : {
-          'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
         }
       }
     ).subscribe({
@@ -69,8 +86,7 @@ export class CreatevmComponent {
         this.alertService.showError("Aviso", "Se ha creado una máquina virtual",3000);
         }
       }
-      )
-
+      );
   }
 
   navig(path: string) {
