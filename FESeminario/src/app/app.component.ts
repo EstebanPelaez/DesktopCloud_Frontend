@@ -13,6 +13,7 @@ export class AppComponent implements OnInit{
   showAlert = true;
   message = '';
   description = '';
+  confirm = false;
   constructor(private alertService: AlertService) {
 
   }
@@ -20,6 +21,10 @@ export class AppComponent implements OnInit{
     if (window.localStorage.getItem("numbervm") == null){
       window.localStorage.setItem("numbervm", "0")
     }
+
+    this.alertService.confirm$.subscribe((ans: any) => {
+      this.message = ans.message;
+    })
     this.alertService.alert$.subscribe((res: any) => {
       this.message = res.message;
       this.description = res.description;
@@ -28,6 +33,7 @@ export class AppComponent implements OnInit{
         location.reload();
       }, res.time)
     })
+
 
   }
 

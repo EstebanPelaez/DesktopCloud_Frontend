@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {NavigationEnd, Router} from "@angular/router";
 import {AxiosService} from "../../Services/axios/axios.service";
 import {UsuarioModule} from "../../Modules/usuario/usuario.module";
 import {MaquinavirtualService} from "../../Services/maquinavirtual/maquinavirtual.service";
 import {HttpClient} from "@angular/common/http";
+import {AlertService} from "../../Services/alert/alert.service";
 
 @Component({
   selector: 'app-my-vm',
@@ -12,13 +13,16 @@ import {HttpClient} from "@angular/common/http";
 })
 export class MyVMComponent implements OnInit {
 
+  @Input() myVM:any;
   public lista!: Array<any>;
   user: UsuarioModule = {nombre: '', apellidos: '', contrasenia: '', correo: '', tipousuario: '1'}
   select = [false, false, false, false];
   nuevoEstado = "";
   detailsFlag = false;
+  confirmFlag = false;
   selectedVM: number|undefined;
-  constructor(private axiosService: AxiosService, private router: Router, public maquinaService: MaquinavirtualService, private http: HttpClient) {
+  vm: any | undefined;
+  constructor(private axiosService: AxiosService, private router: Router, public maquinaService: MaquinavirtualService, private http: HttpClient, private alertService: AlertService) {
 
     this.select = [true, false, false, false];
     this.router.events.subscribe(event => {
@@ -53,6 +57,11 @@ export class MyVMComponent implements OnInit {
       this.lista = value.data;
       console.log(value.data);
     });
+    this.alertService.confirm$.subscribe((res: any) => {
+      console.log("sis" + res.console );
+      console.log(confirm)
+    })
+
   }
 
   navig(path: string) {
@@ -84,6 +93,7 @@ export class MyVMComponent implements OnInit {
 
   eliminarVM(vm: any) {
     this.eliminarDB(vm);
+
     return this.http.post(
       "http://localhost:8000/solicitud", {
         "solicitud": "delete",
@@ -98,6 +108,7 @@ export class MyVMComponent implements OnInit {
     ).subscribe({
         next: (result: any) => {
           console.log(result);
+
         }
       }
     )
@@ -112,6 +123,23 @@ export class MyVMComponent implements OnInit {
   logout(){
     this.axiosService.setAuthToken(null);
     this.router.navigate(["/home"]);
+  }
+  showComfirm(vm:any){
+    this.confirmFlag = true;
+    this.vm = vm;
+  }
+
+  addItem(vam:any){
+    console.log(vam);
+    this.vm = vam;
+  }
+
+  confirm(flag:boolean){
+    console.log(flag);
+    if(flag==true){
+      this.confirmFlag = true;
+      this.eliminarVM(this.vm);
+    }
   }
 
 }

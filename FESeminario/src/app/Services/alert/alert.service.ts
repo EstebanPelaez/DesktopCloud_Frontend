@@ -7,18 +7,18 @@ import {Subject} from "rxjs";
 export class AlertService {
 
   private alertSource = new Subject();
+  private confirmSource = new Subject();
   alert$ = this.alertSource.asObservable();
+  confirm$ = this.alertSource.asObservable();
 
   constructor() { }
 
-  showAlert(message: string, time: number = 5000){
-    this.alertSource.next({message, time});
-  }
-
   showError(message: string, description: string, time: number = 5000){
     this.alertSource.next({message, description ,time});
+  }
 
-
+  confirmDialog(message: string){
+    this.confirmSource.next({message});
   }
 
 
