@@ -23,14 +23,14 @@ export class DialogvmComponent implements OnInit{
   confirm(flag: boolean){
     this.newEvent.emit(flag);
     this.addNewItem();
-    window.location.reload();
+    //window.location.reload();
   }
   ngOnInit() {
     this.resizeOutput();
   }
 
   close(){
-    this.alertService.showError("Aviso", "Se ha Eliminado una máquina virtual",3000);
+    window.location.reload();
   }
 
   resizeOutput(){
