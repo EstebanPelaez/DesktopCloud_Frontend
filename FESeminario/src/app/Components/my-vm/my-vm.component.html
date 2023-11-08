@@ -4,14 +4,14 @@
     <div class="top">
       <div class="navbar">
         <p class="title">¿Qué quieres hacer?</p>
-        <a class="button" (click)="navig('userprofile')" [ngClass]="{seleccionado :select[0]}"><i
+        <a class="button" (click)="navig('userprofile')" *appRoles="['1', '2', '3']" [ngClass]="{seleccionado :select[0]}"><i
           class='bx bxs-user-detail'></i>Gestionar datos</a>
         <a class="button" (click)="navig('my-vm')" [ngClass]="{seleccionado: select[1]}"><i
           class="ri-computer-line"></i>Ver máquinas virtuales</a>
-        <a class="button" (click)="navig('addpm')" *appRoles="['2']" [ngClass]="{seleccionado: select[2]}"><i
+        <a class="button" (click)="navig('addpm')" *appRoles="['1']" [ngClass]="{seleccionado: select[2]}"><i
           class="ri-add"></i>Agregar máquina física</a>
-        <a class="button" (click)="navig('my-vm')" *appRoles="['2']" [ngClass]="{seleccionado: select[3]}"><i
-          class="ri-computer-line"></i>Monitorización</a>
+<!--        <a class="button" (click)="navig('my-vm')" *appRoles="['1']" [ngClass]="{seleccionado: select[3]}"><i-->
+<!--          class="ri-computer-line"></i>Monitorización</a>-->
       </div>
     </div>
     <div class="bottom">
@@ -61,7 +61,7 @@
                   </button>
 
                 <button class="buttonDetails" (click)="showDetails(object.id)">Detalles</button>
-                <button class="buttonDelete" (click)="showComfirm(object)"><i class='bx bxs-trash-alt'></i></button>
+                <button class="buttonDelete" id="buttonDelete"  [disabled]="object.estado == 'Iniciada'" (click)="showComfirm(object)"><i class='bx bxs-trash-alt'></i></button>
               </td>
             </tr>
             </tbody>
