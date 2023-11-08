@@ -23,6 +23,7 @@ export class DialogvmComponent implements OnInit{
   confirm(flag: boolean){
     this.newEvent.emit(flag);
     this.addNewItem();
+    window.location.reload();
   }
   ngOnInit() {
     this.resizeOutput();

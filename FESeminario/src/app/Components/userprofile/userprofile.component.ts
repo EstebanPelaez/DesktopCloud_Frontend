@@ -12,7 +12,7 @@ import {AxiosService} from "../../Services/axios/axios.service";
 })
 export class UserprofileComponent implements OnInit{
 
-  user:UsuarioModule={nombre:'', apellidos:'', contrasenia:'', correo:'', tipousuario:'1'}
+  user:UsuarioModule={nombre:'', apellidos:'', contrasenia:'', correo:'', tipousuario:''}
   select = [false, false, false, false];
 
   constructor(private axiosService: AxiosService, private router: Router, private usuarioService:UsuarioService, private alertService: AlertService ) {

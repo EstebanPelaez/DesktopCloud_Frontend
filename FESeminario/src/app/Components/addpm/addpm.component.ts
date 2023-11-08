@@ -62,4 +62,8 @@ export class AddpmComponent implements OnInit{
     this.router.navigate([path]);
     console.log(path);
   }
+  logout(){
+    this.axiosService.setAuthToken(null);
+    this.router.navigate(["/home"]);
+  }
 }

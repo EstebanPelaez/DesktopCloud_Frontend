@@ -4,14 +4,14 @@
     <div class="top">
       <div class="navbar">
         <p class="title">¿Qué quieres hacer?</p>
-        <a class="button" (click)="navig('userprofile')" [ngClass]="{seleccionado :select[0]}"><i
+        <a class="button" (click)="navig('userprofile')" *appRoles="['1', '2', '3']" [ngClass]="{seleccionado :select[0]}"><i
           class='bx bxs-user-detail'></i>Gestionar datos</a>
         <a class="button" (click)="navig('my-vm')" [ngClass]="{seleccionado: select[1]}"><i
           class="ri-computer-line"></i>Ver máquinas virtuales</a>
-        <a class="button" (click)="navig('addpm')" *appRoles="['2']" [ngClass]="{seleccionado: select[2]}"><i
+        <a class="button" (click)="navig('addpm')" *appRoles="['1']" [ngClass]="{seleccionado: select[2]}"><i
           class="ri-add"></i>Agregar máquina física</a>
-        <a class="button" (click)="navig('my-vm')"  *appRoles="['2']" [ngClass]="{seleccionado: select[3]}"><i
-          class="ri-computer-line"></i>Monitorización</a>
+        <!--        <a class="button" (click)="navig('my-vm')" *appRoles="['1']" [ngClass]="{seleccionado: select[3]}"><i-->
+        <!--          class="ri-computer-line"></i>Monitorización</a>-->
       </div>
     </div>
     <div class="bottom">
@@ -23,7 +23,7 @@
   <div class="content">
     <div class="user-container">
       <div class="header-container">
-        <p class="title">Perfil del usuario <a class="editar">Editar</a></p>
+        <p class="title">Perfil del usuario <a class="editar" >Editar</a></p>
         <p class="description">Datos personales</p>
       </div>
       <div class="inputs">

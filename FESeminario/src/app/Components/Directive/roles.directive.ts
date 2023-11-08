@@ -1,26 +1,30 @@
 import {Directive, Input, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
 import {UsuarioService} from "../../Services/usuario/usuario.service";
 import {UsuarioModule} from "../../Modules/usuario/usuario.module";
+import {AxiosService} from "../../Services/axios/axios.service";
+import {JwtService} from "../../Services/jwt.service";
 
 @Directive({
   selector: '[appRoles]'
 })
 export class RolesDirective  implements OnInit{
 
-  private user: UsuarioModule = {nombre: '', apellidos: '', contrasenia: '', correo: '', tipousuario: '2'}
+  private user: UsuarioModule = {nombre: '', apellidos: '', contrasenia: '', correo: '', tipousuario: '3'}
   private permissions:string[] = [];
 
-  constructor(
-    private templateRef: TemplateRef<any>,
-    private viewContainer: ViewContainerRef,
-    private usuarioService: UsuarioService) {
+  constructor(private templateRef: TemplateRef<any>, private viewContainer: ViewContainerRef, private usuarioService: UsuarioService, private axiosService:AxiosService, private decoder:JwtService){
+
+    if(axiosService.getAuthToken()){
+      let token:any = this.decoder.DecodeToken(this.axiosService.getAuthToken()!);
+      this.user.tipousuario = token.tipoUsuario;
+    }else{
+      this.user.tipousuario = '4';
+    }
+
   }
 
   ngOnInit(): void {
-    console.log(this.usuarioService);
-    this.usuarioService.getUsuario().then(res => {
-      this.user.tipousuario = res.data.tipousuario;
-    });
+
   }
 
   @Input()
@@ -41,9 +45,13 @@ export class RolesDirective  implements OnInit{
   private checkPermissions(): boolean {
     let hasPermission = false;
     if (this.user.tipousuario) {
-        if(this.permissions[0] === this.user.tipousuario){
-            hasPermission=true;
+      this.permissions.forEach(permission => {
+        if (permission == this.user.tipousuario) {
+          hasPermission = true;
+          // Si se encuentra una coincidencia, puedes detener el bucle
+          // break;
         }
+      });
     }
     return hasPermission;
   }
