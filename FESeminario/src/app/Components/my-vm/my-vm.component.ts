@@ -57,10 +57,7 @@ export class MyVMComponent implements OnInit {
       this.lista = value.data;
       console.log(value.data);
     });
-    this.alertService.confirm$.subscribe((res: any) => {
-      console.log("sis" + res.console );
-      console.log(confirm)
-    })
+
 
   }
 
@@ -72,6 +69,7 @@ export class MyVMComponent implements OnInit {
   iniciarVM(vm: any) {
     let request: string;
     vm.estado=="Iniciada"?request = "finish" : request = "start";
+    this.alertService.showError("Aviso", "Se está iniciando la máquina virtual",3000);
     this.maquinaService.solicitarCambioVM(vm, request);
   }
 
@@ -86,8 +84,6 @@ export class MyVMComponent implements OnInit {
         "idmf": vm.mfisica.idMF
       }
     ).then(response => {
-
-      window.location.reload();
     });
   }
 
@@ -95,7 +91,7 @@ export class MyVMComponent implements OnInit {
     this.eliminarDB(vm);
 
     return this.http.post(
-      "http://localhost:8000/solicitud", {
+      "http://"+window.localStorage.getItem("ipsolic")!+":8000/solicitud", {
         "solicitud": "delete",
         "nombre": vm.nombre,
         "idmf": vm.mfisica.idMF
@@ -108,6 +104,7 @@ export class MyVMComponent implements OnInit {
     ).subscribe({
         next: (result: any) => {
           console.log(result);
+          this.alertService.showError("Aviso", "Se ha Eliminado una máquina virtual",3000);
 
         }
       }

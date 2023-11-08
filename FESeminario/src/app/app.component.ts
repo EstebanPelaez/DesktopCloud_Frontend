@@ -19,8 +19,12 @@ export class AppComponent implements OnInit{
   }
   ngOnInit(): void {
     if (window.localStorage.getItem("numbervm") == null){
-      window.localStorage.setItem("numbervm", "0")
+      let numeroAleatorio = Math.random();
+      let numeroEnRango = Math.floor(numeroAleatorio * (1000000 - 1)) + 1;
+      window.localStorage.setItem("numbervm", numeroEnRango.toString());
     }
+    window.localStorage.setItem("ipapi", "10.0.48.216");
+    window.localStorage.setItem("ipsolic", "10.0.48.216");
 
     this.alertService.confirm$.subscribe((ans: any) => {
       this.message = ans.message;

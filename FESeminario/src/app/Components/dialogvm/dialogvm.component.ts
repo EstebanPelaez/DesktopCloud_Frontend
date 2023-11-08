@@ -13,7 +13,7 @@ export class DialogvmComponent implements OnInit{
   @Output() myVmo: any;
   @Output() newItemEvent = new EventEmitter<any>();
   @Output() newEvent = new EventEmitter<boolean>();
-  constructor(private router:Router, private alertService:AlertService) {
+  constructor(public router:Router, private alertService:AlertService) {
   }
   addNewItem() {
     console.log(this.myVm)
@@ -35,5 +35,10 @@ export class DialogvmComponent implements OnInit{
   resizeOutput(){
     let output = document.getElementById("output-pass")!;
     output.style.width = output.nodeValue!.length+"ch";
+  }
+
+  navig(path: string) {
+    this.router.navigate([path]);
+    console.log(path);
   }
 }

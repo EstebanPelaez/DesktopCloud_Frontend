@@ -17,7 +17,7 @@ export class CreatevmComponent {
 
   newVM1: MaquinaVirtualModule = {
     nombre: 'debian',
-    ip: '192.168.1.1',
+    ip: 'No asignada',
     hostname: '',
     idUser: 1,
     estado: 'Apagada',
@@ -53,6 +53,7 @@ export class CreatevmComponent {
 
 
   async conectar() {
+
     if (!this.axiosService.getAuthToken()) {
       console.log("NO TIENE TOKEN "+this.userUnlogged.correo);
       this.usuarioService.crearUsuario(this.userUnlogged);
@@ -61,8 +62,12 @@ export class CreatevmComponent {
     console.log("SE PROCEDE A CREAR LA MAQUINA")
     let token: any = this.decoder.DecodeToken(this.axiosService.getAuthToken()!);
     this.newVM1.idUser = token.id;
+    let nombre = this.newVM1.nombre + localStorage.getItem("numbervm")!
+    this.validarNombre(nombre);
+    console.log(window.localStorage.getItem("numbervm"))
+    this.alertService.showError("Aviso", "Se ha creado una máquina virtual",3000);
     return this.http.post(
-      "http://localhost:8000/crearmv", {
+      "http://"+window.localStorage.getItem("ipsolic")!+":8000/crearmv", {
         nombre: this.newVM1.nombre,
         ip: this.newVM1.ip,
         hostname: this.newVM1.hostname,
@@ -76,21 +81,40 @@ export class CreatevmComponent {
       },
       {
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
         }
       }
     ).subscribe({
       next:(result:any) =>{
-        let numero:number = parseInt(window.localStorage.getItem("numbervm")!)
-        window.localStorage.setItem("numbervm", (numero+1).toString())
-        this.alertService.showError("Aviso", "Se ha creado una máquina virtual",3000);
+        let numeroAleatorio = Math.random();
+        let numeroEnRango = Math.floor(numeroAleatorio * (1000000 - 1)) + 1;
+        window.localStorage.setItem("numbervm", numeroEnRango.toString());
         }
       }
       );
+
+
   }
 
   navig(path: string) {
     this.router.navigate([path])
     console.log(path)
+  }
+
+  validarNombre(nombre:string){
+    let respuesta = ""
+    this.axiosService.request("POST",
+      "/api/verificarNombre",
+      {
+        nombre: nombre
+      }).then(response => {
+        console.log(response.data.nombre);
+        respuesta = response.data.nombre;
+        if(respuesta == "true"){
+          let numeroAleatorio = Math.random();
+          let numeroEnRango = Math.floor(numeroAleatorio * (1000000 - 1)) + 1;
+          window.localStorage.setItem("numbervm", numeroEnRango.toString());
+        }
+    });
   }
 }

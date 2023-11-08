@@ -25,7 +25,8 @@ export class VmdetailsComponent implements OnInit{
   }
 
   copy(){
-    navigator.clipboard.writeText(document.getElementById("ssh-connection")!.innerText)
+    console.log(navigator.clipboard);
+    navigator.clipboard.writeText(document.getElementById("ssh-connection")!.innerText);
   }
 
   close(){
