@@ -20,7 +20,6 @@ export class UsuarioService implements OnInit{
 
   getUsuario(): Promise<any>{
     let token:any = this.decoder.DecodeToken(this.axiosService.getAuthToken()!);
-    console.log(token.iss)
     return this.axiosService.request(
       "POST",
       "/api/getUser",
@@ -40,7 +39,6 @@ export class UsuarioService implements OnInit{
       }
     ).then(response => {
       this.axiosService.setAuthToken(response.data.token);
-      console.log("USUARIO CREADO")
     });
   }
 }

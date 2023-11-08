@@ -6,7 +6,7 @@ import axios from 'axios';
 export class AxiosService {
 
   constructor() {
-    axios.defaults.baseURL ="http://10.0.48.216:8080";
+    axios.defaults.baseURL ="http://"+window.localStorage.getItem("ipapi")+":8080";
     axios.defaults.headers.post["Content-Type"] = "application/json";
   }
 

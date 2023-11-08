@@ -203,6 +203,13 @@
   color: #ff3c3c;
 }
 
+.buttonDelete:disabled{
+  cursor: default;
+  background-color: #707070FF;
+  border: 2px solid #707070FF;
+  color: #e1e1e1;
+}
+
 .buttonDetails{
   width: 40%;
   height: 100%;

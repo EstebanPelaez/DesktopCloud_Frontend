@@ -25,6 +25,16 @@ export class CreatevmComponent {
     tipoMV: 1
   };
 
+  newVM2: MaquinaVirtualModule = {
+    nombre: 'debian',
+    ip: 'No asignada',
+    hostname: '',
+    idUser: 1,
+    estado: 'Apagada',
+    idMF: 0,
+    tipoMV: 2
+  };
+
   userUnlogged: UsuarioModule = {
     nombre: '',
     apellidos: 'unlogged',
@@ -34,71 +44,59 @@ export class CreatevmComponent {
 
   constructor(private router: Router, private axiosService: AxiosService, private http: HttpClient, private usuarioService: UsuarioService, private decoder:JwtService, private alertService: AlertService) {
   }
-  /*crearMaquina() {
-    this.axiosService.request(
-      "POST",
-      "/api/savevm",
-      {
-        nombre: this.newVM1.nombre,
-        ip: this.newVM1.ip,
-        hostname: this.newVM1.hostname,
-        idUser: this.newVM1.idUser,
-        tipoMV: this.newVM1.tipoMV,
-        idMF: this.newVM1.idMF,
-        estado: this.newVM1.estado,
-        solicitud: "create"
-      }
-    )
-  }*/
 
 
-  async conectar() {
-
+  async conectar(newVM: MaquinaVirtualModule) {
     if (!this.axiosService.getAuthToken()) {
-      console.log("NO TIENE TOKEN "+this.userUnlogged.correo);
       this.usuarioService.crearUsuario(this.userUnlogged);
-      await new Promise(f => setTimeout(f, 3000));
+      await new Promise(f => setTimeout(f, 1000));
     }
-    console.log("SE PROCEDE A CREAR LA MAQUINA")
     let token: any = this.decoder.DecodeToken(this.axiosService.getAuthToken()!);
-    this.newVM1.idUser = token.id;
-    let nombre = this.newVM1.nombre + localStorage.getItem("numbervm")!
-    this.validarNombre(nombre);
-    console.log(window.localStorage.getItem("numbervm"))
-    this.alertService.showError("Aviso", "Se ha creado una máquina virtual",3000);
-    return this.http.post(
-      "http://"+window.localStorage.getItem("ipsolic")!+":8000/crearmv", {
-        nombre: this.newVM1.nombre,
-        ip: this.newVM1.ip,
-        hostname: this.newVM1.hostname,
-        idUser: this.newVM1.idUser,
-        contrasenia: "1234",
-        tipoMV: this.newVM1.tipoMV,
-        idMF: this.newVM1.idMF,
-        estado: this.newVM1.estado,
-        solicitud: "create",
-        numeroNombre: window.localStorage.getItem("numbervm")
-      },
-      {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+    let numeroMaquinas = 0;
+    this.validarNumeroMaquinas(token.id).then(result => {
+      numeroMaquinas = result.data.length
+    });
+    await new Promise(f => setTimeout(f, 1000));
+    if(token.apellidos == "unlogged" && numeroMaquinas>=1){
+      this.alertService.showError("Error", "Para crear más máquinas virtuales, inicie sesión",3000);
+      return undefined;
+    }else {
+      newVM.idUser = token.id;
+      let nombre = this.newVM1.nombre + localStorage.getItem("numbervm")!;
+      this.validarNombre(nombre);
+      this.validarNumeroMaquinas(token.id);
+      this.alertService.showError("Aviso", "Se ha creado una máquina virtual",3000);
+      return this.http.post(
+        "http://"+window.localStorage.getItem("ipsolic")!+":8000/crearmv", {
+          nombre: newVM.nombre,
+          ip: newVM.ip,
+          hostname: newVM.hostname,
+          idUser: newVM.idUser,
+          contrasenia: "1234",
+          tipoMV: newVM.tipoMV,
+          idMF: newVM.idMF,
+          estado: newVM.estado,
+          solicitud: "create",
+          numeroNombre: window.localStorage.getItem("numbervm")
+        },
+        {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+          }
         }
-      }
-    ).subscribe({
-      next:(result:any) =>{
-        let numeroAleatorio = Math.random();
-        let numeroEnRango = Math.floor(numeroAleatorio * (1000000 - 1)) + 1;
-        window.localStorage.setItem("numbervm", numeroEnRango.toString());
+      ).subscribe({
+        next:(result:any) =>{
+          let numeroAleatorio = Math.random();
+          let numeroEnRango = Math.floor(numeroAleatorio * (1000000 - 1)) + 1;
+          window.localStorage.setItem("numbervm", numeroEnRango.toString());
+          }
         }
-      }
-      );
-
-
+        );
+    }
   }
 
   navig(path: string) {
     this.router.navigate([path])
-    console.log(path)
   }
 
   validarNombre(nombre:string){
@@ -108,7 +106,6 @@ export class CreatevmComponent {
       {
         nombre: nombre
       }).then(response => {
-        console.log(response.data.nombre);
         respuesta = response.data.nombre;
         if(respuesta == "true"){
           let numeroAleatorio = Math.random();
@@ -116,5 +113,13 @@ export class CreatevmComponent {
           window.localStorage.setItem("numbervm", numeroEnRango.toString());
         }
     });
+  }
+
+  validarNumeroMaquinas(id:number):Promise<any>{
+    return this.axiosService.request(
+      "POST",
+      "http://"+window.localStorage.getItem("ipapi")+":8080/api/getvms",
+      id
+      );
   }
 }

@@ -9,7 +9,7 @@ import {AddpmComponent} from "./Components/addpm/addpm.component";
 import {HomeComponent} from "./Components/home/home.component";
 
 const routes: Routes = [
-  {path:'', redirectTo:'login', pathMatch:'full'},
+  {path:'', redirectTo:'home', pathMatch:'full'},
   {path:'login', component:LoginComponent},
   {path:'registro', component:RegistroComponent},
   {path:'my-vm', component:MyVMComponent},
