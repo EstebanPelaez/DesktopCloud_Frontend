@@ -7,9 +7,9 @@
 }
 .main-container .login-container{
   display: flex;
-  justify-content: center;
+  justify-content: start;
   width: 28%;
-  height: 70%;
+  height: 75%;
   background-color: white;
   margin: auto;
   flex-direction: column;
@@ -17,7 +17,15 @@
 }
 
 /*____________________HEADER______________________*/
-
+.closeBtn{
+  align-self: end;
+  margin-right: 5%;
+  margin-top: 5%;
+  background-color: transparent;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}
 .login-container .header-container{
   display: flex;
   height: 20%;
@@ -26,7 +34,7 @@
   text-align: center;
 }
 
-.login-container .header-container .title{
+.header-container .title{
   display: block;
   width: 100%;
   height: 50%;
@@ -36,7 +44,7 @@
   margin: 0;
 }
 
-.login-container .header-container .description{
+.header-container .description{
   display: block;
   width: 80%;
   height: 50%;
@@ -142,4 +150,5 @@
 .login-container .signup-container .signup-button{
   color: #C06800;
   text-decoration: underline;
+  cursor: pointer;
 }

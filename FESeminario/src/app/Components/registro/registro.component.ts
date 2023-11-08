@@ -37,4 +37,9 @@ export class RegistroComponent {
       this.newUser.tipousuario = '3'
     }
   }
+
+  navig(path: string) {
+    this.router.navigate([path]);
+    console.log(path);
+  }
 }

@@ -8,8 +8,8 @@
 }
 .main-container .login-container{
   display: flex;
-  justify-content: center;
-  width: 50%;
+  justify-content: start;
+  width: 45%;
   height: 80%;
   background-color: white;
   margin: auto;
@@ -18,7 +18,15 @@
 }
 
 /*____________________HEADER______________________*/
-
+.closeBtn{
+  align-self: end;
+  margin-right: 5%;
+  margin-top: 5%;
+  background-color: transparent;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}
 .login-container .header-container{
   display: flex;
   height: 15%;

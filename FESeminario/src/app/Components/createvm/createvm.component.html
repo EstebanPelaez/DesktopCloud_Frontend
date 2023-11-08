@@ -1,8 +1,10 @@
 <app-navbar></app-navbar>
 <div class="main-container">
   <div class="header-container">
-    <p class="title">Crear máquina virtual<a class="navegar" (click)="navig('my-vm')">Ver mis máquinas</a></p>
-    <div class="description">Selecciona la opción que mejor se adapte a tus necesidades</div>
+    <div class="title">
+      <span>Crear máquina virtual</span>
+      <a class="navegar" (click)="navig('my-vm')">Ver mis máquinas</a></div>
+      <div class="description">Selecciona la opción que mejor se adapte a tus necesidades</div>
   </div>
   <div class="main-containerc">
     <div class="cards-container">
@@ -26,7 +28,7 @@
           </div>
         </div>
       </div>
-      <div class="col2" *appRoles="['3']">
+      <div class="col2" *appRoles="['1','2','3']">
         <div class="card-container">
           <div class="header-card">
             <div class="titlec">Máquina tipo 2</div>

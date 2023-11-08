@@ -49,20 +49,16 @@
   color: white;
   background-color: #C06800;
   padding: 15px 20px 15px 20px;
+  border: 2px solid transparent;
   border-radius: 8px;
-  transition: all .50s ease;
   margin: 10px 20px 10px 10px;
 }
 .button-c:hover{
-  color: #022128;
+  color: #C06800;
   background-color: white;
-  padding: 15px 20px 15px 20px;
   border-radius: 8px;
-  font-weight: 500;
-  transition: all .50s ease;
-  width: 90%;
-  height: 70%;
-  transition: all .50s ease;
+  border: 2px solid #C06800;
+  cursor: pointer;
 }
 .button-v{
   color: #022128;
@@ -75,10 +71,7 @@
 .button-v:hover{
   color: #022128;
   background-color: #d3d3d3;
-  padding: 15px 20px 15px 20px;
-  border-radius: 8px;
-  transition: all .50s ease;
-  margin: 10px 20px 10px 10px;
+  cursor: pointer;
 }
 
 /*____________________DESCRIPCIONES______________________*/

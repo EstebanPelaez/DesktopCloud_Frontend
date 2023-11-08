@@ -53,6 +53,10 @@
   flex-direction: row;
 }
 
+.details-container .specifications p{
+  margin: 7% 0;
+}
+
 .specifications .column{
   width: 50%;
   text-align: center;
@@ -67,11 +71,13 @@
 /*_______________________CONNECTION_______________________*/
 .connection{
   display: flex;
+  max-width: 80%;
+  max-height: 20%;
   flex-direction: column;
   align-items: center;
   margin: 0 30px;
   border: 1px solid black;
-  padding: 5%;
+  /*padding: 5%;*/
 
 }
 
@@ -81,7 +87,7 @@
 }
 .connection .ssh-command{
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 2%;
 }
 .connection p{
   margin: 0;
