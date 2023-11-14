@@ -15,6 +15,7 @@ export class MonitoringComponent implements  OnInit{
   public lista!: Array<any>;
   public maquinasFisicas!: Array<any>;
   public maquina: any;
+  ip:string = "192.168.1.40"
   constructor(private router: Router, private maquinaService: MaquinafisicaService, private axiosService: AxiosService) {
   }
 

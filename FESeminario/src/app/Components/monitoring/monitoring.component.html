@@ -8,18 +8,22 @@
         <p class="description">A continuación puede observar información del sistema de las máquinas físicas actualmente
           activas</p>
       </div>
+
+      <div class="dashboard">
+        <iframe src="http://192.168.1.40:3000/d-solo/Kdh0OoSGz2/8c320a1c-d2b8-58c8-9b62-a8ecca1c4c1f?orgId=1&theme=light&panelId=56" width="450" height="200" frameborder="0"></iframe>
+        <iframe src="http://192.168.1.40:3000/d-solo/Kdh0OoSGz2/8c320a1c-d2b8-58c8-9b62-a8ecca1c4c1f?orgId=1&theme=light&panelId=57" width="450" height="200" frameborder="0"></iframe>
+        <iframe src="http://192.168.1.40:3000/d-solo/Kdh0OoSGz2/8c320a1c-d2b8-58c8-9b62-a8ecca1c4c1f?orgId=1&theme=light&panelId=58" width="450" height="200" frameborder="0"></iframe>
+        <iframe src="http://192.168.1.40:3000/d-solo/Kdh0OoSGz2/8c320a1c-d2b8-58c8-9b62-a8ecca1c4c1f?orgId=1&theme=light&panelId=59" width="450" height="200" frameborder="0"></iframe>
+        <iframe src="http://192.168.1.40:3000/d-solo/Kdh0OoSGz2/8c320a1c-d2b8-58c8-9b62-a8ecca1c4c1f?orgId=1&theme=light&panelId=60" width="450" height="200" frameborder="0"></iframe>
+        <iframe src="http://192.168.1.40:3000/d-solo/Kdh0OoSGz2/8c320a1c-d2b8-58c8-9b62-a8ecca1c4c1f?orgId=1&theme=light&panelId=61" width="450" height="200" frameborder="0"></iframe>
+        <iframe src="http://192.168.1.40:3000/d-solo/Kdh0OoSGz2/windows-exporter-for-prometheus-dashboard?orgId=1&var-job=windows_exporter&var-hostname=All&var-instance=192.168.1.68%3A9182&var-show_hostname=DESKTOP-NT3IJCJ&theme=light&panelId=45" width="97%" frameborder="0"></iframe>
+      </div>
       <p class="description">Selecciona una máquina física</p>
       <select [(ngModel)]="maquina" (change)="getMaquinasVirtualesMF(maquina)" class="select">
         <option [disabled]="true" value="Selecciona uno">Selecciona uno</option>
         selecciona
         <option *ngFor="let opcion of maquinasFisicas" [ngValue]="opcion">Máquina: {{ opcion.idMF }}</option>
       </select>
-      <div class="dashboard">
-        <iframe
-          src="http://localhost:3000/d-solo/Kdh0OoSGz2/windows-exporter-for-prometheus-dashboard?orgId=1&refresh=10s&panelId=45"
-          width="1000" height="370" frameborder="0"></iframe>
-      </div>
-
       <table class="tabla">
         <thead class="t-header">
         <tr>
