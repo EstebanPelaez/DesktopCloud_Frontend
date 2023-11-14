@@ -1,0 +1,21 @@
+<div class="lateral">
+  <div class="top">
+    <div class="navbar">
+      <p class="title">¿Qué quieres hacer?</p>
+      <a class="button" (click)="navig('userprofile')" *appRoles="['1', '2', '3']" [ngClass]="{seleccionado :select[0]}"><i
+        class='bx bxs-user-detail'></i>Gestionar datos</a>
+      <a class="button" (click)="navig('my-vm')" [ngClass]="{seleccionado: select[1]}"><i
+        class="ri-computer-line"></i>Ver máquinas virtuales</a>
+      <a class="button" (click)="navig('addpm')" *appRoles="['1']" [ngClass]="{seleccionado: select[2]}"><i
+        class="ri-add"></i>Agregar máquina física</a>
+       <a class="button" (click)="navig('monitoring')" *appRoles="['1']" [ngClass]="{seleccionado: select[3]}"><i
+          class="ri-computer-line"></i>Monitorización</a>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="navbar-b">
+      <a class="button" (click)="logout()" *appRoles="['1', '2', '3']"><i class='bx bx-log-out'></i>Cerrar sesión</a>
+      <a class="buttons" (click)="logout()" *appRoles="['4']"><i class='bx bx-log-out'></i>Salir</a>
+    </div>
+  </div>
+</div>

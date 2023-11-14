@@ -7,6 +7,7 @@ import {UserprofileComponent} from "./Components/userprofile/userprofile.compone
 import {CreatevmComponent} from "./Components/createvm/createvm.component";
 import {AddpmComponent} from "./Components/addpm/addpm.component";
 import {HomeComponent} from "./Components/home/home.component";
+import {MonitoringComponent} from "./Components/monitoring/monitoring.component";
 
 const routes: Routes = [
   {path:'', redirectTo:'home', pathMatch:'full'},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path:'userprofile', component:UserprofileComponent},
   {path:'createvm', component:CreatevmComponent},
   {path: 'addpm', component:AddpmComponent},
-  {path: 'home', component:HomeComponent}
+  {path: 'home', component:HomeComponent},
+  {path: 'monitoring', component:MonitoringComponent}
 ];
 
 @NgModule({

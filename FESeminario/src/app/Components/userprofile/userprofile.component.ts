@@ -13,29 +13,7 @@ import {AxiosService} from "../../Services/axios/axios.service";
 export class UserprofileComponent implements OnInit{
 
   user:UsuarioModule={nombre:'', apellidos:'', contrasenia:'', correo:'', tipousuario:''}
-  select = [false, false, false, false];
-
   constructor(private axiosService: AxiosService, private router: Router, private usuarioService:UsuarioService, private alertService: AlertService ) {
-    this.select = [true, false, false, false];
-    this.router.events.subscribe(event =>{
-      if(event instanceof NavigationEnd){
-        console.log("EVENT", event)
-        switch (event.urlAfterRedirects){
-          case "/":
-            this.select = [false, false, false, false];break;
-          case "/userprofile":
-            this.select = [true, false, false, false];break;
-          case "/my-vm":
-            this.select = [false, true, false, false];break;
-          case "/addpm":
-            this.select = [false, false, true, false];break;
-          case "/my-vm":
-            this.select = [false, false, false, true];break;
-          default:
-            this.select = [true, false, false, false]; break;
-        }
-      }
-    })
 
   }
   ngOnInit(): void {
@@ -54,8 +32,4 @@ export class UserprofileComponent implements OnInit{
     console.log(path)
   }
 
-  logout(){
-    this.axiosService.setAuthToken(null);
-    this.router.navigate(["/home"]);
-  }
 }

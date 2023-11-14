@@ -17,11 +17,12 @@
 
 .content {
   display: flex;
-  width: 80vw;
+  width: 100vw;
   height: 100%;
   background-color: #ffffff;
   flex-direction: column;
   padding-top: 4%;
+  padding-left: 20%;
 }
 
 .pm-container {
@@ -66,101 +67,9 @@
   margin: 0;
 }
 
-.lateral {
-  display: flex;
-  width: 20vw;
-  height: 100vh;
-  flex: 1;
-  background-color: #022128;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-
 .pm-container {
   margin-top: 5%;
   border-color: #131313;
-}
-
-.top{
-  margin-top: 30%;
-  width: 90%;
-  height: 70%;
-  text-align: center;
-  line-height: 50px;
-  align-self: flex-start;
-}
-
-.button{
-  width: 90%;
-  height: 70%;
-  margin: 5%;
-  text-align: center;
-  line-height: 320%;
-  align-self: flex-end;
-  color: #022128;
-  background-color:white;
-}
-
-
-/*____________________LATERAL BAR______________________*/
-
-.navbar {
-  display: flex;
-  padding: 20% 10px 10px 10px;
-  flex-direction: column;
-}
-
-.navbar a{
-  padding: 0px 20px 0px 20px;
-  border-radius: 8px;
-  font-weight: 500;
-  /*transition: all .50s ease;*/
-  width: 90%;
-  height: 70%;
-  cursor: pointer;
-}
-
-.navbar a:hover {
-  background-color: #C06800;
-  color: white;
-  font-weight: 500;
-}
-
-.navbar a i {
-  margin-right: 10px;
-  font-size: 120%;
-}
-
-.navbar-b {
-  display: flex;
-  padding: 10px 10px 10px 10px;
-  flex-direction: column;
-  align-items: center;
-}
-
-.navbar-b a {
-  padding: 0 20px 0 20px;
-  color: white;
-  background-color: #D13A3A;
-  border-radius: 8px;
-  font-weight: 500;
-  /*transition: all .50s ease;*/
-  cursor: pointer;
-  width: 100%;
-  height: 70%;
-}
-
-.navbar-b a:hover {
-  background-color: white;
-  color: #D13A3A;
-  font-weight: 500;
-}
-
-.navbar-b a i {
-  margin-right: 10px;
-  font-size: 120%;
-
 }
 
 .title {
@@ -271,14 +180,3 @@
   color: #C06800;
 }
 
-
-.seleccionado{
-  color: white;
-  background-color: #C06800;
-  padding: 0px 20px 0px 20px;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: all .50s ease;
-  width: 90%;
-  height: 70%;
-}

@@ -18,6 +18,8 @@ import { AddpmComponent } from './Components/addpm/addpm.component';
 import { HomeComponent } from './Components/home/home.component';
 import { VmdetailsComponent } from './Components/vmdetails/vmdetails.component';
 import { DialogvmComponent } from './Components/dialogvm/dialogvm.component';
+import { MonitoringComponent } from './Components/monitoring/monitoring.component';
+import { LateralComponent } from './Components/lateral/lateral.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { DialogvmComponent } from './Components/dialogvm/dialogvm.component';
     HomeComponent,
     VmdetailsComponent,
     DialogvmComponent,
+    MonitoringComponent,
+    LateralComponent,
   ],
   imports: [
     BrowserModule,

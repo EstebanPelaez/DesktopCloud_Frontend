@@ -16,7 +16,6 @@ export class MyVMComponent implements OnInit {
   @Input() myVM:any;
   public lista!: Array<any>;
   user: UsuarioModule = {nombre: '', apellidos: '', contrasenia: '', correo: '', tipousuario: '1'}
-  select = [false, false, false, false];
   nuevoEstado = "";
   detailsFlag = false;
   confirmFlag = false;
@@ -24,32 +23,6 @@ export class MyVMComponent implements OnInit {
   vm: any | undefined;
   constructor(private axiosService: AxiosService, private router: Router, public maquinaService: MaquinavirtualService, private http: HttpClient, private alertService: AlertService) {
 
-    this.select = [true, false, false, false];
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        console.log("EVENT", event)
-        switch (event.urlAfterRedirects) {
-          case "/":
-            this.select = [false, false, false, false];
-            break;
-          case "/userprofile":
-            this.select = [true, false, false, false];
-            break;
-          case "/my-vm":
-            this.select = [false, true, false, false];
-            break;
-          case "/addpm":
-            this.select = [false, false, true, false];
-            break;
-          case "/my-vm":
-            this.select = [false, false, false, true];
-            break;
-          default:
-            this.select = [true, false, false, false];
-            break;
-        }
-      }
-    })
   }
 
   ngOnInit(): void {
@@ -119,10 +92,6 @@ export class MyVMComponent implements OnInit {
     console.log(this.selectedVM)
   }
 
-  logout(){
-    this.axiosService.setAuthToken(null);
-    this.router.navigate(["/home"]);
-  }
   showComfirm(vm:any){
     this.confirmFlag = true;
     this.vm = vm;

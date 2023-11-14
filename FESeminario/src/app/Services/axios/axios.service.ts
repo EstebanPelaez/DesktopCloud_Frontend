@@ -36,9 +36,14 @@ export class AxiosService {
     });
   }
   request2(method: string, url:string): Promise<any> {
+    let headers = {};
+    if (this.getAuthToken() !== null) {
+      headers = {"Authorization": "Bearer " + this.getAuthToken()}
+    }
     return axios({
       method: method,
-      url: url
+      url: url,
+      headers: headers
     });
   }
 

@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<app-lateral></app-lateral>
+<div class="main-container">
+  <div class="content">
+    <div class="pm-container">
+      <div class="header-container">
+        <p class="title">Información máquinas físicas</p>
+        <p class="description">A continuación puede observar información del sistema de las máquinas físicas actualmente
+          activas</p>
+      </div>
+      <p class="description">Selecciona una máquina física</p>
+      <select [(ngModel)]="maquina" (change)="getMaquinasVirtualesMF(maquina)" class="select">
+        <option [disabled]="true" value="Selecciona uno">Selecciona uno</option>
+        selecciona
+        <option *ngFor="let opcion of maquinasFisicas" [ngValue]="opcion">Máquina: {{ opcion.idMF }}</option>
+      </select>
+      <div class="dashboard">
+        <iframe
+          src="http://localhost:3000/d-solo/Kdh0OoSGz2/windows-exporter-for-prometheus-dashboard?orgId=1&refresh=10s&panelId=45"
+          width="1000" height="370" frameborder="0"></iframe>
+      </div>
+
+      <table class="tabla">
+        <thead class="t-header">
+        <tr>
+          <th>Nombre</th>
+          <th>Hostname</th>
+          <th>Dirección IP</th>
+          <th>Estado</th>
+          <th class="buttons"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="text-center" *ngFor="let object of lista">
+          <td>{{object.ip}}</td>
+          <td>{{object.hostname}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+

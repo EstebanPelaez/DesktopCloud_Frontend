@@ -14,29 +14,9 @@ import {AlertService} from "../../Services/alert/alert.service";
 })
 export class AddpmComponent implements OnInit{
 
-  select = [false, false, false, false];
   newpm:MaquinafisicaModule={adaptador:'', cpu: 0, hostname:'', ip:'', os:'', ram: 0, almacenamiento: 0}
   constructor(private alertService:AlertService, private axiosService:AxiosService, private router: Router, private maquinaService:MaquinafisicaService, private usuarioService:UsuarioService) {
-    this.select = [true, false, false, false];
-    this.router.events.subscribe(event =>{
-      if(event instanceof NavigationEnd){
-        console.log("EVENT", event)
-        switch (event.urlAfterRedirects){
-          case "/":
-            this.select = [false, false, false, false];break;
-          case "/userprofile":
-            this.select = [true, false, false, false];break;
-          case "/my-vm":
-            this.select = [false, true, false, false];break;
-          case "/addpm":
-            this.select = [false, false, true, false];break;
-          case "/my-vm":
-            this.select = [false, false, false, true];break;
-          default:
-            this.select = [true, false, false, false]; break;
-        }
-      }
-    })
+
   }
 
   ngOnInit(){
@@ -61,9 +41,5 @@ export class AddpmComponent implements OnInit{
   navig  (path:string){
     this.router.navigate([path]);
     console.log(path);
-  }
-  logout(){
-    this.axiosService.setAuthToken(null);
-    this.router.navigate(["/home"]);
   }
 }
