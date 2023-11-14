@@ -8,6 +8,8 @@ import {CreatevmComponent} from "./Components/createvm/createvm.component";
 import {AddpmComponent} from "./Components/addpm/addpm.component";
 import {HomeComponent} from "./Components/home/home.component";
 import {MonitoringComponent} from "./Components/monitoring/monitoring.component";
+import {ResourcesComponent} from "./Components/resources/resources.component";
+import {AyudaComponent} from "./Components/ayuda/ayuda.component";
 
 const routes: Routes = [
   {path:'', redirectTo:'home', pathMatch:'full'},
@@ -18,7 +20,9 @@ const routes: Routes = [
   {path:'createvm', component:CreatevmComponent},
   {path: 'addpm', component:AddpmComponent},
   {path: 'home', component:HomeComponent},
-  {path: 'monitoring', component:MonitoringComponent}
+  {path: 'monitoring', component:MonitoringComponent},
+  {path: 'resources', component:ResourcesComponent},
+  {path: 'help', component:AyudaComponent}
 ];
 
 @NgModule({

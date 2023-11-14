@@ -50,10 +50,12 @@
   font-weight: 500;
   padding: 15px 0;
   margin: 0px 50px;
+  cursor: pointer;
   /*transition: all .50s ease;*/
 }
 .navbar a:hover{
   color: #C06800;
+  cursor: pointer;
 }
 .logo{
   display: flex;

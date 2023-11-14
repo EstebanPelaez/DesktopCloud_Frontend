@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+<div class="main-container">
+  <div class="header">
+    <span class="title">Recursos</span>
+    <span class="description">Aquí podrás encontrar ejercicios para realizar en la plataforma, instructivos y mucho más.</span>
+  </div>
+  <div class="resource-card">
+    <div class="title-container">
+      <span class="title">Ejercicios</span>
+    </div>
+    <div class="excercise-container">
+      <span class="title">Ejercicio 1</span>
+      <div class="files-container">
+        <button (click)="descargar('assets/Ejercicio_servidor_apache.pdf', 'Ejercicio_servidor_apache.pdf')" class="file-container">
+          <i class='bx bxs-file-pdf pdf' ></i>
+          <span class="file-title">Ejercicio servidor Apache</span>
+          <i class='bx bx-download'></i>
+      </button>
+        <button (click)="descargar('assets/index.html', 'index.html')" class="file-container">
+          <i class='bx bxs-file-html html' ></i>
+          <span class="file-title">index.html</span>
+          <i class='bx bx-download'></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

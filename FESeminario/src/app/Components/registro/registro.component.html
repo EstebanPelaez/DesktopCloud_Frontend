@@ -1,4 +1,4 @@
-<form>
+<form (keydown.enter)="agregarUsuario()">
   <div class="main-container">
     <div class="login-container">
       <button class="closeBtn" (click)="navig('home')"><i class='bx bx-x' ></i></button>
@@ -9,21 +9,21 @@
       <div class="inputs">
         <div class="col1">
           <div class="input-container">
-            <label for="r-name">Nombre(s)</label>
-            <input type="text" class="input-text" id="r-name" name="r-name" placeholder="Tu nombre" [(ngModel)]="newUser.nombre">
+            <label for="r-name" >Nombre(s)</label>
+            <input tabindex="1" type="text" class="input-text" id="r-name" name="r-name" placeholder="Tu nombre" [(ngModel)]="newUser.nombre">
           </div>
           <div class="input-container">
             <label for="r-email">Correo electrónico</label>
-            <input type="text" class="input-text" id="r-email" name="r-email" placeholder="Tu correo electrónico" [(ngModel)]="newUser.correo">
+            <input tabindex="3" type="text" class="input-text" id="r-email" name="r-email" placeholder="Tu correo electrónico" [(ngModel)]="newUser.correo">
           </div>
           <fieldset class="rbutton-container">
             <legend>Tipo de usuario</legend>
             <div class="radioB">
-              <input type="radio" class="input-radio" id="r-rstudent" name="r-role" value="Estudiante" [(ngModel)]="newUser.tipousuario">
+              <input tabindex="5" type="radio" class="input-radio" id="r-rstudent" name="r-role" value="Estudiante" [(ngModel)]="newUser.tipousuario">
               <label for="r-rstudent">Estudiante</label>
             </div>
             <div class="radioB">
-              <input type="radio" class="input-radio" id="r-rprof" name="r-role" value="Docente" [(ngModel)]="newUser.tipousuario">
+              <input tabindex="6" type="radio" class="input-radio" id="r-rprof" name="r-role" value="Docente" [(ngModel)]="newUser.tipousuario">
               <label for="r-rprof">Docente</label>
             </div>
           </fieldset>
@@ -31,19 +31,19 @@
         <div class="col2">
           <div class="input-container">
             <label for="r-lname">Apellidos</label>
-            <input type="text" class="input-text" id="r-lname" name="r-lname" placeholder="Tus apellidos" [(ngModel)]="newUser.apellidos">
+            <input tabindex="2" type="text" class="input-text" id="r-lname" name="r-lname" placeholder="Tus apellidos" [(ngModel)]="newUser.apellidos">
           </div>
           <div class="input-container">
             <label for="r-pass">Contraseña</label>
-            <input type="password" class="input-text" id="r-pass" name="r-pass" placeholder="Tu contraseña" [(ngModel)]="newUser.contrasenia">
+            <input tabindex="4" type="password" class="input-text" id="r-pass" name="r-pass" placeholder="Tu contraseña" [(ngModel)]="newUser.contrasenia">
           </div>
           <div class="input-container">
             <label for="r-cpass">Confirma tu contraseña</label>
-            <input type="password" class="input-text" id="r-cpass" name="r-cpass" placeholder="Tu contraseña">
+            <input tabindex="7" type="password" class="input-text" id="r-cpass" name="r-cpass" placeholder="Tu contraseña">
           </div>
         </div>
       </div>
-      <button class="login-button" (click)="agregarUsuario()">REGISTRARSE</button>
+      <button tabindex="8" class="login-button" (click)="agregarUsuario()">REGISTRARSE</button>
     </div>
   </div>
 </form>

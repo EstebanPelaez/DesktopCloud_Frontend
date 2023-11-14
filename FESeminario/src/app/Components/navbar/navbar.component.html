@@ -2,9 +2,8 @@
   <div class="container">
     <img routerLink="/home" class="logo" src="assets/logoletrasvb.png">
     <ul class="navbar">
-      <li><a href="#"></a></li>
-      <li><a href="#"></a></li>
-      <li><a href="#"></a></li>
+      <li><a routerLink="/resources">Recursos</a></li>
+      <li><a routerLink="/help">Ayuda</a></li>
     </ul>
     <div class="main">
       <a routerLink="/userprofile" *ngIf="isLogged()" class="user">{{user.nombre}}</a>

@@ -1,5 +1,5 @@
 <router-outlet></router-outlet>
-<div class="alert" [ngClass]="{'alerta': message=='Alerta', 'error': message=='Error', 'aviso': message=='Aviso'}"
+<div class="alert" id="alert" [ngClass]="{'alerta': message=='Alerta', 'error': message=='Error', 'aviso': message=='Aviso'}"
      role="alert" *ngIf="showAlert">
   <div class="col1">
     <i class='bx bx-check-circle bx-lg'  *ngIf=" message=='Alerta'"></i>

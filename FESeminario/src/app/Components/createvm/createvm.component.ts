@@ -69,7 +69,7 @@ export class CreatevmComponent {
       return this.http.post(
         "http://"+window.localStorage.getItem("ipsolic")!+":8000/crearmv", {
           nombre: newVM.nombre,
-          ip: newVM.ip,
+          ip: "Unasigned",
           hostname: newVM.hostname,
           idUser: newVM.idUser,
           contrasenia: "1234",

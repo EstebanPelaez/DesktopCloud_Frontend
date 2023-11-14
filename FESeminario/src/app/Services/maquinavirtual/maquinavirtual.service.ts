@@ -3,6 +3,7 @@ import {AxiosService} from "../axios/axios.service";
 import {Router} from "@angular/router";
 import {JwtService} from "../jwt.service";
 import {HttpClient} from "@angular/common/http";
+import {Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,8 @@ import {HttpClient} from "@angular/common/http";
 export class MaquinavirtualService {
   nombre:any;
   estadoVM: string|undefined;
+  private cambioVMSubject = new Subject<any>();
+  cambioVM$ = this.cambioVMSubject.asObservable();
   constructor(private axiosService:AxiosService, private router:Router, private decoder:JwtService, private http: HttpClient) {
   }
 
@@ -62,6 +65,8 @@ export class MaquinavirtualService {
     ).subscribe({
       next: (result:any) =>{
         this.estadoVM = result;
+        location.reload();
+        this.cambioVMSubject.next(result);
       }
     })
   }
