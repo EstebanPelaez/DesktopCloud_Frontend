@@ -16,6 +16,9 @@ export class MonitoringComponent implements  OnInit{
   public maquinasFisicas!: Array<any>;
   public maquina: any;
   ip:string = "192.168.1.40"
+  public selected = true;
+  public dashBtnClass = "selected";
+  public pmBtnClass = "";
   constructor(private router: Router, private maquinaService: MaquinafisicaService, private axiosService: AxiosService) {
   }
 
@@ -34,4 +37,18 @@ export class MonitoringComponent implements  OnInit{
       this.lista = response.data;
       });
   }
+
+  switchBtnClass(){
+    if (this.dashBtnClass == ""){
+      this.dashBtnClass = "selected";
+      this.pmBtnClass = "";
+      this.selected = true;
+    }else{
+      this.dashBtnClass = "";
+      this.pmBtnClass = "selected"
+      this.selected = false;
+    }
+  }
+
+
 }
