@@ -65,9 +65,9 @@ export class CreatevmComponent {
       let nombre = this.newVM1.nombre + localStorage.getItem("numbervm")!;
       this.validarNombre(nombre);
       this.validarNumeroMaquinas(token.id);
-      this.alertService.showError("Aviso", "Se ha creado una máquina virtual",3000);
+      //this.alertService.showError("Aviso", "Se ha creado una máquina virtual",3000);
       return this.http.post(
-        "http://"+window.localStorage.getItem("ipsolic")!+":8000/crearmv", {
+        "http://"+window.localStorage.getItem("ipsolic")!+":8000/procSolic", {
           nombre: newVM.nombre,
           ip: "Unasigned",
           hostname: newVM.hostname,

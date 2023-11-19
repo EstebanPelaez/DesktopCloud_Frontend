@@ -40,7 +40,7 @@ export class MaquinavirtualService {
   crearVM(){
     return this.http.post(
       "POST",
-      "http://"+window.localStorage.getItem("ipsolic")!+":8000/crearmv",
+      "http://"+window.localStorage.getItem("ipsolic")!+":8000/procSolic",
       {
         headers : {
           'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
@@ -51,7 +51,7 @@ export class MaquinavirtualService {
 
   solicitarCambioVM(vm:any, request:string){
     this.http.post(
-      "http://"+window.localStorage.getItem("ipsolic")!+":8000/solicitud", {
+      "http://"+window.localStorage.getItem("ipsolic")!+":8000/procSolic", {
         "id": vm.id,
         "solicitud": request,
         "nombre": vm.nombre,
