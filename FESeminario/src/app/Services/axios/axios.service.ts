@@ -6,7 +6,7 @@ import axios from 'axios';
 export class AxiosService {
 
   constructor() {
-    axios.defaults.baseURL ="http://"+window.localStorage.getItem("ipapi")+":8080";
+    axios.defaults.baseURL =window.localStorage.getItem("urlapi")!;
     axios.defaults.headers.post["Content-Type"] = "application/json";
   }
 
@@ -32,17 +32,6 @@ export class AxiosService {
       method: method,
       url: url,
       data: data,
-      headers: headers
-    });
-  }
-  request2(method: string, url:string): Promise<any> {
-    let headers = {};
-    if (this.getAuthToken() !== null) {
-      headers = {"Authorization": "Bearer " + this.getAuthToken()}
-    }
-    return axios({
-      method: method,
-      url: url,
       headers: headers
     });
   }
