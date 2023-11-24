@@ -15,14 +15,11 @@ export class LoginComponent {
 
 
   login(){
-
     this.axiosService.request(
       "POST",
       "/api/login",
-      {
-        correo :this.user,
-        password: this.password
-      }
+      {correo :this.user,
+        password: this.password}
     ).then(response => {
       this.axiosService.setAuthToken(response.data.token);
       this.router.navigate(['/home']);

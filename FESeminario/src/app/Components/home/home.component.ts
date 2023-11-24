@@ -11,7 +11,6 @@ export class HomeComponent {
   constructor(private router: Router) {
   }
 
-
   navig(path: string) {
     this.router.navigate([path]);
     console.log(path);

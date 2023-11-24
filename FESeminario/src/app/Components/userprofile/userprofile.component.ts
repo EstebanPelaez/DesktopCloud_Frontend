@@ -17,7 +17,6 @@ export class UserprofileComponent implements OnInit{
 
   }
   ngOnInit(): void {
-
     console.log(this.usuarioService);
     this.usuarioService.getUsuario().then(response => {
       this.user.nombre = response.data.nombre;

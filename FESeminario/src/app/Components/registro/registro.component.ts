@@ -27,8 +27,7 @@ export class RegistroComponent {
     ).then(response => {
       this.axiosService.setAuthToken(response.data.token);
       this.router.navigate(['/home']);
-    });
-  }
+    });}
 
   setTipoUsuario(tipoUsuario:string){
     if(tipoUsuario == 'Estudiante'){

@@ -35,8 +35,7 @@ export class MonitoringComponent implements  OnInit{
       maquina.idMF).then(response => {
       console.log(response.data)
       this.lista = response.data;
-      });
-  }
+      });}
 
   switchBtnClass(){
     if (this.dashBtnClass == ""){

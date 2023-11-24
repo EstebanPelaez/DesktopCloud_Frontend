@@ -16,11 +16,5 @@ export class AlertService {
   showError(message: string, description: string, time: number = 5000){
     this.alertSource.next({message, description ,time});
   }
-
-  confirmDialog(message: string){
-    this.confirmSource.next({message});
-  }
-
-
 }
 

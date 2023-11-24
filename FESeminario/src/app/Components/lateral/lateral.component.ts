@@ -15,8 +15,6 @@ export class LateralComponent {
     this.select = [true, false, false, false];
     this.router.events.subscribe(event =>{
       if(event instanceof NavigationEnd){
-        console.log("EVENT", event)
-        console.log(event.urlAfterRedirects+" Aqui si entró")
         switch (event.urlAfterRedirects){
           case "/":
             this.select = [false, false, false, false];break;
