@@ -15,21 +15,33 @@
   text-align: center;
 }
 
-.button {
-  width: 40%;
-  height: 8%;
+.selected{
+  background-color: #0C4551;
+  color: white;
+}
+
+.button-block {
+  width: 30%;
+  padding: 4px 0;
+  height: 100%;
+  background-color: #7a7676;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+}
+.boton {
+  width: 30%;
+  padding: 4px 0;
+  height: 100%;
   background-color: #C06800;
   border: none;
   border-radius: 20px;
   color: white;
   font-size: 20px;
-  padding: 2% 10% 2% 10%;
-  margin: auto;
-  flex-direction: column;
 }
 
-.button:hover {
-  margin: 20px auto;
+.boton:hover {
   background-color: #ffffff;
   border-radius: 20px;
   color: #131313;
@@ -38,6 +50,9 @@
   border-style: solid;
   border-color: #C06800;
   cursor: pointer;
+  width: 30%;
+  padding: 4px 0;
+  height: 100%;
 }
 
 .header-container {
@@ -115,6 +130,18 @@
   justify-content: center;
   flex-direction: column;
 }
+.select{
+  text-align: center;
+  width: 50%;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 20px 0;
+  padding: 6px 10px;
+  color: #022128;
+  background-color: #ffffff;
+  border-radius: 10px;
+  transition: all .50s ease;
+}
 
 .navegar {
   margin: 15px;
@@ -138,7 +165,7 @@
   flex-direction: row;
   width: 100%;
   height: 70%;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .main-containerc .cards-container {
@@ -146,19 +173,15 @@
   flex-direction: row;
   width: 70%;
   height: 100%;
-  justify-content: space-evenly;
+  justify-content: start;
+  overflow-x: scroll;
 }
 
-.main-containerc .cards-container .col1, .col2{
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-}
 .main-containerc .cards-container .card-container {
   display: flex;
-  width:100%;
+  min-width:32%;
   height: 100%;
-  margin: auto;
+  margin: auto 10px auto 0;
   flex-direction: column;
   border-width: 2px;
   border-style: solid;

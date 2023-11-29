@@ -8,46 +8,27 @@
   </div>
   <div class="main-containerc">
     <div class="cards-container">
-      <div class="col1">
-        <div class="card-container">
+        <div class="card-container" *ngFor="let tipomv of tiposMV">
           <div class="header-card">
-            <div class="titlec">Máquina tipo 1</div>
+            <div class="titlec">Máquina tipo {{tipomv.nombre}}</div>
           </div>
           <div class="body-card">
             <div class="titlecb">Sistema Operativo:</div>
-            <div class="description">Debian11_64</div>
+            <select [(ngModel)]="sistemaOperativo" (change)="habilitarBoton()" class="select">
+
+              <option *ngFor="let so of sistemasOperativos" [ngValue]="so">{{ so.nombre }}</option>
+            </select>
             <div class="titlecb">Memoria RAM</div>
-            <div class="description">1024 Mb</div>
+            <div class="description">{{tipomv.ramMB}}</div>
             <div class="titlecb">Núcleos de CPU</div>
-            <div class="description">2</div>
+            <div class="description">{{tipomv.cpu}}</div>
             <div class="titlecb">Almacenamiento</div>
-            <div class="description">20 Gb</div>
+            <div class="description">{{tipomv.storageGB}}</div>
           </div>
           <div class="container-card">
-            <a class="button" (click)="conectar(newVM1)">Crear</a>
+            <button class="button-block" id="button" [ngClass]="{'boton': sistemaOperativo}" [disabled]="!sistemaOperativo">Crear</button>
           </div>
         </div>
-      </div>
-      <div class="col2" *appRoles="['1','2','3']">
-        <div class="card-container">
-          <div class="header-card">
-            <div class="titlec">Máquina tipo 2</div>
-          </div>
-          <div class="body-card">
-            <div class="titlecb">Sistema Operativo:</div>
-            <div class="description">Debian11_64</div>
-            <div class="titlecb">Memoria RAM</div>
-            <div class="description">2048 Mb</div>
-            <div class="titlecb">Núcleos de CPU</div>
-            <div class="description">4</div>
-            <div class="titlecb">Almacenamiento</div>
-            <div class="description">30 Gb</div>
-          </div>
-          <div class="container-card">
-            <a class="button" (click)="conectar(newVM2)">Crear</a>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </div>

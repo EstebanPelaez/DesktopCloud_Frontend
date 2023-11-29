@@ -7,5 +7,5 @@ export interface MaquinaVirtualModule {
   idUser:number;
   estado:string;
   idMF: number;
-  tipoMV: number;
+  tipoMV: string;
 }

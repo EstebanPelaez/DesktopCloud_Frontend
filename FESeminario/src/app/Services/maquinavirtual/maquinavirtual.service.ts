@@ -30,6 +30,14 @@ export class MaquinavirtualService {
       idVM);
   }
 
+  getOSs():Promise<any>{
+    return this.axiosService.request(
+      "GET",
+      "/api/getOSs",
+      ""
+    )
+  }
+
   solicitarCambioVM(vm:any, request:string){
     this.http.post(
       window.localStorage.getItem("ipsolic")!+"/procSolic", {
