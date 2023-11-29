@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {NavigationEnd, Router} from "@angular/router";
 import {AxiosService} from "../../Services/axios/axios.service";
 import {MaquinaVirtualModule} from "../../Modules/maquinavirtual/maquinavirtual.module";
 import {HttpClient} from "@angular/common/http";
@@ -10,6 +9,7 @@ import {JwtService} from "../../Services/jwt.service";
 import {MaquinavirtualService} from "../../Services/maquinavirtual/maquinavirtual.service";
 import {Tipomaquina} from "../../Modules/tipomaquina/tipomaquina";
 import {TipomaquinaService} from "../../Services/tipomaquina/tipomaquina.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-createvm',

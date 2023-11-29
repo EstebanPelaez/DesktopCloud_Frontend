@@ -26,7 +26,7 @@
             <div class="description">{{tipomv.storageGB}}</div>
           </div>
           <div class="container-card">
-            <button class="button-block" id="button" [ngClass]="{'boton': sistemaOperativo}" [disabled]="!sistemaOperativo">Crear</button>
+            <button class="button-block" id="button" [ngClass]="{'boton': sistemaOperativo}" [disabled]="!sistemaOperativo" (click)="conectar(tipomv)">Crear</button>
           </div>
         </div>
     </div>

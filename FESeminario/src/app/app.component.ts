@@ -34,6 +34,7 @@ export class AppComponent implements OnInit{
       let config = this.http.get<AppConfig>('assets/ips.json');
       config.subscribe(config => {
         localStorage.setItem('urlapi', config.api);
+        console.log(localStorage.getItem('urlapi'))
         localStorage.setItem('ipsolic', config.servidor);
       });
     //}
