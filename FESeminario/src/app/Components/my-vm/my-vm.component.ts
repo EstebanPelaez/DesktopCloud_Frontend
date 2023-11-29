@@ -43,9 +43,9 @@ export class MyVMComponent implements OnInit {
     let request: string;
     vm.estado=="Iniciada"?request = "finish" : request = "start";
     if(request == "start"){
-      //this.alertService.showError("Aviso", "Se está iniciando la máquina virtual",3000);
+      this.alertService.showError("Aviso", "Se está iniciando la máquina virtual",3000);
     }else{
-      //this.alertService.showError("Aviso", "Deteniendo la máquina virtual",3000);
+      this.alertService.showError("Aviso", "Deteniendo la máquina virtual",3000);
     }
     this.maquinaService.solicitarCambioVM(vm, request);
   }
@@ -81,6 +81,7 @@ export class MyVMComponent implements OnInit {
     ).subscribe({
         next: (result: any) => {
           console.log(result);
+          this.alertService.showError("Aviso", "Se ha Eliminado una máquina virtual",2000);
         }
       }
     )

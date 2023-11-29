@@ -6,7 +6,7 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { MyVMComponent } from './Components/my-vm/my-vm.component';
 import { RegistroComponent } from './Components/registro/registro.component';
 import {AppRoutingModule} from "./app-routing.module";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { UserprofileComponent } from './Components/userprofile/userprofile.component';
 import {CommonModule} from "@angular/common";
@@ -22,7 +22,6 @@ import { MonitoringComponent } from './Components/monitoring/monitoring.componen
 import { LateralComponent } from './Components/lateral/lateral.component';
 import { ResourcesComponent } from './Components/resources/resources.component';
 import { AyudaComponent } from './Components/ayuda/ayuda.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +40,7 @@ import { AyudaComponent } from './Components/ayuda/ayuda.component';
     LateralComponent,
     ResourcesComponent,
     AyudaComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -48,6 +48,7 @@ import { AyudaComponent } from './Components/ayuda/ayuda.component';
     HttpClientModule,
     FormsModule,
     CommonModule,
+    ReactiveFormsModule,
   ],
   providers: [MaquinavirtualService, AxiosService],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import {Router} from "@angular/router";
 import {AxiosService} from "../../Services/axios/axios.service";
 import {AlertService} from "../../Services/alert/alert.service";
+import {UsuarioService} from "../../Services/usuario/usuario.service";
 
 @Component({
   selector: 'app-login',
@@ -9,8 +10,9 @@ import {AlertService} from "../../Services/alert/alert.service";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor(private alertService: AlertService, private axiosService:AxiosService, private router:Router) {  }
+  constructor(private alertService: AlertService, private axiosService:AxiosService, private router:Router, private usuarioService:UsuarioService) {  }
   user: string = "";
+
   password: string = "";
 
 
@@ -21,8 +23,11 @@ export class LoginComponent {
       {correo :this.user,
         password: this.password}
     ).then(response => {
+
       this.axiosService.setAuthToken(response.data.token);
       this.router.navigate(['/home']);
+      this.alertService.showError("Alerta",  "Bienvenido de nuevo a Destop Cloud.", 3000);
+
     });
   }
 

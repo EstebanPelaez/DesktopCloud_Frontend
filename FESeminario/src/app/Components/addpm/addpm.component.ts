@@ -22,7 +22,7 @@ export class AddpmComponent implements OnInit{
   ngOnInit(){
   }
   agregarMaquinaFisica(){
-    this.axiosService.request(
+   this.axiosService.request(
       "POST",
       "/api/savepm",
       {
@@ -35,8 +35,8 @@ export class AddpmComponent implements OnInit{
         almacenamiento: this.newpm.almacenamiento
       }
     ).then(response => {
-
-    })
+     this.alertService.showError("Aviso", "Se ha agregado una máquina física (host)", 3000);
+   })
   }
   navig  (path:string){
     this.router.navigate([path]);

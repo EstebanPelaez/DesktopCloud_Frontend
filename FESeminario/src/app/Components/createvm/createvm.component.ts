@@ -64,7 +64,7 @@ export class CreatevmComponent implements OnInit {
     newVM.idUser = token.id;
     this.validarNombre(nombre);
     this.validarNumeroMaquinas(token.id);
-    //this.alertService.showError("Aviso", "Se ha creado una máquina virtual", 3000);
+    this.alertService.showError("Aviso", "Se ha creado una máquina virtual", 3000);
     return this.http.post(
       window.localStorage.getItem("ipsolic")! + "/procSolic", {
         nombre: newVM.nombre,

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {UsuarioModule} from "../../Modules/usuario/usuario.module";
 import {Router} from "@angular/router";
 import {AxiosService} from "../../Services/axios/axios.service";
+import {AlertService} from "../../Services/alert/alert.service";
 
 @Component({
   selector: 'app-registro',
@@ -10,7 +11,7 @@ import {AxiosService} from "../../Services/axios/axios.service";
 })
 export class RegistroComponent {
   newUser:UsuarioModule={nombre:'', apellidos:'', contrasenia:'', correo:'', tipousuario:''}
-  constructor(private axiosService:AxiosService, private router:Router) {  }
+  constructor(private axiosService:AxiosService, private router:Router, private alertService:AlertService) {  }
   agregarUsuario(){
     this.setTipoUsuario(this.newUser.tipousuario);
     console.log(this.newUser.tipousuario)
@@ -27,6 +28,7 @@ export class RegistroComponent {
     ).then(response => {
       this.axiosService.setAuthToken(response.data.token);
       this.router.navigate(['/home']);
+      this.alertService.showError("Aviso", this.newUser.nombre+" Ahora eres parte del Desktop Cloud", 3000);
     });}
 
   setTipoUsuario(tipoUsuario:string){
