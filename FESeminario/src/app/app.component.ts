@@ -6,6 +6,7 @@ import {HttpClient} from "@angular/common/http";
 interface AppConfig {
   api: string;
   servidor: string;
+  monitorizacion: string;
 }
 
 @Component({
@@ -36,6 +37,7 @@ export class AppComponent implements OnInit{
         localStorage.setItem('urlapi', config.api);
         console.log(localStorage.getItem('urlapi'))
         localStorage.setItem('ipsolic', config.servidor);
+        localStorage.setItem('ipmoni', config.monitorizacion);
       });
     //}
     this.alertService.confirm$.subscribe((ans: any) => {

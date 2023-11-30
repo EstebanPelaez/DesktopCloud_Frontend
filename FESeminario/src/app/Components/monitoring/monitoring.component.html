@@ -14,13 +14,13 @@
             activas</p>
         </div>
         <div class="dashboard">
-          <iframe src="http://localhost:3000/d-solo/Kdh0OoSGz22/8c320a1c-d2b8-58c8-9b62-a8ecca1c4c1f?orgId=1&refresh=10s&editIndex=0&theme=light&panelId=56" width="450" height="200" frameborder="0"></iframe>
-          <iframe src="http://localhost:3000/d-solo/Kdh0OoSGz22/8c320a1c-d2b8-58c8-9b62-a8ecca1c4c1f?orgId=1&refresh=10s&editIndex=0&theme=light&panelId=57" width="450" height="200" frameborder="0"></iframe>
-          <iframe src="http://localhost:3000/d-solo/Kdh0OoSGz22/8c320a1c-d2b8-58c8-9b62-a8ecca1c4c1f?orgId=1&refresh=10s&editIndex=0&theme=light&panelId=58" width="450" height="200" frameborder="0"></iframe>
-          <iframe src="http://localhost:3000/d-solo/Kdh0OoSGz22/8c320a1c-d2b8-58c8-9b62-a8ecca1c4c1f?orgId=1&refresh=10s&editIndex=0&theme=light&panelId=59" width="450" height="200" frameborder="0"></iframe>
-          <iframe src="http://localhost:3000/d-solo/Kdh0OoSGz22/8c320a1c-d2b8-58c8-9b62-a8ecca1c4c1f?orgId=1&refresh=10s&editIndex=0&theme=light&panelId=60" width="450" height="200" frameborder="0"></iframe>
-          <iframe src="http://localhost:3000/d-solo/Kdh0OoSGz22/8c320a1c-d2b8-58c8-9b62-a8ecca1c4c1f?orgId=1&refresh=10s&editIndex=0&theme=light&panelId=61" width="450" height="200" frameborder="0"></iframe>
-          <iframe class="machines-dashboard" src="http://10.0.48.216:3000/d-solo/Kdh0OoSGz2/windows-exporter-for-prometheus-dashboard?orgId=1&var-job=windows_exporter&var-hostname=All&var-instance=192.168.1.68%3A9182&var-show_hostname=DESKTOP-NT3IJCJ&theme=light&panelId=45" width="97%" frameborder="0"></iframe>
+          <iframe [src]='monitoringUrl("56")' width="450" height="200" frameborder="0"></iframe>
+          <iframe [src]='monitoringUrl("57")' width="450" height="200" frameborder="0"></iframe>
+          <iframe [src]='monitoringUrl("58")' width="450" height="200" frameborder="0"></iframe>
+          <iframe [src]='monitoringUrl("59")' width="450" height="200" frameborder="0"></iframe>
+          <iframe [src]='monitoringUrl("60")' width="450" height="200" frameborder="0"></iframe>
+          <iframe [src]='monitoringUrl("61")' width="450" height="200" frameborder="0"></iframe>
+          <iframe class="machines-dashboard" [src]="monitoringUrlTotal()" width="97%" frameborder="0"></iframe>
         </div>
       </div>
 

@@ -15,7 +15,6 @@
           <div class="body-card">
             <div class="titlecb">Sistema Operativo:</div>
             <select [(ngModel)]="sistemaOperativo" (change)="habilitarBoton()" class="select">
-
               <option *ngFor="let so of sistemasOperativos" [ngValue]="so">{{ so.nombre }}</option>
             </select>
             <div class="titlecb">Memoria RAM</div>
