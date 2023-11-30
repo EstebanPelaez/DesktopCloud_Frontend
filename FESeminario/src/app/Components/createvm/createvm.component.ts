@@ -50,7 +50,7 @@ export class CreatevmComponent implements OnInit {
       await new Promise(f => setTimeout(f, 1000));
     }
     let newVM: MaquinaVirtualModule = {
-      nombre: tipomaquina.nombre,
+      nombre: 'MaquinaVirtual',
       idUser: -1,
       estado: 'Procesando',
       idMF: -1,
@@ -60,6 +60,7 @@ export class CreatevmComponent implements OnInit {
     }
     let token: any = this.decoder.DecodeToken(this.axiosService.getAuthToken()!);
     let nombre = newVM.nombre + localStorage.getItem("numbervm")!;
+    console.log("NUMERO VM"+localStorage.getItem("numbervm"))
     let disco:string = this.sistemaOperativo.nombre.replace(' ', '');
     newVM.idUser = token.id;
     this.validarNombre(nombre);
@@ -108,6 +109,7 @@ export class CreatevmComponent implements OnInit {
         nombre: nombre
       }).then(response => {
       respuesta = response.data.nombre;
+      console.log("RESPUESTA VALIDACION NOMBRE: "+ respuesta)
       if (respuesta == "true") {
         let numeroAleatorio = Math.random();
         let numeroEnRango = Math.floor(numeroAleatorio * (1000000 - 1)) + 1;
