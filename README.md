@@ -1,0 +1,1 @@
+Este repositorio contiene el código fuente de la rama features para la plataforma Desktop Cloud. La rama features está dedicada al desarrollo y prueba de nuevas características antes de ser integradas en la rama principal.
