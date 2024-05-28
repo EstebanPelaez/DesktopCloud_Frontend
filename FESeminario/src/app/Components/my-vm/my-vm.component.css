@@ -1,0 +1,230 @@
+/*____________________HEADER______________________*/
+* {
+  padding: 0;
+  margin-top: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+.main-container {
+  display: flex;
+  background-color: #022128;
+  width: 100vw;
+  height: 100vh;
+  justify-content: space-around;
+}
+
+.content {
+  display: flex;
+  width: 100vw;
+  height: 100%;
+  background-color: #ffffff;
+  flex-direction: column;
+  padding-top: 4%;
+  padding-left: 13%;
+}
+.vm-container {
+  display: flex;
+  justify-content: center;
+  width: 92%;
+  height: 100%;
+  background-color: white;
+  margin: auto;
+  padding-top: 5%;
+  flex-direction: column;
+  border-radius: 10px;
+  padding-left: 10%;
+}
+
+.vm-container .header-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.vm-container .header-container .title {
+  width: 100%;
+  height: 100%;
+  color: #022128;
+  font-size: 32px;
+  font-weight: bold;
+}
+.buttonh{
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  color: #022128;
+  background-color:white;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #022128;
+  border-radius: 10px;
+  line-height: 320%;
+}
+.vm-container .header-container .buttonh:hover{
+  color: white;
+  background-color:#C06800;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.card{
+  height: 100vh;
+  weight: 100vw;
+}
+.card .card-body{
+  height: 70vh;
+  weight: 100vw;
+}
+
+
+.buttonInit{
+  width: 40%;
+  height: 100%;
+  text-align: center;
+  color: white;
+  background-color: #24ab16;
+  border: 2px solid #24ab16;
+  border-radius: 5px;
+  padding: 2% 8%;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.buttonInit:hover{
+  color: #24ab16;
+  background-color: #ffffff;
+  border: 2px solid #24ab16;
+}
+
+.buttonFinish{
+  width: 40%;
+  height: 100%;
+  text-align: center;
+  color: white;
+  background-color: #ff7474;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  padding: 2% 8%;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.buttonFinish:hover{
+  color: #f80000;
+  background-color: #ffffff;
+  border: 2px solid #f80000;
+}
+
+.buttonProcess{
+  width: 40%;
+  height: 100%;
+  text-align: center;
+  color: white;
+  background-color: #09678a;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  padding: 2% 0;
+  font-size: 15px;
+  text-align: center;
+}
+
+.buttonProces:hover{
+  color: #09678a;
+  background-color: #ffffff;
+  border: 2px solid #09678a;
+
+}
+
+.buttonDelete{
+  padding: 2% 3%;
+  background-color: #ff3c3c;
+  border: 2px solid transparent;
+  font-size: 15px;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  align-self: center;
+}
+
+.buttonDelete:hover{
+  background-color: white;
+  border: 2px solid #ff3c3c;
+  color: #ff3c3c;
+}
+
+.buttonDelete:disabled{
+  cursor: default;
+  background-color: #707070FF;
+  border: 2px solid #707070FF;
+  color: #e1e1e1;
+}
+
+.buttonDetails{
+  width: 40%;
+  height: 100%;
+  text-align: center;
+  color: white;
+  background-color: #0C4551;
+  border: 2px solid #0C4551;
+  border-radius: 5px;
+  padding: 2% 8%;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.buttonDetails:hover{
+  background-color: white;
+  border: 2px solid #0C4551;
+  color: #0C4551;
+}
+
+.buttonDelete i{
+  margin: auto;
+}
+
+.buttons{
+  width: 25%;
+}
+
+.buttons-td{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px 0;
+  align-items: center;
+}
+
+
+.title{
+  display: block;
+  width: 100%;
+  height: 50%;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  align-items: center;
+  margin: 0;
+}
+
+/*____________________TABLE______________________*/
+.t-header{
+  height: 60px;
+  background-color: #0C4551;
+  color: white;
+  border-radius: 10px;
+}
+
+.tabla{
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 100%;
+  flex-direction: column;
+  text-align: center;
+}
+
+
+

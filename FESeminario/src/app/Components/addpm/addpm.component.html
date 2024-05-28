@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+<app-lateral></app-lateral>
+<div class="main-container">
+  <div class="content">
+    <div class="pm-container">
+      <div class="header-container">
+        <p class="title">Agrega una máquina física</p>
+        <p class="description"></p>
+      </div>
+      <div class="inputs">
+        <div class="col1">
+          <div class="input-container">
+            <label for="hostname">Hostname</label>
+            <input type="text" class="input-text" id="hostname" name="hostname" placeholder="Hostname" [(ngModel)]="newpm.hostname">
+          </div>
+          <div class="input-container">
+            <label for="adaptador">Adaptador de red</label>
+            <input type="text" class="input-text" id="adaptador" name="adaptador" placeholder="adaptador" [(ngModel)]="newpm.adaptador">
+          </div>
+        </div>
+        <div class="col2">
+          <div class="input-container">
+            <label for="ip">Dirección IP</label>
+            <input type="text" class="input-text" id="ip" name="ip" placeholder="Dirección ip" [(ngModel)]="newpm.ip">
+          </div>
+        </div>
+      </div>
+      <p class="description">Especificaciones de la máquina física</p>
+      <div class="inputs">
+        <div class="col1">
+          <div class="input-container">
+            <label for="ram">Memoria Ram (MB)</label>
+            <input type="text" class="input-text" id="ram" name="ram" placeholder="RAM" [(ngModel)]="newpm.ram">
+          </div>
+          <div class="input-container">
+            <label for="so">Sistema Operativo</label>
+            <input type="text" class="input-text" id="so" name="so" placeholder="Sistema operativo" [(ngModel)]="newpm.os">
+          </div>
+        </div>
+        <div class="col2">
+          <div class="input-container">
+            <label for="cpu">Procesador CPU</label>
+            <input type="text" class="input-text" id="cpu" name="cpu" placeholder="cpu" [(ngModel)]="newpm.cpu">
+          </div>
+          <div class="input-container">
+            <label for="almacenamiento">Almacenamiento (GB)</label>
+            <input type="text" class="input-text" id="almacenamiento" name="almacenamiento" placeholder="almacenamiento" [(ngModel)]="newpm.almacenamiento">
+          </div>
+        </div>
+      </div>
+      <button class="addpm-button" (click)="agregarMaquinaFisica()">Agregar Máquina</button>
+    </div>
+  </div>
+</div>

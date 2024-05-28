@@ -1,0 +1,58 @@
+<app-navbar></app-navbar>
+<app-lateral></app-lateral>
+<div class="main-container">
+  <div class="content">
+    <div class="vm-container">
+      <div class="header-container">
+        <p class="title">Mis máquinas virtuales</p>
+        <a class="buttonh" (click)="navig('createvm')">Crear máquina virtual</a>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <table class="tabla">
+            <thead class="t-header">
+            <tr>
+              <th>Nombre</th>
+              <th>Hostname</th>
+              <th>Dirección IP</th>
+              <th>Estado</th>
+              <th class="buttons"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="text-center" *ngFor="let object of lista">
+              <td>{{object.nombre}}</td>
+              <td>{{object.hostname}}</td>
+              <td>{{object.ip}}</td>
+              <td>{{object.estado}}</td>
+              <td class="buttons-td">
+                <button
+                  [ngClass]="{'buttonFinish':object.estado == 'Iniciada', 'buttonInit':object.estado == 'Apagada'}"
+                  (click)="iniciarVM(object)" *ngIf="object.estado == 'Iniciada'">Apagar
+                </button>
+                <button *ngIf="object.estado == 'Apagada'"
+                        [ngClass]="{'buttonFinish':object.estado == 'Iniciada', 'buttonInit':object.estado == 'Apagada'}"
+                        (click)="iniciarVM(object)">Iniciar
+                </button>
+                <button *ngIf="object.estado == 'Procesando'" disabled
+                        [ngClass]="{'buttonFinish':object.estado == 'Iniciada', 'buttonInit':object.estado == 'Apagada', 'buttonProcess':object.estado == 'Procesando'}"
+                        (click)="iniciarVM(object)"><i class='bx bx-loader-alt bx-spin'></i> Procesando
+                </button>
+
+                <button class="buttonDetails" (click)="showDetails(object.id)">Detalles</button>
+                <button class="buttonDelete" id="buttonDelete" [disabled]="object.estado == 'Iniciada'"
+                        (click)="showComfirm(object)"><i class='bx bxs-trash-alt'></i></button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-vmdetails *ngIf="detailsFlag" [idVM]="selectedVM"></app-vmdetails>
+  <app-dialogvm *ngIf="confirmFlag" [myVm]="vm" (newItemEvent)="addItem($event)"
+                (newEvent)="confirm($event)"></app-dialogvm>
+
+</div>
+

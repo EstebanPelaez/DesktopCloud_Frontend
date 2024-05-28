@@ -1,0 +1,43 @@
+<div class="blur-div">
+</div>
+<div class="details-container">
+    <div class="header">
+      <button (click)="close()"><i class='bx bx-x' ></i></button>
+      <p>{{vm.nombre}}</p>
+    </div>
+    <div class="specifications">
+      <div class="column">
+        <div class="card">
+          <p class="card-title">Sistema operativo</p>
+          <p class="card-content">{{vm.sistemaOperativo.nombre}}</p>
+        </div>
+        <div class="card">
+          <p class="card-title">CPU (Núcleos)</p>
+          <p class="card-content">{{vm.tipoMaquina.cpu}}</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card">
+          <p class="card-title">RAM (mb)</p>
+          <p class="card-content">{{vm.tipoMaquina.ramMB}}</p>
+        </div>
+        <div class="card">
+          <p class="card-title">Almacenamiento</p>
+          <p class="card-content">{{vm.tipoMaquina.storageGB}}</p>
+        </div>
+      </div>
+    </div>
+    <fieldset class="connection">
+      <legend align="center">Conexión <i class='bx bxs-help-circle' ></i></legend>
+      <div class="ssh-command">
+        <p class="ssh-connection" id="ssh-connection">ssh {{vm.hostname}}@{{vm.ip}}</p>
+        <button class="copy-button" (click)="copy()"><i class='bx bx-copy-alt'></i></button>
+      </div>
+      <span class="pass-container">
+        Contraseña:
+        <input id="input-pass" [type]="show ? 'text' : 'password'" readOnly="true" class="password" value="{{vm.contrasenia}}">
+        <button (click)="switchPass()"><i *ngIf="show" id="icon-show" class='bx bx-show'></i><i *ngIf="!show" id="icon-hide" class='bx bx-hide'></i></button>
+      </span>
+    </fieldset>
+
+</div>

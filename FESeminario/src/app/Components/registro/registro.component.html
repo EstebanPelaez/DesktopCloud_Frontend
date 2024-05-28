@@ -1,0 +1,49 @@
+<form (keydown.enter)="agregarUsuario()">
+  <div class="main-container">
+    <div class="login-container">
+      <a class="closeBtn" href="/home"><i class='bx bx-x' ></i></a>
+      <div class="header-container">
+        <p class="title">Regístrate</p>
+        <p class="description">Llena el formulario para registrarte en nuestro portal web y empezar a disfrutar de todos nuestros servicios.</p>
+      </div>
+      <div class="inputs">
+        <div class="col1">
+          <div class="input-container">
+            <label for="r-name" >Nombre(s)</label>
+            <input tabindex="1" type="text" class="input-text" id="r-name" name="r-name" placeholder="Tu nombre" [(ngModel)]="newUser.nombre">
+          </div>
+          <div class="input-container">
+            <label for="r-email">Correo electrónico</label>
+            <input tabindex="3" type="text" class="input-text" id="r-email" name="r-email" placeholder="Tu correo electrónico" [(ngModel)]="newUser.correo">
+          </div>
+          <fieldset class="rbutton-container">
+            <legend>Tipo de usuario</legend>
+            <div class="radioB">
+              <input tabindex="5" type="radio" class="input-radio" id="r-rstudent" name="r-role" value="Estudiante" [(ngModel)]="newUser.tipousuario">
+              <label for="r-rstudent">Estudiante</label>
+            </div>
+            <div class="radioB">
+              <input tabindex="6" type="radio" class="input-radio" id="r-rprof" name="r-role" value="Docente" [(ngModel)]="newUser.tipousuario">
+              <label for="r-rprof">Docente</label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="col2">
+          <div class="input-container">
+            <label for="r-lname">Apellidos</label>
+            <input tabindex="2" type="text" class="input-text" id="r-lname" name="r-lname" placeholder="Tus apellidos" [(ngModel)]="newUser.apellidos">
+          </div>
+          <div class="input-container">
+            <label for="r-pass">Contraseña</label>
+            <input tabindex="4" type="password" class="input-text" id="r-pass" name="r-pass" placeholder="Tu contraseña" [(ngModel)]="newUser.contrasenia">
+          </div>
+          <div class="input-container">
+            <label for="r-cpass">Confirma tu contraseña</label>
+            <input tabindex="7" type="password" class="input-text" id="r-cpass" name="r-cpass" placeholder="Tu contraseña">
+          </div>
+        </div>
+      </div>
+      <button tabindex="8" class="login-button" (click)="agregarUsuario()">REGISTRARSE</button>
+    </div>
+  </div>
+</form>

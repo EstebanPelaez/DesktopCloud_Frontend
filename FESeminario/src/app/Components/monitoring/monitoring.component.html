@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+<app-lateral></app-lateral>
+<div class="main-container">
+  <div class="content">
+    <div class="monitoring-container">
+      <div class="options-container">
+        <button [class]="dashBtnClass" (click)="switchBtnClass()">Dashboard</button>
+        <button [class]="pmBtnClass" (click)="switchBtnClass()">Detalles máquinas físicas</button>
+      </div>
+      <div class="dashboard-container" *ngIf="selected">
+        <div class="header-container">
+          <p class="title">Dashboard</p>
+          <p class="description">A continuación puede observar información del sistema de las máquinas físicas actualmente
+            activas</p>
+        </div>
+        <div class="dashboard">
+          <iframe [src]='monitoringUrl("56")' width="450" height="200" frameborder="0"></iframe>
+          <iframe [src]='monitoringUrl("57")' width="450" height="200" frameborder="0"></iframe>
+          <iframe [src]='monitoringUrl("58")' width="450" height="200" frameborder="0"></iframe>
+          <iframe [src]='monitoringUrl("59")' width="450" height="200" frameborder="0"></iframe>
+          <iframe [src]='monitoringUrl("60")' width="450" height="200" frameborder="0"></iframe>
+          <iframe [src]='monitoringUrl("61")' width="450" height="200" frameborder="0"></iframe>
+          <iframe class="machines-dashboard" [src]="monitoringUrlTotal()" width="97%" frameborder="0"></iframe>
+        </div>
+      </div>
+
+      <div class="pm-details-container" *ngIf="!selected">
+        <div class="header-container">
+          <p class="title">Detalles máquinas físicas</p>
+          <p class="description">Selecciona una máquina física para ver las máquinas virtuales asociadas a ella.</p>
+        </div>
+        <select [(ngModel)]="maquina" (change)="getMaquinasVirtualesMF(maquina)" class="select">
+          <option [disabled]="true" value="Selecciona uno">Selecciona uno</option>
+          selecciona
+          <option *ngFor="let opcion of maquinasFisicas" [ngValue]="opcion">Máquina: {{ opcion.ip }}</option>
+        </select>
+        <table class="tabla">
+          <thead class="t-header">
+          <tr>
+            <th>Nombre</th>
+            <th>Hostname</th>
+            <th>Dirección IP</th>
+            <th>Estado</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr class="text-center" *ngFor="let object of lista">
+              <td>{{object.nombre}}</td>
+              <td>{{object.hostname}}</td>
+              <td>{{object.ip}}</td>
+              <td>{{object.estado}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+

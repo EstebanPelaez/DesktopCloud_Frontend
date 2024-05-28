@@ -1,0 +1,148 @@
+/*____________________HEADER______________________*/
+* {
+  padding: 0;
+  margin-top: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+.main-container {
+  display: flex;
+  background-color: #022128;
+  width: 100vw;
+  height: 100vh;
+  justify-content: space-around;
+}
+
+.content {
+  display: flex;
+  width: 100vw;
+  height: 100%;
+  background-color: #ffffff;
+  flex-direction: column;
+  padding-top: 6%;
+  padding-left: 20%;
+}
+
+/*____________________CONTAINER______________________*/
+.monitoring-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 92%;
+  background-color: white;
+  margin: 3% auto;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.monitoring-container .options-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.monitoring-container .options-container button{
+  width: 200px;
+  padding: 1%;
+  margin-right: 10px;
+  border-width: 1px 1px 0 1px;
+  border-radius: 10px 10px 0 0 ;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.monitoring-container .options-container .selected{
+  background-color: #0C4551;
+  color: white;
+}
+
+.pm-details-container{
+  display: flex;
+  width: 100%;
+  padding: 4%;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto;
+  border: 1px solid black;
+}
+
+.header-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  text-align: center;
+}
+
+.header-container p {
+  margin: 0;
+}
+
+.header-container .title {
+  display: block;
+  width: 100%;
+  color: #022128;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.header-container .description {
+  margin-top: 10px;
+}
+
+/*____________________SELECT______________________*/
+.select{
+  align-self: center;
+  width: 20%;
+  height: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 20px 0;
+  padding: 5px 27px 5px 25px;
+  color: #022128;
+  background-color: #ffffff;
+  border-radius: 10px;
+  transition: all .50s ease;
+}
+
+/*______________________TABLA_______________________*/
+.t-header{
+  height: 60px;
+  background-color: #0C4551;
+  color: white;
+  border-radius: 10px;
+}
+
+.tabla{
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 60%;
+  flex-direction: column;
+  text-align: center;
+  align-self: center;
+}
+
+td{
+  padding: 10px;
+}
+
+/*______________________MONITORING_________________________*/
+.dashboard-container{
+  border: 1px solid black;
+  padding: 2%;
+}
+
+.dashboard{
+  margin-top: 30px;
+}
+
+iframe{
+  width: 30%;
+  height: 30%;
+}
+
+.machines-dashboard{
+  width: 90%;
+}
+
+

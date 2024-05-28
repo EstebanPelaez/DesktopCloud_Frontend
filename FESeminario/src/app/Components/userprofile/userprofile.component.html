@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+<app-lateral></app-lateral>
+<div class="main-container">
+  <div class="content">
+    <div class="user-container">
+      <div class="header-container">
+        <p class="title">Perfil del usuario</p>
+        <p class="description">Datos personales</p>
+      </div>
+      <div class="inputs">
+        <div class="col1">
+          <div class="input-container">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="input-text" readonly id="nombre" name="nombre" value={{user.nombre}}>
+          </div>
+          <div class="input-container">
+            <label for="email">Correo electrónico</label>
+            <input type="text" class="input-text" readonly id="email" name="email" value={{user.correo}}>
+          </div>
+        </div>
+        <div class="col2">
+          <div class="input-container">
+            <label for="apellido">Apellidos</label>
+            <input type="text" class="input-text" readonly id="apellido" name="apellidos" value={{user.apellidos}}>
+          </div>
+          <div class="input-container">
+            <label for="contraseña">Contraseña</label>
+            <input  type="password" pattern=".{6,}" class="input-text" readonly id="contraseña" name="contraseña" value={{user.contrasenia}}>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

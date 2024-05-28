@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+<div class="main-container">
+  <div class="header-container">
+    <div class="title">
+      <span>Crear máquina virtual</span>
+      <a class="navegar" (click)="navig('my-vm')">Ver mis máquinas</a></div>
+      <div class="description">Selecciona la opción que mejor se adapte a tus necesidades</div>
+  </div>
+  <div class="main-containerc">
+    <div class="cards-container">
+        <div class="card-container" *ngFor="let tipomv of tiposMV">
+          <div class="header-card">
+            <div class="titlec">Máquina tipo {{tipomv.nombre}}</div>
+          </div>
+          <div class="body-card">
+            <div class="titlecb">Sistema Operativo:</div>
+            <select [(ngModel)]="sistemaOperativo" (change)="habilitarBoton()" class="select">
+              <option *ngFor="let so of sistemasOperativos" [ngValue]="so">{{ so.nombre }}</option>
+            </select>
+            <div class="titlecb">Memoria RAM</div>
+            <div class="description">{{tipomv.ramMB}}</div>
+            <div class="titlecb">Núcleos de CPU</div>
+            <div class="description">{{tipomv.cpu}}</div>
+            <div class="titlecb">Almacenamiento</div>
+            <div class="description">{{tipomv.storageGB}}</div>
+          </div>
+          <div class="container-card">
+            <button class="button-block" id="button" [ngClass]="{'boton': sistemaOperativo}" [disabled]="!sistemaOperativo" (click)="conectar(tipomv)">Crear</button>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

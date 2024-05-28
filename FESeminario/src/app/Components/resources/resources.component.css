@@ -1,0 +1,106 @@
+.main-container{
+  display: flex;
+  flex-direction: column;
+  background-color: #022128;
+  height: 100vh;
+  align-items: center;
+}
+
+.main-container .header{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10%;
+  align-items: center;
+  color: white;
+}
+
+.main-container .header .title{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.main-container .header .description{
+  font-weight: 200;
+  font-size: 20px;
+}
+
+.resource-card{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 40%;
+  margin-top: 3%;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.resource-card .title-container{
+  display: flex;
+  width: 100%;
+  height: 18%;
+  background-color: #0C4551;
+  border-radius: 18px 18px 0 0;
+}
+
+.resource-card .title-container .title{
+  margin: auto;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.resource-card .excercise-container{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 60%;
+}
+
+.resource-card .excercise-container .title{
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.resource-card .excercise-container .files-container{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
+.excercise-container .files-container .file-container{
+  display: flex;
+  flex-direction: row;
+  width: 45%;
+  padding: 30px 0;
+  justify-content: space-evenly;
+  border: 1px solid black;
+  background-color: white;
+  text-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.files-container .file-container .file-type{
+  width: 50px;
+}
+
+.files-container .file-container .file-title{
+  text-align: start;
+  font-size: 20px;
+  width: 40%;
+}
+
+.files-container .file-container i{
+  font-size: 40px;
+}
+
+.files-container .file-container .pdf{
+  font-size: 50px;
+  color: #c50000;
+}
+
+.files-container .file-container .html{
+  font-size: 50px;
+  color: #fc6a00;
+}

@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <link rel="stylesheet" href="styles.css">
-  <title>Barra de Navegación</title>
-</head>
-<body>
-<nav class="navbar">
-  <ul class="nav-list">
-    <li class="nav-item"><a href="/">Inicio</a></li>
-    <li class="nav-item"><a href="/productos">Servicios</a></li>
-    <li class="nav-item"><a href="/servicios">Soporte</a></li>
-    <li class="nav-item"><a href="/contacto">Acerca de nosotros</a></li>
-  </ul>
-</nav>
-</body>
-</html>
+<div class="main-container">
+  <div class="container">
+    <img routerLink="/home" class="logo" src="assets/logoletrasvb.png">
+    <ul class="navbar">
+      <li><a routerLink="/resources">Recursos</a></li>
+      <li><a routerLink="/help">Ayuda</a></li>
+    </ul>
+    <div class="main">
+      <a routerLink="/userprofile" *ngIf="isLogged()" class="user">{{user.nombre}}</a>
+      <a routerLink="/login" *ngIf="!isLogged()" class="user">Iniciar sesión</a>
+    </div>
+  </div>
+</div>

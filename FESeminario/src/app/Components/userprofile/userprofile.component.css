@@ -1,0 +1,159 @@
+/*____________________HEADER______________________*/
+* {
+  padding: 0;
+  margin-top: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+.main-container {
+  display: flex;
+  background-color: #022128;
+  width: 100vw;
+  height: 100vh;
+  justify-content: space-around;
+}
+
+.content {
+  display: flex;
+  width: 100vw;
+  height: 100%;
+  background-color: #ffffff;
+  flex-direction: column;
+  padding-top: 4%;
+  padding-left: 20%;
+}
+
+.user-container {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  height: 85%;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #0C4551;
+  background-color: white;
+  margin: auto;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.user-container .header-container {
+  display: flex;
+  height: 15%;
+  width: 100%;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.user-container .header-container .title {
+  display: block;
+  width: 100%;
+  height: 50%;
+  color: #022128;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.user-container .header-container .title a {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0;
+  padding: 5px 27px 5px 25px;
+  color: white;
+  background-color: #C06800;
+  border-radius: 30px;
+  transition: all .50s ease;
+}
+
+.user-container .header-container .title a:hover {
+  background-color: white;
+  color: #022128;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #C06800;
+}
+
+.user-container .header-container .description {
+  display: block;
+  width: 80%;
+  height: 50%;
+  color: black;
+  font-size: 18px;
+  font-weight: 300;
+  align-self: center;
+  margin: 0;
+}
+
+.user-container {
+  margin-top: 5%;
+  border-color: #0C4551;
+}
+
+.title {
+  display: block;
+  width: 100%;
+  height: 50%;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  align-items: center;
+  margin: 0;
+}
+
+/*____________________INPUTS______________________*/
+.user-container .inputs .col1, .col2 {
+  display: flex;
+  flex-direction: column;
+  width: 43%;
+
+}
+
+.user-container .inputs {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 43%;
+  margin-bottom: 20px;
+  justify-content: space-evenly;
+
+}
+
+.user-container .inputs .col1 {
+  margin-left: 20px;
+}
+
+.user-container .inputs .col2 {
+  margin-right: 20px;
+}
+
+.user-container .inputs .input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 50%;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.inputs .input-container .input-text {
+  height: 50%;
+  font-size: 20px;
+  margin-top: 5px;
+  padding: 5px 15px;
+  border: 1px solid #cccc;
+  border-radius: 5px;
+}
+.input-container a {
+  font-size: 13px;
+  font-weight: bold;
+  margin: 0;
+  padding: 5px 27px 5px 25px;
+  color: white;
+  background-color: #C06800;
+  border-radius: 30px;
+  transition: all .50s ease;
+}
