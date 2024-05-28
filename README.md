@@ -1,7 +1,9 @@
 FRONTEDN - DESKTOP CLOUD
+
 Bienvenido al repositorio del frontend para la plataforma Desktop Cloud. Este proyecto es una solución de computación en la nube que permite a los usuarios acceder y gestionar sus escritorios virtuales de manera segura y eficiente desde cualquier lugar.
 
 ESTRUCTURA
+
 Directorios Principales
 -app/: Contiene el código principal de la aplicación.
 
@@ -14,6 +16,7 @@ Directorios Principales
 - assets/: Contiene los recursos estáticos como imágenes, estilos y otros archivos.
 
 TECNOLOGÍAS FRONTEND
+
 -Angular: Framework de desarrollo frontend.
 
 -TypeScript: Lenguaje de programación que añade tipado estático a JavaScript.
@@ -25,6 +28,7 @@ TECNOLOGÍAS FRONTEND
 -Bootstrap: Framework de CSS para un diseño responsive.
 
 REQUISITOS PREVIOS
+
 Para ejecutar este proyecto localmente, necesitas tener instalados:
 
 -Node.js
