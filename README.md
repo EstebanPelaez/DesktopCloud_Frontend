@@ -5,34 +5,34 @@ Bienvenido al repositorio del frontend para la plataforma Desktop Cloud. Este pr
 ESTRUCTURA
 
 Directorios Principales
--app/: Contiene el código principal de la aplicación.
+- app/: Contiene el código principal de la aplicación.
 
--components/: Incluye los componentes de la aplicación. Los componentes son las piezas fundamentales de la interfaz de usuario.
+- components/: Incluye los componentes de la aplicación. Los componentes son las piezas fundamentales de la interfaz de usuario.
 
--modules/: Contiene los módulos de la aplicación, que agrupan componentes y servicios relacionados.
+- modules/: Contiene los módulos de la aplicación, que agrupan componentes y servicios relacionados.
 
--services/: Incluye los servicios que manejan la lógica de negocio y la comunicación con APIs externas.
+- services/: Incluye los servicios que manejan la lógica de negocio y la comunicación con APIs externas.
 
 - assets/: Contiene los recursos estáticos como imágenes, estilos y otros archivos.
 
 TECNOLOGÍAS FRONTEND
 
--Angular: Framework de desarrollo frontend.
+- Angular: Framework de desarrollo frontend.
 
--TypeScript: Lenguaje de programación que añade tipado estático a JavaScript.
+- TypeScript: Lenguaje de programación que añade tipado estático a JavaScript.
 
--HTML5 y CSS3: Para la estructura y el diseño de la interfaz de usuario.
+- HTML5 y CSS3: Para la estructura y el diseño de la interfaz de usuario.
 
--RxJS: Librería para la programación reactiva.
+- RxJS: Librería para la programación reactiva.
 
--Bootstrap: Framework de CSS para un diseño responsive.
+- Bootstrap: Framework de CSS para un diseño responsive.
 
 REQUISITOS PREVIOS
 
 Para ejecutar este proyecto localmente, necesitas tener instalados:
 
--Node.js
+- Node.js
 
--Angular CLI
+- Angular CLI
 
--Git
+- Git
